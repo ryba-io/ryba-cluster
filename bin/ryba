@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Example
+# ./bin/install -d -c data/config.coffee install -h hadoop1.cluster -m wand/hdp/hdfs_nn -f
+
+cwd="$( cd "$( dirname "${BASH_SOURCE}" )/.." && pwd )"
+./node_modules/masson/bin/masson -c ./conf $@

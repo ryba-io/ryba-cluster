@@ -1,0 +1,5 @@
+
+dn: ou=services,dc=adaltas,dc=com
+objectclass: top
+objectclass: organizationalUnit
+ou: services

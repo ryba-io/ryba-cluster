@@ -1,0 +1,16 @@
+$TTL 864
+@   IN  SOA     master3.ryba. root.ryba. (
+        2011071001  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+@       IN  NS      master3.ryba.
+master1      IN  A         10.10.10.11
+master2      IN  A         10.10.10.12
+master3      IN  A         10.10.10.13
+front1       IN  A         10.10.10.14
+worker1      IN  A         10.10.10.16
+worker2      IN  A         10.10.10.17
+worker3      IN  A         10.10.10.18

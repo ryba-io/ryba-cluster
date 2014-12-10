@@ -1,0 +1,10 @@
+{
+  "name": "ryba-cluster",
+  "version": "0.0.0",
+  "description": "Ryba deployment example on a small cluster",
+  "dependencies": {
+    "coffee-script": "latest",
+    "masson": "latest",
+    "ryba": "latest"
+  }
+}

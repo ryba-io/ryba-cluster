@@ -1,0 +1,72 @@
+
+# dn: cn=ryba,ou=users,dc=adaltas,dc=com
+# uid: ryba
+# gecos: ryba User
+# objectClass: top
+# objectClass: account
+# objectClass: posixAccount
+# objectClass: shadowAccount
+# userPassword: {SSHA}uQcSsw5CySTkBXjOY/N0hcduA6yFiI0k
+# shadowLastChange: 15140
+# shadowMin: 0
+# shadowMax: 99999
+# shadowWarning: 7
+# loginShell: /bin/bash
+# uidNumber: 12000
+# gidNumber: 12000
+# homeDirectory: /home/ryba
+
+dn: cn=ryba1,ou=users,dc=adaltas,dc=com
+uid: ryba1
+gecos: ryba User 1
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+userPassword: {SSHA}uQcSsw5CySTkBXjOY/N0hcduA6yFiI0k
+shadowLastChange: 15140
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 12001
+gidNumber: 12001
+homeDirectory: /home/ryba1
+# homeDirectory: /home/ryba
+
+dn: cn=ryba2,ou=users,dc=adaltas,dc=com
+uid: ryba2
+gecos: ryba User 2
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+userPassword: {SSHA}uQcSsw5CySTkBXjOY/N0hcduA6yFiI0k
+shadowLastChange: 15140
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 12002
+gidNumber: 12002
+homeDirectory: /home/ryba2
+
+dn: cn=ryba3,ou=users,dc=adaltas,dc=com
+uid: ryba3
+gecos: ryba User 3
+objectClass: top
+objectClass: account
+objectClass: posixAccount
+objectClass: shadowAccount
+userPassword: {SSHA}qUqP5cyxm6YcTAhz05Hph5gvu9M=
+shadowLastChange: 15140
+shadowMin: 0
+shadowMax: 99999
+shadowWarning: 7
+loginShell: /bin/bash
+uidNumber: 12003
+gidNumber: 12003
+homeDirectory: /home/ryba3
+
+
+

@@ -1,0 +1,19 @@
+$TTL 600
+@ IN SOA master3.ryba. host.ryba. (
+2012013001 ;Serial Number
+86400 ;refresh
+7200 ;retry
+3600000 ;expire
+86400 ;minimum
+
+)
+
+10.10.10.in-addr.arpa. IN NS master3.ryba.
+;10.10.10.in-addr.arpa. IN NS bind2.ryba.
+11 IN PTR master1.ryba.
+12 IN PTR master2.ryba.
+13 IN PTR master3.ryba.
+14 IN PTR front1.ryba.
+16 IN PTR worker1.ryba.
+17 IN PTR worker2.ryba.
+18 IN PTR worker3.ryba.

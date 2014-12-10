@@ -1,0 +1,39 @@
+
+
+# dn: cn=ryba,ou=groups,dc=adaltas,dc=com
+# cn: ryba
+# objectClass: top
+# objectClass: posixGroup
+# gidNumber: 1100
+# description: ryba Group
+
+dn: cn=ryba1,ou=groups,dc=adaltas,dc=com
+cn: ryba1
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12001
+description: ryba Group 1
+
+dn: cn=ryba2,ou=groups,dc=adaltas,dc=com
+cn: ryba2
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12002
+description: ryba Group 2
+
+dn: cn=ryba3,ou=groups,dc=adaltas,dc=com
+cn: ryba3
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12003
+description: ryba Group 3
+
+dn: cn=hadoop_users,ou=groups,dc=adaltas,dc=com
+cn: hadoop_users
+objectClass: top
+objectClass: posixGroup
+gidNumber: 12004
+memberUid: ryba1
+memberUid: ryba2
+memberUid: ryba3
+description: Hadoop User Group
