@@ -1,16 +1,17 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-box = "hadoop-cent64-x64"
+#box = "hadoop-cent64-x64"
 #box = "dspit-rhel64-x64"
+box = "CentOS_64-x86_64"
 
 Vagrant.configure("2") do |config|
 
-  config.yum_proxy.http     = ""
+  #config.yum_proxy.http     = ""
   #config.yum_proxy.http     = "http://130.98.36.106:48254/"
   #config.yum_proxy.http     = "http://noevipncp2n.edf.fr:3128/"
-  #config.proxy.http     = "http://noevipncp2n.edf.fr:3128/"
-  #config.proxy.https    = "http://noevipncp2n.edf.fr:3128/"
+  config.proxy.http     = "http://noevipncp2n.edf.fr:3128/"
+  config.proxy.https    = "http://noevipncp2n.edf.fr:3128/"
   #config.proxy.http     = "http://pcyvipncp2n.edf.fr:3128/"
   #config.proxy.https    = "http://pcyvipncp2n.edf.fr:3128/"
   #config.proxy.no_proxy = "localhost,127.0.0.1,.ryba"
@@ -23,7 +24,7 @@ Vagrant.configure("2") do |config|
   # config.ssh.default.private_key_path = "~/.ssh/id_rsa"
   
   config.vbguest.no_remote = true
-  config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.vm.synced_folder ".", disabled: true
   
   config.vm.provider "virtualbox" do |v|
     v.memory = 1536
