@@ -1,46 +1,25 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-#box = "hadoop-cent64-x64"
-#box = "dspit-rhel64-x64"
-box = "CentOS_64-x86_64"
+box = "centos65-x86_64"
 
 Vagrant.configure("2") do |config|
 
-  #config.yum_proxy.http     = ""
-  #config.yum_proxy.http     = "http://130.98.36.106:48254/"
-  #config.yum_proxy.http     = "http://noevipncp2n.edf.fr:3128/"
-  config.proxy.http     = "http://noevipncp2n.edf.fr:3128/"
-  config.proxy.https    = "http://noevipncp2n.edf.fr:3128/"
-  #config.proxy.http     = "http://pcyvipncp2n.edf.fr:3128/"
-  #config.proxy.https    = "http://pcyvipncp2n.edf.fr:3128/"
-  #config.proxy.no_proxy = "localhost,127.0.0.1,.ryba"
+  config.yum_proxy.http     = ENV['VAGRANT_HTTP_PROXY'] || ""
+  #config.yum_proxy.https     = ENV['VAGRANT_HTTPS_PROXY'] || ""
+  #config.yum_proxy.no_proxy     = ENV['VAGRANT_HTTP_NO_PROXY'] || ""
   
   # See:
   # http://devops.me/2011/10/10/vagrant-tricks-and-troubleshooting/
   # http://cbednarski.com/articles/creating-vagrant-base-box-for-centos-62/
   
-  # config.ssh.default.username = "wdavidw"
-  # config.ssh.default.private_key_path = "~/.ssh/id_rsa"
-  
   config.vbguest.no_remote = true
-  config.vm.synced_folder ".", disabled: true
+  config.vm.synced_folder ".", "/vagrant", disabled: true
   
   config.vm.provider "virtualbox" do |v|
     v.memory = 1536
     v.cpus = 2
   end
-  # config.vm.provider "docker" do |d|
-  #   # v.memory = 1536
-  #   # v.cpus = 2
-  #   #d.build_dir = "."
-  # end
-  # config.vm.define :ryba do |node|
-  #   node.vm.box = "trusty"
-  #   node.vm.hostname = "ryba.ryba"
-  #   node.vm.network :private_network, ip: "10.10.10.10"
-  #   node.vm.network :forwarded_port, guest: 22, host: 24010, auto_correct: true
-  # end
   config.vm.define :master1 do |node|
     node.vm.box = box
     node.vm.hostname = "master1.ryba"
@@ -69,11 +48,6 @@ Vagrant.configure("2") do |config|
     end
   end
   config.vm.define :front1 do |node|
-    #node.vm.provider "docker" do |d|
-    #  d.image = "fgrehm/vagrant-ubuntu:precise"
-    #  d.has_ssh = true
-    #  d.remains_running = true
-    #end
     node.vm.box = box
     node.vm.hostname = "front1.ryba"
     node.vm.network :private_network, ip: "10.10.10.14"
