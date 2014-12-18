@@ -213,7 +213,7 @@ module.exports =
         # Hadoop
         'ryba/hadoop/hdfs_dn'
         'ryba/hadoop/yarn_nm'
-        'ryba/hadoop/mapred'
+        'ryba/hadoop/mapred_client'
         'ryba/tools/flume'
         'ryba/hbase/regionserver'
         'ryba/ganglia/monitor'
@@ -243,7 +243,7 @@ module.exports =
         # Hadoop
         'ryba/hadoop/hdfs_dn'
         'ryba/hadoop/yarn_nm'
-        'ryba/hadoop/mapred'
+        'ryba/hadoop/mapred_client'
         'ryba/tools/flume'
         'ryba/hbase/regionserver'
         'ryba/ganglia/monitor'
