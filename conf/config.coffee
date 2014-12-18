@@ -131,8 +131,9 @@ module.exports =
         'ldap_id_use_start_tls' : 'False'
       'sssd':
         'domains' : 'hadoop,users'
-  java:
-    # java_home: '/usr/java/default'
+  java: {}
+    # java_home: '/usr/bin/java' # OpenJDK, default
+    # java_home: '/usr/java/default' # Oracle JDK
     # jdk:
     #   version: '1.7.0_60'
     #   location: "#{__dirname}/../resources/java/jdk-7u60-linux-x64.tar.gz"
