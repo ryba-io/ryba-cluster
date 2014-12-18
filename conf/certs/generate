@@ -15,7 +15,7 @@ cacert(){
 
 cacert_check(){
   shortname=`echo $1 | sed 's/\([[:alnum:]]\)\..*/\1/'`
-  openssl verify -CAfile cacert.pem ${shortname}.pem
+  openssl verify -CAfile cacert.pem ${shortname}_cert.pem
 }
 
 # The first time you use your CA to sign a certificate you can use the -CAcreateserial
