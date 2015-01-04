@@ -18,7 +18,7 @@ module.exports =
     startup: false
     log: true
     rules: [
-      { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
+      # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
     ]
   bind_server:
     zones: [
@@ -76,16 +76,11 @@ module.exports =
     etc_krb5_conf:
       libdefaults:
         default_realm: 'HADOOP.RYBA'
-      domain_realm:
-        '.ryba': 'HADOOP.ADALTAS.COM'
-        'ryba': 'HADOOP.ADALTAS.COM'
       realms:
         'HADOOP.RYBA':
-          # default_domain: 'adaltas.com'
-          default_domain: 'hadoop'
+          default_domain: 'ryba'
         'USERS.RYBA':
-          # default_domain: 'adaltas.com'
-          default_domain: 'hadoop'
+          default_domain: 'ryba'
       capaths:
         'HADOOP.RYBA':
           'USERS.RYBA': '.'
