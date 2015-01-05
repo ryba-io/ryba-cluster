@@ -196,15 +196,17 @@ module.exports =
     oozie_site:
       'oozie.service.ProxyUserService.proxyuser.hue.hosts': '*'
       'oozie.service.ProxyUserService.proxyuser.hue.groups': '*'
-    hue_ini:
-      desktop:
-        smtp: host: ''
-        database:
-          engine: 'mysql'
-          password: 'hue123'
-    hue_ssl_certificate: "#{__dirname}/certs/master3_cert.pem"
-    hue_ssl_private_key: "#{__dirname}/certs/master3_key.pem"
-    hue_ssl_client_ca: "#{__dirname}/certs/cacert.pem"
+    hue:
+      ini:
+        desktop:
+          smtp: host: ''
+          database:
+            engine: 'mysql'
+            password: 'hue123'
+      ssl:
+        certificate: "#{__dirname}/certs/master3_cert.pem"
+        private_key: "#{__dirname}/certs/master3_key.pem"
+        client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase_admin:
       password: 'hbase123'
