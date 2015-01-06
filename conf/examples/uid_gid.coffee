@@ -41,8 +41,9 @@ module.exports =
     hbase_user: uid: 2410, gid: 2410
     hive_group: gid: 2411
     hive_user: uid: 2411, gid: 2411
-    oozie_group: gid: 2412
-    oozie_user: uid: 2412, gid: 2412
+    oozie:
+      group: gid: 2412
+      user: uid: 2412, gid: 2412
     hue:
       group: gid: 2410
       user: uid: 2410, gid: 2410
