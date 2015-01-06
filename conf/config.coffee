@@ -153,9 +153,14 @@ module.exports =
     hadoop_opts:
       'java.net.preferIPv4Stack': 'true'
       'sun.security.krb5.debug': 'false'
-    yarn_opts:
-      'HADOOP_JAAS_DEBUG': 'true'
-      'sun.net.spi.nameservice.provider.1': 'dns,sun'
+    yarn:
+      opts:
+        'HADOOP_JAAS_DEBUG': 'true'
+        'sun.net.spi.nameservice.provider.1': 'dns,sun'
+      site:
+        'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
+        'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
+        'yarn.resourcemanager.recovery.enabled': 'true'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
       'hadoop.proxyuser.hcat.hosts': '*'
@@ -181,10 +186,6 @@ module.exports =
     test_password: 'test123'
     # hdfs_site:
     #   'dfs.http.policy': 'HTTP_AND_HTTPS'
-    yarn_site:
-      'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
-      'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
-      'yarn.resourcemanager.recovery.enabled': 'true'
     mapred_site:
       'mapreduce.job.counters.max': '10000'
       'mapreduce.job.counters.limit': '10000'
