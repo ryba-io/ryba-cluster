@@ -212,8 +212,9 @@ module.exports =
     hbase_admin:
       password: 'hbase123'
     nagios:
-      admin_username: 'nagiosadmin'
-      admin_password: 'nagios123'
-      admin_email: ''
+      admin:
+        name: 'nagiosadmin'
+        password: 'nagios123'
+        email: ''
 
 

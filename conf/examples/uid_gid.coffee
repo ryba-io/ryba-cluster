@@ -1,4 +1,3 @@
-
 # Hadoop Core 240*
 # Hadoop Tools 240*
 # Hadoop Supervision 242*
@@ -29,8 +28,9 @@ module.exports =
     zookeeper_user: uid: 2401, gid: 2400
     hdfs_group: gid: 2402
     hdfs_user: uid: 2402, gid: 2402
-    yarn_group: gid: 2403
-    yarn_user: uid: 2403, gid: 2403
+    yarn:
+      group: gid: 2403
+      user: uid: 2403, gid: 2403
     test_group: gid: 2404
     test_user: uid: 2404, gid: 2404
     mapred_group: gid: 2405
@@ -43,8 +43,9 @@ module.exports =
     hive_user: uid: 2411, gid: 2411
     oozie_group: gid: 2412
     oozie_user: uid: 2412, gid: 2412
-    hue_group: gid: 2410
-    hue_user: uid: 2410, gid: 2410
+    hue:
+      group: gid: 2410
+      user: uid: 2410, gid: 2410
     sqoop_user: uid: 2412, gid: 2400
     pig_user: uid: 2413, gid: 2400
     falcon:

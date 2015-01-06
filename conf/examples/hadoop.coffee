@@ -25,7 +25,8 @@ module.exports =
       'dfs.namenode.checkpoint.dir': ['/var/hdfs/checkpoint'] # Default, apply to non-HA mode
       'dfs.journalnode.edits.dir': ['/var/hdfs/edits'] # Default, apply to HA mode
       'dfs.datanode.failed.volumes.tolerated': '0'
-    yarn_site:
-      'yarn.nodemanager.local-dirs': ['/var/yarn/local'] # Default
-      'yarn.nodemanager.log-dirs': ['/var/yarn/logs'] # Default
+    yarn:
+      site:
+        'yarn.nodemanager.local-dirs': ['/var/yarn/local'] # Default
+        'yarn.nodemanager.log-dirs': ['/var/yarn/logs'] # Default
     pig_conf: {}

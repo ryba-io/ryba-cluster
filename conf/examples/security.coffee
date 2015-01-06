@@ -17,15 +17,18 @@ module.exports =
       'javax.jdo.option.ConnectionPassword': 'hive123'
       # 'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
       # 'hive.metastore.uris': ''
-    hue_ini: desktop: database:
+    hue:
+      ini: desktop: database:
       engine: 'mysql'
       password: 'hue123'
-    hue_ssl_certificate: null # eg: ./certs/node1_cert.pem
-    hue_ssl_private_key: null # eg: ./certs/node_key.pem
-    hue_ssl_client_ca: null # eg: ./certs/cacert.pem
+      ssl
+        certificate: null # eg: ./certs/node1_cert.pem
+        private_key: null # eg: ./certs/node_key.pem
+        client_ca: null # eg: ./certs/cacert.pem
     nagios:
-      admin_username: 'nagiosadmin' # Default
-      admin_password: 'nagios123' # Default
+      admin:
+        name: 'nagiosadmin' # Default
+        password: 'nagios123' # Default
 
 
 
