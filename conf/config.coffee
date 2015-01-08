@@ -215,8 +215,9 @@ module.exports =
         private_key: "#{__dirname}/certs/master3_key.pem"
         client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
-    hbase_admin:
-      password: 'hbase123'
+    hbase:
+      admin:
+        password: 'hbase123'
     nagios:
       admin:
         name: 'nagiosadmin'
