@@ -183,8 +183,8 @@ module.exports =
 
       """
     hdfs:
-      user:
-        krb5_password: 'hdfs123'
+      krb5_user:
+        password: 'hdfs123'
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
     test_password: 'test123'
