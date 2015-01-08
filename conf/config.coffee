@@ -193,11 +193,12 @@ module.exports =
       site:
         'mapreduce.job.counters.max': '10000'
         'mapreduce.job.counters.limit': '10000'
-    hive_site:
-      'javax.jdo.option.ConnectionDriverName': 'com.mysql.jdbc.Driver'
-      'javax.jdo.option.ConnectionUserName': 'hive'
-      'javax.jdo.option.ConnectionPassword': 'hive123'
-      # 'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
+    hive:
+      site:
+        'javax.jdo.option.ConnectionDriverName': 'com.mysql.jdbc.Driver'
+        'javax.jdo.option.ConnectionUserName': 'hive'
+        'javax.jdo.option.ConnectionPassword': 'hive123'
+        # 'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
     oozie:
       site:
         'oozie.service.ProxyUserService.proxyuser.hue.hosts': '*'
