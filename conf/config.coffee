@@ -182,10 +182,12 @@ module.exports =
             DEFAULT
 
       """
-    hdfs_password: 'hdfs123'
+    hdfs:
+      user:
+        krb5_password: 'hdfs123'
+    #  site:
+    #    dfs.http.policy': 'HTTP_AND_HTTPS'
     test_password: 'test123'
-    # hdfs_site:
-    #   'dfs.http.policy': 'HTTP_AND_HTTPS'
     mapred_site:
       'mapreduce.job.counters.max': '10000'
       'mapreduce.job.counters.limit': '10000'
