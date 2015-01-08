@@ -188,9 +188,11 @@ module.exports =
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
     test_password: 'test123'
-    mapred_site:
-      'mapreduce.job.counters.max': '10000'
-      'mapreduce.job.counters.limit': '10000'
+    
+    mapred:
+      site:
+        'mapreduce.job.counters.max': '10000'
+        'mapreduce.job.counters.limit': '10000'
     hive_site:
       'javax.jdo.option.ConnectionDriverName': 'com.mysql.jdbc.Driver'
       'javax.jdo.option.ConnectionUserName': 'hive'
