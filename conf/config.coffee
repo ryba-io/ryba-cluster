@@ -135,6 +135,9 @@ module.exports =
     # jce_local_policy: "#{__dirname}/../resources/java/jce_policy-7/local_policy.jar"
     # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
+    krb5_user:
+      password: 'test123'
+
     clean_logs: true
     check: true
     force_check: false
@@ -187,8 +190,7 @@ module.exports =
         password: 'hdfs123'
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
-    test_password: 'test123'
-    
+
     mapred:
       site:
         'mapreduce.job.counters.max': '10000'
