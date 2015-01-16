@@ -36,10 +36,7 @@ module.exports =
       PermitRootLogin: 'without-password'
   users:
     'root':
-      authorized_keys:  [
-        'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAuYziVgwFAXvExxIj5HgAywFeSfu9zxoLc5bCdeJhS/gh4EtpMN0McHd21M4btuopMAL/sctT4+SiBqwOIERw0rGWrat4WE2qBReEc+6hvdoiUx+7WglDCYePbV91N+x421UYzHhNPUg62jXIfg+o5zG/tdEDbpBAq2EX3vRsncenlhB+p/LsSkY+2+tBJLW172BN1ncKjImFglMwW+7OxGP2U9LoMMFyUs1zS65p8WgHHi/+6ZNsP0wIhKPPl8BiFJ6dLiNjlRuXLX9fGcQDJGrlYbad5Thb5wpQe1EZCF9qBloUkdj7aTIu+dainTP/I87Eo2Y47KsSydvopjqceQ== david@adaltas.com'
-        'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAyg1YL/YQBrsWAoqkJl4ZvohdLPXMbyXbiR7Xx7RB+JENkqKYQCAFds+3DKTol4neZHAd/eGzjFTB/Bc/U+TiUDsWlpWSeg5lmoR4wcwt7a7Y1jcdArEUSvhS48b+FQ3xs0Km9d/jbo90GiZ1NTGQb7Hb43Lew/0C58Lq1ds/qIRqQKQCwW5VD+rmsYJf9GCfN51llqYyCw3WogGER5NqG8Uz5bQp2mIJFmkKOVtdSgmcn5X9lH5mO7vR1mspbAuRdS0xqRh6tJg2+unFAaICbw9AkSP/KMOElMuR62CPeTu2it+1LyJoDOXDYFXfgr1RH+mU1LoId7emrsypbutOdw== tifcherif@gmail.com'
-      ]
+      authorized_keys:  []
   mysql_server:
     current_password: ''
     password: 'test123'
@@ -137,7 +134,6 @@ module.exports =
   ryba:
     krb5_user:
       password: 'test123'
-
     clean_logs: true
     check: true
     force_check: false
