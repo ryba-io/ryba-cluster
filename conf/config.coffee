@@ -132,15 +132,13 @@ module.exports =
     # jce_local_policy: "#{__dirname}/../resources/java/jce_policy-7/local_policy.jar"
     # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
-    krb5_user:
-      password: 'test123'
     clean_logs: true
-    check: true
     force_check: false
     static_host: false
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
     nameservice: 'torval'
+    krb5_user: password: 'test123' # User used for testing
     ssl:
       'cacert': "#{__dirname}/certs/cacert.pem"
     #   'cert': "#{__dirname}/certs/hadoop_cert.pem"
@@ -152,14 +150,6 @@ module.exports =
     hadoop_opts:
       'java.net.preferIPv4Stack': 'true'
       'sun.security.krb5.debug': 'false'
-    yarn:
-      opts:
-        'HADOOP_JAAS_DEBUG': 'true'
-        'sun.net.spi.nameservice.provider.1': 'dns,sun'
-      site:
-        'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
-        'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
-        'yarn.resourcemanager.recovery.enabled': 'true'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
       'hadoop.proxyuser.hcat.hosts': '*'
@@ -182,11 +172,17 @@ module.exports =
 
       """
     hdfs:
-      krb5_user:
-        password: 'hdfs123'
+      krb5_user: password: 'hdfs123'
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
-
+    yarn:
+      opts:
+        'HADOOP_JAAS_DEBUG': 'true'
+        'sun.net.spi.nameservice.provider.1': 'dns,sun'
+      site:
+        'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
+        'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
+        'yarn.resourcemanager.recovery.enabled': 'true'
     mapred:
       site:
         'mapreduce.job.counters.max': '10000'
