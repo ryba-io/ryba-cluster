@@ -27,7 +27,6 @@ module.exports =
     ]
   yum:
     clean: true
-    epel: false
   ssh:
     banner:
       destination: '/etc/banner'
