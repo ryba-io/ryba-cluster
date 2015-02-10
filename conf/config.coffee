@@ -133,7 +133,7 @@ module.exports =
     # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
     clean_logs: true
-    force_check: false
+    force_check: true
     static_host: false
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
