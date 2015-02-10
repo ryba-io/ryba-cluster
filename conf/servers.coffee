@@ -25,9 +25,7 @@ module.exports =
         #'ryba/hadoop/yarn_rm'
         'ryba/hbase/master'
         # 'ryba/xasecure/hdfs'
-        'ryba/ganglia/collector'
         'ryba/ganglia/monitor'
-        'ryba/nagios'
       ]
       ryba:
         active_nn: true
@@ -117,7 +115,9 @@ module.exports =
         'ryba/oozie/server'
         'ryba/hue'
         # 'ryba/xasecure/hive'
+        'ryba/ganglia/collector'
         'ryba/ganglia/monitor'
+        'ryba/nagios'
       ]
       ryba:
         ssl:
