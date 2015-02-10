@@ -22,7 +22,7 @@ module.exports =
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hadoop/hdfs_nn'
-        #'ryba/hadoop/yarn_rm'
+        'ryba/hadoop/yarn_rm'
         'ryba/hbase/master'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
