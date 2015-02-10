@@ -27,7 +27,6 @@ module.exports =
     ]
   yum:
     clean: true
-    epel: false
   ssh:
     banner:
       destination: '/etc/banner'
@@ -37,10 +36,11 @@ module.exports =
   users:
     'root':
       authorized_keys:  []
-  mysql_server:
-    current_password: ''
-    password: 'test123'
-    my_cnf: mysqld: innodb_file_per_table: '1'
+  mysql:
+    server:
+      current_password: ''
+      password: 'test123'
+      my_cnf: mysqld: innodb_file_per_table: '1'
   openldap_server:
     suffix: 'dc=ryba'
     root_dn: 'cn=Manager,dc=ryba'
