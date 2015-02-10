@@ -173,6 +173,11 @@ module.exports =
       """
     hdfs:
       krb5_user: password: 'hdfs123'
+      sysctl:
+        'vm.swappiness': 0 # Default to 60
+        'vm.overcommit_memory': 1 # Default to 0
+        'vm.overcommit_ratio': 100 # Default to 50
+        'net.core.somaxconn': 1024 # Default to 128
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
     yarn:
