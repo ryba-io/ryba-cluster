@@ -1,5 +1,5 @@
 .*
-/logs/*
+/log/*
 /node_modules
 /conf/user*
 !.gitignore
