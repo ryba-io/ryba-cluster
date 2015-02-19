@@ -171,6 +171,8 @@ module.exports =
             DEFAULT
 
       """
+    hadoop_heap: '512'
+    hadoop_namenode_init_heap: '-Xms512m'
     hdfs:
       krb5_user: password: 'hdfs123'
       sysctl:
