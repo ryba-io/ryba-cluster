@@ -188,7 +188,7 @@ module.exports =
         'sun.net.spi.nameservice.provider.1': 'dns,sun'
       site:
         'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
-        'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
+        # 'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
         'yarn.resourcemanager.recovery.enabled': 'true'
     mapred:
       site:
