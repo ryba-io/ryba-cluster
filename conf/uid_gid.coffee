@@ -19,11 +19,9 @@ module.exports =
     user: uid: 2416, gid: 2416
     group: gid: 2416
   ryba:
+    hadoop_group: gid: 2400
     group: gid: 2414
     user: uid: 2414, gid: 2414
-
-    hadoop_group: gid: 2400
-    
     zookeeper:
       group: gid: 2402
       uid: 2402, gid: 2400
@@ -53,7 +51,7 @@ module.exports =
       user: uid: 2409, gid: 2409
     oozie:
       group: gid: 2411
-      user: uid: 2411, gid: 2411 
+      user: uid: 2411, gid: 2411
     sqoop:
       user: uid: 2412, gid: 2400
     pig:
