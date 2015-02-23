@@ -25,8 +25,6 @@ module.exports =
       "#{__dirname}/zones/ryba"
       "#{__dirname}/zones/10.10.10.in-addr.arpa"
     ]
-  yum:
-    clean: true
   ssh:
     banner:
       destination: '/etc/banner'
