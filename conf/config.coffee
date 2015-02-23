@@ -218,9 +218,18 @@ module.exports =
       admin:
         password: 'hbase123'
     nagios:
-      admin:
-        name: 'nagiosadmin'
-        password: 'nagios123'
-        email: ''
+      users:
+        nagiosadmin:
+          password: 'nagios123'
+          alias: 'Nagios Admin'
+          email: ''
+        guest:
+          password: 'guest4hp'
+          alias: 'HP Guest'
+          email: ''
+      groups:
+        admins:
+          alias: 'Nagios Administrators'
+          members: ['nagiosadmin','guest']
 
 
