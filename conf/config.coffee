@@ -9,7 +9,7 @@ module.exports =
       '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
       '10.10.10.10': 'repos.ryba ryba'
     resolv: """
-      search hadoop
+      search ryba
       nameserver 10.10.10.13
       nameserver 10.0.2.3
       """
