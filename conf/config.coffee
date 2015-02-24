@@ -9,7 +9,7 @@ module.exports =
       '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
       '10.10.10.10': 'repos.ryba ryba'
     resolv: """
-      search hadoop
+      search ryba
       nameserver 10.10.10.13
       nameserver 10.0.2.3
       """
@@ -25,8 +25,6 @@ module.exports =
       "#{__dirname}/zones/ryba"
       "#{__dirname}/zones/10.10.10.in-addr.arpa"
     ]
-  yum:
-    clean: true
   ssh:
     banner:
       destination: '/etc/banner'
@@ -171,6 +169,8 @@ module.exports =
             DEFAULT
 
       """
+    hadoop_heap: '512'
+    hadoop_namenode_init_heap: '-Xms512m'
     hdfs:
       krb5_user: password: 'hdfs123'
       sysctl:
@@ -186,7 +186,7 @@ module.exports =
         'sun.net.spi.nameservice.provider.1': 'dns,sun'
       site:
         'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
-        'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
+        # 'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
         'yarn.resourcemanager.recovery.enabled': 'true'
     mapred:
       site:
