@@ -21,6 +21,7 @@ module.exports =
         # Hadoop
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
+        'ryba/hadoop/zkfc'
         'ryba/hadoop/hdfs_nn'
         # 'ryba/hadoop/yarn_rm'
         'ryba/hbase/master'
@@ -69,9 +70,11 @@ module.exports =
         # Hadoop
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
+        'ryba/hadoop/zkfc'
         'ryba/hadoop/hdfs_nn'
         'ryba/hadoop/mapred_jhs'
         'ryba/hadoop/yarn_rm'
+        # 'ryba/hive/server'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
       ]
@@ -111,7 +114,8 @@ module.exports =
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hbase/rest'
-        'ryba/hive/server'
+        'ryba/hive/hcatalog'
+        'ryba/hive/server2'
         'ryba/hive/webhcat'
         'ryba/oozie/server'
         'ryba/hue'

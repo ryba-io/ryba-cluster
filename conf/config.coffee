@@ -131,7 +131,7 @@ module.exports =
     # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
     clean_logs: true
-    force_check: true
+    force_check: false
     static_host: false
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
@@ -145,9 +145,7 @@ module.exports =
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
     zkfc_password: 'hdfs123'
-    hadoop_opts:
-      'java.net.preferIPv4Stack': 'true'
-      'sun.security.krb5.debug': 'false'
+    hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
       'hadoop.proxyuser.hcat.hosts': '*'
@@ -181,11 +179,10 @@ module.exports =
     #  site:
     #    dfs.http.policy': 'HTTP_AND_HTTPS'
     yarn:
-      opts:
-        'HADOOP_JAAS_DEBUG': 'true'
-        'sun.net.spi.nameservice.provider.1': 'dns,sun'
+      active_rm_host: 'master2.ryba'
+      opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
       site:
-        'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
+        # 'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
         # 'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
         'yarn.resourcemanager.recovery.enabled': 'true'
     mapred:
@@ -215,6 +212,7 @@ module.exports =
         client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
+      regionserver_opts: '-Xmx512m'
       admin:
         password: 'hbase123'
     nagios:
