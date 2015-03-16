@@ -1,0 +1,14 @@
+
+[HDP-2.2.0.0]
+name=Hortonworks Data Platform Version - HDP-2.2.0.0
+baseurl=http://10.10.10.101:10186/HDP/centos6/2.x/GA/2.2.0.0/
+enabled=1
+priority=1
+gpgcheck=0
+
+[HDP-UTILS-1.1.0.20]
+name=Hortonworks Data Platform Utils Version - HDP-UTILS-1.1.0.20
+baseurl=http://10.10.10.101:10186/HDP-UTILS-1.1.0.20/repos/centos6
+enabled=1
+priority=1
+gpgcheck=0
