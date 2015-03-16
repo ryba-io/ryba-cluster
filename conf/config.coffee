@@ -34,6 +34,8 @@ module.exports =
   users:
     'root':
       authorized_keys:  []
+  yum:
+    packages: "tree": true, "git": true, "htop": true
   mysql:
     server:
       current_password: ''
