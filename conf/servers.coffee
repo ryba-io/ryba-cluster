@@ -114,6 +114,8 @@ module.exports =
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hbase/rest'
+        'ryba/elasticsearch'
+        'ryba/rexster'
         'ryba/hive/hcatalog'
         'ryba/hive/server2'
         'ryba/hive/webhcat'
