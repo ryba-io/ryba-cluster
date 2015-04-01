@@ -146,7 +146,6 @@ module.exports =
     ssh_fencing:
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
-    zkfc_password: 'hdfs123'
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
@@ -231,5 +230,3 @@ module.exports =
         admins:
           alias: 'Nagios Administrators'
           members: ['nagiosadmin','guest']
-
-
