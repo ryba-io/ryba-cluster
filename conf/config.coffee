@@ -146,6 +146,9 @@ module.exports =
     ssh_fencing:
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
+    zkfc_digest:
+      name: 'hdfs-zkfc'
+      password: 'hdfs123'
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
