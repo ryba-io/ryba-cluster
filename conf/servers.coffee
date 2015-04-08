@@ -25,6 +25,7 @@ module.exports =
         'ryba/hadoop/hdfs_nn'
         # 'ryba/hadoop/yarn_rm'
         'ryba/hbase/master'
+        'ryba/kafka/server'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
       ]
@@ -74,6 +75,7 @@ module.exports =
         'ryba/hadoop/hdfs_nn'
         'ryba/hadoop/mapred_jhs'
         'ryba/hadoop/yarn_rm'
+        'ryba/kafka/server'
         # 'ryba/hive/server'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
@@ -118,6 +120,7 @@ module.exports =
         'ryba/hive/webhcat'
         'ryba/hbase/rest'
         'ryba/oozie/server'
+        'ryba/kafka/server'
         'ryba/hue'
         # 'ryba/xasecure/hive'
         'ryba/ganglia/collector'
@@ -191,6 +194,8 @@ module.exports =
         'ryba/tools/flume'
         'ryba/tools/mahout'
         'ryba/falcon'
+        'ryba/kafka/consumer'
+        'ryba/kafka/producer'
         'ryba/ganglia/monitor'
       ]
       ryba:
