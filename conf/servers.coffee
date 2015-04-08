@@ -121,6 +121,8 @@ module.exports =
         'ryba/hive/webhcat'
         'ryba/hbase/rest'
         'ryba/oozie/server'
+        'ryba/elasticsearch'
+        'ryba/rexster'
         'ryba/kafka/server'
         'ryba/hue'
         # 'ryba/xasecure/hive'
