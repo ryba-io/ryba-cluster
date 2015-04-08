@@ -69,6 +69,9 @@ module.exports =
     knox:
       group: gid: 2420
       user: uid: 2420, gid: 2420
+    kafka:
+      group: gid: 2424
+      user: uid: 2424, gid: 2424
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
