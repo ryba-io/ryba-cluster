@@ -34,6 +34,8 @@ module.exports =
   users:
     'root':
       authorized_keys:  []
+  yum:
+    packages: "tree": true, "git": true, "htop": true
   mysql:
     server:
       current_password: ''
@@ -131,7 +133,7 @@ module.exports =
     # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
     clean_logs: true
-    force_check: true
+    force_check: false
     static_host: false
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
@@ -144,10 +146,7 @@ module.exports =
     ssh_fencing:
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
-    zkfc_password: 'hdfs123'
-    hadoop_opts:
-      'java.net.preferIPv4Stack': 'true'
-      'sun.security.krb5.debug': 'false'
+    hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.proxyuser.hcat.groups': '*'
       'hadoop.proxyuser.hcat.hosts': '*'
@@ -178,15 +177,14 @@ module.exports =
         'vm.overcommit_memory': 1 # Default to 0
         'vm.overcommit_ratio': 100 # Default to 50
         'net.core.somaxconn': 1024 # Default to 128
-    #  site:
-    #    dfs.http.policy': 'HTTP_AND_HTTPS'
+    zkfc:
+      digest:
+        name: 'zkfc'
+        password: 'zkfc123'
     yarn:
-      opts:
-        'HADOOP_JAAS_DEBUG': 'true'
-        'sun.net.spi.nameservice.provider.1': 'dns,sun'
+      active_rm_host: 'master2.ryba'
+      opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
       site:
-        'yarn.scheduler.maximum-allocation-mb': '1800' # Should not exceed vm memory or no worker will be able to get a container
-        # 'yarn.scheduler.minimum-allocation-mb': '1000' # Avoid "$host doesn't satisfy minimum allocations" with small vms
         'yarn.resourcemanager.recovery.enabled': 'true'
     mapred:
       site:
@@ -215,12 +213,20 @@ module.exports =
         client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
+      regionserver_opts: '-Xmx512m'
       admin:
         password: 'hbase123'
     nagios:
-      admin:
-        name: 'nagiosadmin'
-        password: 'nagios123'
-        email: ''
-
-
+      users:
+        nagiosadmin:
+          password: 'nagios123'
+          alias: 'Nagios Admin'
+          email: ''
+        guest:
+          password: 'guest4hp'
+          alias: 'HP Guest'
+          email: ''
+      groups:
+        admins:
+          alias: 'Nagios Administrators'
+          members: ['nagiosadmin','guest']
