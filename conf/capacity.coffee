@@ -113,7 +113,7 @@ module.exports = 'servers':
 # master3.ryba
 #   Number of core: 1
 #   Number of partitions: 2
-#   Memory Total: 868.43 MB
+#   Memory Total: 1.096 GB
 #   Memory System: 0 B
 
 # front1.ryba
