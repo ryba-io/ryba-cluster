@@ -1,7 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-box = "centos65-x86_64"
+# ./bin/vagrant box add centos65-x86_64-50g https://googledrive.com/host/0B4tZlTbOXHYWVGpHRWZuTThGVUE/centos65_virtualbox_50G.box
+
+box = "centos65-x86_64-50g"
 
 Vagrant.configure("2") do |config|
 
