@@ -143,6 +143,8 @@ module.exports =
       'cacert': "#{__dirname}/certs/cacert.pem"
     #   'cert': "#{__dirname}/certs/hadoop_cert.pem"
     #   'key': "#{__dirname}/certs/hadoop_key.pem"
+    ambari:
+      repo: "#{__dirname}/resources/repos/ambari-2.0.0.repo"
     ssh_fencing:
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"

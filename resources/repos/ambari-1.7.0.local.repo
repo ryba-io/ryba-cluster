@@ -1,0 +1,15 @@
+[ambari-1.x]
+name=Ambari 1.x
+baseurl=http://10.10.10.101:10301/ambari/centos6/1.x/GA
+gpgcheck=0
+gpgkey=http://10.10.10.101:10301/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
+
+[Updates-ambari-1.7.0]
+name=ambari-1.7.0 - Updates
+baseurl=http://10.10.10.101:10301/ambari/centos6/1.x/updates/1.7.0
+gpgcheck=0
+gpgkey=http://10.10.10.101:10301/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+enabled=1
+priority=1
