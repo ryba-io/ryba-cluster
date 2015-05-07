@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Example
-# ./bin/upgrade -c data/config.coffee 
+# ./bin/upgrade -c data/config.coffee
 
 cd $(dirname "${BASH_SOURCE}")/..
-./node_modules/ryba/bin/upgrade -c ./conf -r ./resources/repos/hdp-2.2.0.0.repo $@
+./node_modules/ryba/bin/upgrade -c ./conf -r ./resources/repos/hdp-2.2.0.0.local.repo $@
