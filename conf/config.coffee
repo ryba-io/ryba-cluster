@@ -190,6 +190,9 @@ module.exports =
       opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
       site:
         'yarn.resourcemanager.recovery.enabled': 'true'
+    capacity_scheduler:
+    #   'yarn.scheduler.capacity.maximum-applications': '10'
+      'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
     mapred:
       site:
         'mapreduce.job.counters.max': '10000'
