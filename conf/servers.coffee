@@ -123,7 +123,7 @@ module.exports =
         'ryba/oozie/server'
         # 'ryba/elasticsearch'
         # 'ryba/rexster'
-        # 'ryba/kafka/server'
+        'ryba/kafka/server'
         'ryba/hue'
         # 'ryba/xasecure/hive'
         'ryba/ganglia/collector'
