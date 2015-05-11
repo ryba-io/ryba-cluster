@@ -9,16 +9,16 @@ module.exports = 'servers':
         'yarn.scheduler.minimum-allocation-mb': 512
         'yarn.scheduler.maximum-allocation-mb': 1536
         'yarn.scheduler.minimum-allocation-vcores': 1
-        'yarn.scheduler.maximum-allocation-vcores': 2
+        'yarn.scheduler.maximum-allocation-vcores': 3
       'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
   'master3.ryba': 'ryba':
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '1024'
+      'mapreduce.reduce.memory.mb': '512'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx819m'
+      'mapreduce.reduce.java.opts': '-Xmx409m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -30,9 +30,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '1024'
+      'mapreduce.reduce.memory.mb': '512'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx819m'
+      'mapreduce.reduce.java.opts': '-Xmx409m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -48,7 +48,7 @@ module.exports = 'servers':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
       'yarn.nodemanager.vmem-pmem-ratio': '2.1'
-      'yarn.nodemanager.resource.cpu-vcores': 2
+      'yarn.nodemanager.resource.cpu-vcores': 3
       'yarn.nodemanager.local-dirs': [
         '/data/1/yarn/local'
         '/data/2/yarn/local'
@@ -61,9 +61,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '1024'
+      'mapreduce.reduce.memory.mb': '512'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx819m'
+      'mapreduce.reduce.java.opts': '-Xmx409m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -77,7 +77,7 @@ module.exports = 'servers':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
       'yarn.nodemanager.vmem-pmem-ratio': '2.1'
-      'yarn.nodemanager.resource.cpu-vcores': 2
+      'yarn.nodemanager.resource.cpu-vcores': 3
       'yarn.nodemanager.local-dirs': [
         '/data/1/yarn/local'
         '/data/2/yarn/local'
@@ -90,60 +90,60 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '1024'
+      'mapreduce.reduce.memory.mb': '512'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx819m'
+      'mapreduce.reduce.java.opts': '-Xmx409m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
     'hbase': 'regionserver_opts': '-Xmx128m'
 
 # master1.ryba
-#   Number of core: 1
+#   Number of core: 2
 #   Number of partitions: 2
 #   Memory Total: 1.096 GB
 #   Memory System: 0 B
 
 # master2.ryba
-#   Number of core: 1
+#   Number of core: 2
 #   Number of partitions: 2
 #   Memory Total: 1.096 GB
 #   Memory System: 0 B
 
 # master3.ryba
-#   Number of core: 1
+#   Number of core: 2
 #   Number of partitions: 2
-#   Memory Total: 1.096 GB
+#   Memory Total: 1.465 GB
 #   Memory System: 0 B
 
 # front1.ryba
-#   Number of core: 1
+#   Number of core: 2
 #   Number of partitions: 2
-#   Memory Total: 490.445 MB
+#   Memory Total: 490.285 MB
 #   Memory System: 0 B
 
 # worker1.ryba
-#   Number of core: 2
+#   Number of core: 3
 #   Number of partitions: 2
 #   Memory Total: 1.833 GB
-#   Memory System: 213.266 MB
+#   Memory System: 213.145 MB
 #   HBase RegionServer
 #     Memory HBase: 128 MB
 #   YARN NodeManager
 #     Memory YARN: 1.5 GB
-#     Number of Cores: 2
+#     Number of Cores: 3
 #     Number of Containers: 3
 #     Memory per Containers: 512 MB
 
 # worker2.ryba
-#   Number of core: 2
+#   Number of core: 3
 #   Number of partitions: 2
 #   Memory Total: 1.833 GB
-#   Memory System: 213.266 MB
+#   Memory System: 213.145 MB
 #   HBase RegionServer
 #     Memory HBase: 128 MB
 #   YARN NodeManager
 #     Memory YARN: 1.5 GB
-#     Number of Cores: 2
+#     Number of Cores: 3
 #     Number of Containers: 3
 #     Memory per Containers: 512 MB
