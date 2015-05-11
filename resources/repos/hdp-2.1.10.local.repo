@@ -1,14 +1,14 @@
 
 [Hadoop-2.1.10.0]
 name=Hadoop-2.1.10.0
-baseurl=http://10.10.10.101:10185/HDP/centos6/2.x/updates/2.1.10.0/
+baseurl=http://10.10.10.101:10202/HDP/centos6/2.x/updates/2.1.10.0/
 enabled=1
 priority=1
 gpgcheck=0
 
 [Hadoop-UTILS-1.1.0.19]
 name=Hadoop-UTILS-1.1.0.19
-baseurl=http://10.10.10.101:10185/HDP-UTILS-1.1.0.19/repos/centos6
+baseurl=http://10.10.10.101:10202/HDP-UTILS-1.1.0.19/repos/centos6
 enabled=1
 priority=1
 gpgcheck=0
