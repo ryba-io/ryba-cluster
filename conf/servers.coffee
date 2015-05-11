@@ -115,7 +115,7 @@ module.exports =
         # 'ryba/xasecure/uxugsync'
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
-        # 'ryba/hadoop/yarn_ts'
+        'ryba/hadoop/yarn_ts'
         'ryba/hive/hcatalog'
         'ryba/hive/server2'
         'ryba/hive/webhcat'
