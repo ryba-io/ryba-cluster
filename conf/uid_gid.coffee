@@ -24,7 +24,7 @@ module.exports =
     user: uid: 2414, gid: 2414
     zookeeper:
       group: gid: 2402
-      uid: 2402, gid: 2400
+      user: uid: 2402, gid: 2400
     hdfs:
       group: gid: 2401
       user: uid: 2401, gid: 2401
