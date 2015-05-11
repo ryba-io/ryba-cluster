@@ -19,6 +19,7 @@ module.exports =
         'masson/core/krb5_server'
         'masson/core/sssd'
         # Hadoop
+        # 'ryba/ambari/agent'
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hadoop/zkfc'
@@ -69,6 +70,7 @@ module.exports =
         'masson/core/krb5_client'
         'masson/core/sssd'
         # Hadoop
+        # 'ryba/ambari/agent'
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hadoop/zkfc'
@@ -113,6 +115,8 @@ module.exports =
         'masson/commons/mysql_server'
         # 'ryba/xasecure/policymgr'
         # 'ryba/xasecure/uxugsync'
+        # 'ryba/ambari/server'
+        # 'ryba/ambari/agent'
         'ryba/zookeeper/server'
         'ryba/hadoop/hdfs_jn'
         'ryba/hadoop/yarn_ts'
@@ -186,6 +190,7 @@ module.exports =
         'masson/core/krb5_client'
         'masson/core/sssd'
         # Hadoop
+        # 'ryba/ambari/agent'
         'ryba/zookeeper/client'
         'ryba/hadoop/hdfs_client'
         'ryba/hadoop/yarn_client'
@@ -223,6 +228,7 @@ module.exports =
         'masson/core/krb5_client'
         'masson/core/sssd'
         # Hadoop
+        # 'ryba/ambari/agent'
         'ryba/hadoop/hdfs_dn'
         'ryba/hadoop/yarn_nm'
         'ryba/hadoop/mapred_client'
@@ -253,6 +259,7 @@ module.exports =
         'masson/core/krb5_client'
         'masson/core/sssd'
         # Hadoop
+        # 'ryba/ambari/agent'
         'ryba/hadoop/hdfs_dn'
         'ryba/hadoop/yarn_nm'
         'ryba/hadoop/mapred_client'
