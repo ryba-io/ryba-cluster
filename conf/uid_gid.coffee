@@ -72,6 +72,12 @@ module.exports =
     kafka:
       group: gid: 2424
       user: uid: 2424, gid: 2424
+    elasticsearch:
+      group: gid: 2422
+      user: uid: 2422, gid: 2422
+    rexster:
+      group: gid: 2423
+      user: uid: 2423, gid: 2423
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
