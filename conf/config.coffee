@@ -1,7 +1,7 @@
 
 module.exports =
   mecano:
-    cache_dir: "#{__dirname}/../resources/user/cache"
+    cache_dir: "#{__dirname}/../resources/cache"
   security:
     selinux: false
     limits: {}
