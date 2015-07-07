@@ -78,6 +78,9 @@ module.exports =
     rexster:
       group: gid: 2423
       user: uid: 2423, gid: 2423
+    spark:
+      group: gid: 2426
+      user: uid: 2426, gid: 2426
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
