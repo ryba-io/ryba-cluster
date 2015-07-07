@@ -136,7 +136,6 @@ module.exports =
   ryba:
     clean_logs: true
     force_check: false
-    static_host: false
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
     nameservice: 'torval'
