@@ -2,5 +2,5 @@
 /log/*
 /node_modules
 /conf/user*
-/resources/user*
+/resources/cache/*
 !.gitignore

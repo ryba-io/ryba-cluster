@@ -1,7 +1,7 @@
 
 module.exports =
   mecano:
-    cache_dir: "#{__dirname}/../resources/user/cache"
+    cache_dir: "#{__dirname}/../resources/cache"
   security:
     selinux: false
     limits: {}
@@ -159,7 +159,7 @@ module.exports =
       'hadoop.proxyuser.flume.groups': '*'
       'hadoop.proxyuser.flume.hosts': '*'
       'hadoop.security.auth_to_local': """
-      
+
             RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
             RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
             RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
