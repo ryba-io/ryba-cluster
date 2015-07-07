@@ -1,7 +1,12 @@
 # node node_modules/ryba/bin/capacity -c ./conf -o ./conf/capacity.coffee -w -p /data/1,/data/2
 
 module.exports = 'servers':
-  'master1.ryba': 'ryba': 'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
+  'master1.ryba': 'ryba':
+    'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
+    'kafka': 'broker': 'log.dirs': [
+      '/data/1/kafka'
+      '/data/2/kafka'
+    ]
   'master2.ryba': 'ryba':
     'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
     'yarn':
@@ -11,6 +16,10 @@ module.exports = 'servers':
         'yarn.scheduler.minimum-allocation-vcores': 1
         'yarn.scheduler.maximum-allocation-vcores': 3
       'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
+    'kafka': 'broker': 'log.dirs': [
+      '/data/1/kafka'
+      '/data/2/kafka'
+    ]
   'master3.ryba': 'ryba':
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 512
@@ -25,6 +34,10 @@ module.exports = 'servers':
     'hive': 'site':
       'hive.tez.container.size': '512'
       'hive.tez.java.opts': '-Xmx409m'
+    'kafka': 'broker': 'log.dirs': [
+      '/data/1/kafka'
+      '/data/2/kafka'
+    ]
   'front1.ryba': 'ryba':
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 512
