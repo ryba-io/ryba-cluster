@@ -3,6 +3,13 @@
 module.exports = 'servers':
   'master1.ryba': 'ryba':
     'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
+    'yarn':
+      'site':
+        'yarn.scheduler.minimum-allocation-mb': 512
+        'yarn.scheduler.maximum-allocation-mb': 1536
+        'yarn.scheduler.minimum-allocation-vcores': 1
+        'yarn.scheduler.maximum-allocation-vcores': 3
+      'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
     'kafka': 'broker': 'log.dirs': [
       '/data/1/kafka'
       '/data/2/kafka'
