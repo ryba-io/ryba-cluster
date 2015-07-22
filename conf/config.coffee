@@ -153,7 +153,7 @@ module.exports =
       'hadoop.proxyuser.flume.groups': '*'
       'hadoop.proxyuser.flume.hosts': '*'
       'hadoop.security.auth_to_local': """
-      
+
             RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
             RULE:[2:$1@$0](ats@.*)s/.*/yarn/
             RULE:[2:$1@$0](jhs@.*)s/.*/mapred/

@@ -1,0 +1,5 @@
+[mongodb-org-3.0]
+name=MongoDB 3.0 Repository
+baseurl=http://10.10.10.101:10192/yum/redhat/mongodb-org/3.0/
+gpgcheck=0
+enabled=1
