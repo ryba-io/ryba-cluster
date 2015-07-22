@@ -224,8 +224,8 @@ module.exports =
           alias: 'Nagios Admin'
           email: ''
         guest:
-          password: 'guest4hp'
-          alias: 'HP Guest'
+          password: 'guest123'
+          alias: 'Nagios Guest'
           email: ''
       groups:
         admins:
