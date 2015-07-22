@@ -160,6 +160,7 @@ module.exports =
       'hadoop.security.auth_to_local': """
       
             RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
+            RULE:[2:$1@$0](ats@.*)s/.*/yarn/
             RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
             RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
             RULE:[2:$1@$0](hm@.*)s/.*/hbase/
