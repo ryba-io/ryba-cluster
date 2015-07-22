@@ -183,13 +183,10 @@ module.exports =
         name: 'zkfc'
         password: 'zkfc123'
     yarn:
-      active_rm_host: 'master2.ryba'
       opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
-      site:
-        'yarn.resourcemanager.recovery.enabled': 'true'
+      site: {}
     capacity_scheduler:
-    #   'yarn.scheduler.capacity.maximum-applications': '10'
-      'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
+      'yarn.scheduler.capacity.maximum-am-resource-percent': '.3'
     mapred:
       site:
         'mapreduce.job.counters.max': '10000'
