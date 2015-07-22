@@ -58,7 +58,7 @@ module.exports =
     tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
     tls_key_file: "#{__dirname}/certs/master3_key.pem"
   openldap_client:
-    certificates: [
+    certificates: [ # Same as "sssd.certificates"
       "#{__dirname}/certs/master3_cert.pem"
     ]
     config: {}
@@ -75,18 +75,13 @@ module.exports =
     etc_krb5_conf:
       libdefaults:
         default_realm: 'HADOOP.RYBA'
-      realms:
-        'HADOOP.RYBA':
-          default_domain: 'ryba'
-        'USERS.RYBA':
-          default_domain: 'ryba'
-      capaths:
-        'HADOOP.RYBA':
-          'USERS.RYBA': '.'
-        'USERS.RYBA':
-          'HADOOP.RYBA': '.'
+      # realms:
+      #   'HADOOP.RYBA':
+      #     default_domain: 'ryba'
+      #   'USERS.RYBA':
+      #     default_domain: 'ryba'
       domain_realm:
-        '.ryba': 'HADOOP.RYBA'
+        # '.ryba': 'HADOOP.RYBA'
         'ryba': 'HADOOP.RYBA'
     kdc_conf:
       realms: {}
