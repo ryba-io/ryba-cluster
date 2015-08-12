@@ -10,7 +10,7 @@ cacert(){
   # RSA Private key (create "cacert_key.pem")
   openssl genrsa -out cacert_key.pem 2048
   # Self-signed (with the key previously generated) root CA certificate (create "cacert.pem")
-  openssl req -x509 -new -key cacert_key.pem -days 300 -out cacert.pem -subj "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=adaltas.com/emailAddress=david@adaltas.com"
+  openssl req -x509 -new -sha256 -key cacert_key.pem -days 7300 -out cacert.pem -subj "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=adaltas.com/emailAddress=david@adaltas.com"
 }
 
 cacert_check(){
@@ -29,11 +29,13 @@ cert(){
   shortname=`echo $fqdn | sed 's/\([[:alnum:]]\)\..*/\1/'`
   if [ ! -f cacert_key.pem ]; then echo 'Run `./generate.sh cacert` first.'; exit 1; fi
   # Certificate signing request and private key (create "hadoop_cert.csr" and "hadoop_key.pem")
-  openssl req -newkey rsa:1024 -nodes -out ${shortname}_cert.csr -keyout ${shortname}_key.pem -subj "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=${fqdn}/emailAddress=david@adaltas.com"
+  openssl req -newkey rsa:2048 -sha256 -nodes -out ${shortname}_cert.csr -keyout ${shortname}_key.pem -subj "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=${fqdn}/emailAddress=david@adaltas.com"
+  # to view the CSR: `openssl req -in toto_cert.csr -noout -text`
   # Sign the CSR (create "hadoop_cert.pem")
-  openssl x509 -req -days 7300 -in ${shortname}_cert.csr -CA cacert.pem -CAkey cacert_key.pem -out ${shortname}_cert.pem -CAcreateserial -CAserial cacert.seq
+  openssl x509 -req -sha256 -days 7300 -in ${shortname}_cert.csr -CA cacert.pem -CAkey cacert_key.pem -out ${shortname}_cert.pem -CAcreateserial -CAserial cacert.seq
   # Clean up
-  rm -rf ${shortname}_cert.csr
+  echo ${shortname}_cert.csr
+  # rm -rf ${shortname}_cert.csr
 }
 
 cert_view(){
