@@ -35,7 +35,7 @@ cert(){
   openssl x509 -req -sha256 -days 7300 -in ${shortname}_cert.csr -CA cacert.pem -CAkey cacert_key.pem -out ${shortname}_cert.pem -CAcreateserial -CAserial cacert.seq
   # Clean up
   echo ${shortname}_cert.csr
-  # rm -rf ${shortname}_cert.csr
+  rm -rf ${shortname}_cert.csr
 }
 
 cert_view(){
