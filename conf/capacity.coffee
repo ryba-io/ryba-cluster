@@ -32,9 +32,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '512'
+      'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx409m'
+      'mapreduce.reduce.java.opts': '-Xmx819m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -50,9 +50,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '512'
+      'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx409m'
+      'mapreduce.reduce.java.opts': '-Xmx819m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -81,9 +81,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '512'
+      'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx409m'
+      'mapreduce.reduce.java.opts': '-Xmx819m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
@@ -110,9 +110,9 @@ module.exports = 'servers':
       'yarn.app.mapreduce.am.resource.mb': 512
       'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
       'mapreduce.map.memory.mb': '512'
-      'mapreduce.reduce.memory.mb': '512'
+      'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
-      'mapreduce.reduce.java.opts': '-Xmx409m'
+      'mapreduce.reduce.java.opts': '-Xmx819m'
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
