@@ -78,6 +78,9 @@ module.exports =
     rexster:
       group: gid: 2423
       user: uid: 2423, gid: 2423
+    presto:
+      group: gid: 2425
+      user: uid: 2425, gid: 2425
     spark:
       group: gid: 2426
       user: uid: 2426, gid: 2426
