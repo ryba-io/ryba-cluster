@@ -2,7 +2,7 @@
 
 module.exports = 'servers':
   'master1.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
+    'hdfs': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
     'yarn':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
@@ -15,7 +15,7 @@ module.exports = 'servers':
       '/data/2/kafka'
     ]
   'master2.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/name' ]
+    'hdfs': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
     'yarn':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
