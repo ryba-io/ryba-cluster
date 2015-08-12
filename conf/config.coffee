@@ -146,8 +146,8 @@ module.exports =
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
-      'hadoop.proxyuser.hcat.groups': '*'
-      'hadoop.proxyuser.hcat.hosts': '*'
+      # 'hadoop.proxyuser.hcat.groups': '*'
+      # 'hadoop.proxyuser.hcat.hosts': '*'
       'hadoop.proxyuser.hue.hosts': '*'
       'hadoop.proxyuser.hue.groups': '*'
       'hadoop.proxyuser.flume.groups': '*'
