@@ -77,6 +77,7 @@ module.exports =
         'ryba/hadoop/zkfc'
         'ryba/hadoop/hdfs_nn'
         'ryba/hadoop/yarn_rm'
+        'ryba/hbase/master'
         'ryba/hive/hcatalog'
         'ryba/hive/server2'
         'ryba/kafka/broker'
