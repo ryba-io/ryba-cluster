@@ -25,6 +25,7 @@ module.exports =
         'ryba/hadoop/zkfc'
         'ryba/hadoop/hdfs_nn'
         'ryba/hadoop/yarn_rm'
+        'ryba/phoenix/master'
         'ryba/hbase/master'
         'ryba/kafka/broker'
         # 'ryba/xasecure/hdfs'
@@ -195,6 +196,7 @@ module.exports =
         'ryba/hadoop/hdfs_client'
         'ryba/hadoop/yarn_client'
         'ryba/hbase/client'
+        'ryba/phoenix/client'
         'ryba/tools/pig'
         'ryba/hive/client'
         'ryba/oozie/client'
@@ -233,6 +235,7 @@ module.exports =
         'ryba/hadoop/yarn_nm'
         'ryba/hadoop/mapred_client'
         'ryba/tools/flume'
+        'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
         'ryba/ganglia/monitor'
       ]
@@ -264,6 +267,7 @@ module.exports =
         'ryba/hadoop/yarn_nm'
         'ryba/hadoop/mapred_client'
         'ryba/tools/flume'
+        'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
         'ryba/ganglia/monitor'
       ]
