@@ -113,6 +113,7 @@ module.exports =
         'masson/commons/phpldapadmin'
         'masson/core/krb5_server'
         'masson/core/sssd'
+        'masson/commons/docker'
         # Hadoop
         'masson/commons/mysql_server'
         # 'ryba/xasecure/policymgr'
@@ -128,8 +129,8 @@ module.exports =
         'ryba/hive/webhcat'
         'ryba/hbase/rest'
         'ryba/oozie/server'
-        # 'ryba/elasticsearch'
-        # 'ryba/rexster'
+        'ryba/elasticsearch'
+        'ryba/rexster'
         'ryba/kafka/broker'
         'ryba/hue'
         # 'ryba/xasecure/hive'
@@ -197,6 +198,9 @@ module.exports =
         'ryba/zookeeper/client'
         'ryba/hadoop/hdfs_client'
         'ryba/hadoop/yarn_client'
+        'ryba/hadoop/mapred_client'
+        'ryba/tez'
+        'ryba/spark/client'
         'ryba/hbase/client'
         'ryba/phoenix/client'
         'ryba/tools/pig'
@@ -271,6 +275,7 @@ module.exports =
         'ryba/tools/flume'
         'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
+        # 'ryba/presto'
         'ryba/ganglia/monitor'
       ]
       ryba:
