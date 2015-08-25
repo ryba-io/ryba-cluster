@@ -15,7 +15,9 @@ module.exports = 'servers':
       '/data/2/kafka'
     ]
   'master2.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
+    'hdfs': 'site':
+      'dfs.replication': 2
+      'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
     'yarn':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
@@ -23,14 +25,9 @@ module.exports = 'servers':
         'yarn.scheduler.minimum-allocation-vcores': 1
         'yarn.scheduler.maximum-allocation-vcores': 3
       'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
-    'kafka': 'broker': 'log.dirs': [
-      '/data/1/kafka'
-      '/data/2/kafka'
-    ]
-  'master3.ryba': 'ryba':
     'mapred': 'site':
-      'yarn.app.mapreduce.am.resource.mb': 512
-      'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
+      'yarn.app.mapreduce.am.resource.mb': 256
+      'yarn.app.mapreduce.am.command-opts': '-Xmx204m'
       'mapreduce.map.memory.mb': '512'
       'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
@@ -38,6 +35,30 @@ module.exports = 'servers':
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
+    'tez': 'site':
+      'tez.am.resource.memory.mb': 256
+      'tez.task.resource.memory.mb': '512'
+      'tez.runtime.io.sort.mb': '204'
+    'kafka': 'broker': 'log.dirs': [
+      '/data/1/kafka'
+      '/data/2/kafka'
+    ]
+  'master3.ryba': 'ryba':
+    'hdfs': 'site': 'dfs.replication': 2
+    'mapred': 'site':
+      'yarn.app.mapreduce.am.resource.mb': 256
+      'yarn.app.mapreduce.am.command-opts': '-Xmx204m'
+      'mapreduce.map.memory.mb': '512'
+      'mapreduce.reduce.memory.mb': '1024'
+      'mapreduce.map.java.opts': '-Xmx409m'
+      'mapreduce.reduce.java.opts': '-Xmx819m'
+      'mapreduce.task.io.sort.mb': '204'
+      'mapreduce.map.cpu.vcores': 1
+      'mapreduce.reduce.cpu.vcores': 1
+    'tez': 'site':
+      'tez.am.resource.memory.mb': 256
+      'tez.task.resource.memory.mb': '512'
+      'tez.runtime.io.sort.mb': '204'
     'hive': 'site':
       'hive.tez.container.size': '512'
       'hive.tez.java.opts': '-Xmx409m'
@@ -46,9 +67,10 @@ module.exports = 'servers':
       '/data/2/kafka'
     ]
   'front1.ryba': 'ryba':
+    'hdfs': 'site': 'dfs.replication': 2
     'mapred': 'site':
-      'yarn.app.mapreduce.am.resource.mb': 512
-      'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
+      'yarn.app.mapreduce.am.resource.mb': 256
+      'yarn.app.mapreduce.am.command-opts': '-Xmx204m'
       'mapreduce.map.memory.mb': '512'
       'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
@@ -56,14 +78,20 @@ module.exports = 'servers':
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
+    'tez': 'site':
+      'tez.am.resource.memory.mb': 256
+      'tez.task.resource.memory.mb': '512'
+      'tez.runtime.io.sort.mb': '204'
     'hive': 'site':
       'hive.tez.container.size': '512'
       'hive.tez.java.opts': '-Xmx409m'
   'worker1.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.datanode.data.dir': [
-      '/data/1/hdfs/data'
-      '/data/2/hdfs/data'
-    ]
+    'hdfs': 'site':
+      'dfs.replication': 2
+      'dfs.datanode.data.dir': [
+        '/data/1/hdfs/data'
+        '/data/2/hdfs/data'
+      ]
     'yarn': 'site':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
@@ -78,8 +106,8 @@ module.exports = 'servers':
         '/data/2/yarn/log'
       ]
     'mapred': 'site':
-      'yarn.app.mapreduce.am.resource.mb': 512
-      'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
+      'yarn.app.mapreduce.am.resource.mb': 256
+      'yarn.app.mapreduce.am.command-opts': '-Xmx204m'
       'mapreduce.map.memory.mb': '512'
       'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
@@ -89,10 +117,12 @@ module.exports = 'servers':
       'mapreduce.reduce.cpu.vcores': 1
     'hbase': 'regionserver_opts': '-Xmx128m'
   'worker2.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.datanode.data.dir': [
-      '/data/1/hdfs/data'
-      '/data/2/hdfs/data'
-    ]
+    'hdfs': 'site':
+      'dfs.replication': 2
+      'dfs.datanode.data.dir': [
+        '/data/1/hdfs/data'
+        '/data/2/hdfs/data'
+      ]
     'yarn': 'site':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
@@ -107,8 +137,8 @@ module.exports = 'servers':
         '/data/2/yarn/log'
       ]
     'mapred': 'site':
-      'yarn.app.mapreduce.am.resource.mb': 512
-      'yarn.app.mapreduce.am.command-opts': '-Xmx409m'
+      'yarn.app.mapreduce.am.resource.mb': 256
+      'yarn.app.mapreduce.am.command-opts': '-Xmx204m'
       'mapreduce.map.memory.mb': '512'
       'mapreduce.reduce.memory.mb': '1024'
       'mapreduce.map.java.opts': '-Xmx409m'
