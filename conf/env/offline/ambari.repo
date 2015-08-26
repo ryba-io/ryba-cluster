@@ -1,7 +1,9 @@
-[Updates-ambari-2.0.0]
-name=ambari-2.0.0 - Updates
-baseurl=http://10.10.10.101:10302/ambari/centos6/2.x/updates/2.0.0
+#VERSION_NUMBER=2.1.0-1470
+
+[Updates-ambari-2.1.0]
+name=ambari-2.1.0 - Updates
+baseurl=http://10.10.10.1:8080/repo_ambari-2.1.0/ambari/centos6/2.x/updates/2.1.0
 gpgcheck=0
-gpgkey=http://10.10.10.101:10302/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
+gpgkey=http://10.10.10.1:8080/repo_ambari-2.1.0/ambari/centos6/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
 enabled=1
 priority=1

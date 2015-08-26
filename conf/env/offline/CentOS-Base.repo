@@ -1,32 +1,32 @@
 
 [base]
 name=CentOS-$releasever - Base
-baseurl=http://10.10.10.101:10180/centos/$releasever/os/$basearch/
+baseurl=http://10.10.10.1:8080/repo_centos/centos/$releasever/os/$basearch/
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 [updates]
 name=CentOS-$releasever - Updates
-baseurl=http://10.10.10.101:10180/centos/$releasever/updates/$basearch/
+baseurl=http://10.10.10.1:8080/repo_centos/centos/$releasever/updates/$basearch/
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 [extras]
 name=CentOS-$releasever - Extras
-baseurl=http://10.10.10.101:10180/centos/$releasever/extras/$basearch/
+baseurl=http://10.10.10.1:8080/repo_centos/centos/$releasever/extras/$basearch/
 gpgcheck=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 [centosplus]
 name=CentOS-$releasever - Plus
-baseurl=http://10.10.10.101:10180/centos/$releasever/centosplus/$basearch/
+baseurl=http://10.10.10.1:8080/repo_centos/centos/$releasever/centosplus/$basearch/
 gpgcheck=0
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
 
 [contrib]
 name=CentOS-$releasever - Contrib
-baseurl=http://10.10.10.101:10180/centos/$releasever/contrib/$basearch/
+baseurl=http://10.10.10.1:8080/repo_centos/centos/$releasever/contrib/$basearch/
 gpgcheck=0
 enabled=0
 gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-6
