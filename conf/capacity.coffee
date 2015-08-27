@@ -2,7 +2,9 @@
 
 module.exports = 'servers':
   'master1.ryba': 'ryba':
-    'hdfs': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
+    'hdfs': 'site':
+      'dfs.replication': 2
+      'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
     'yarn':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
