@@ -93,6 +93,7 @@ module.exports =
     ]
     config:
       'domain/hadoop':
+        'debug_level': '1'
         'cache_credentials' : 'True'
         'ldap_search_base' : 'ou=users,dc=ryba'
         'ldap_group_search_base' : 'ou=groups,dc=ryba'
@@ -106,6 +107,7 @@ module.exports =
         'ldap_default_authtok' : 'test'
         'ldap_id_use_start_tls' : 'True'
       'domain/users':
+        'debug_level': '1'
         'cache_credentials' : 'True'
         'ldap_search_base' : 'ou=users,dc=ryba'
         'ldap_group_search_base' : 'ou=groups,dc=ryba'
