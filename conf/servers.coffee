@@ -43,9 +43,6 @@ module.exports =
               kadmin_principal: 'wdavidw/admin@HADOOP.RYBA'
               kadmin_password: 'test'
               principals: [
-                principal: 'wdavidw@HADOOP.RYBA'
-                password: 'test'
-              ,
                 principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
                 password: 'test'
               ]
@@ -147,32 +144,14 @@ module.exports =
           libdefaults:
             default_realm: 'HADOOP.RYBA'
           realms:
-            # 'HADOOP.RYBA':
-            #   kadmin_principal: 'wdavidw/admin@HADOOP.RYBA'
-            #   kadmin_password: 'test'
-            #   principals: [
-            #     principal: 'wdavidw@HADOOP.RYBA'
-            #     password: 'test'
-            #   ,
-            #     principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
-            #     password: 'test'
-            #   ]
             'USERS.RYBA':
               kadmin_principal: 'wdavidw/admin@USERS.RYBA'
               kadmin_password: 'test'
               principals: [
-                principal: 'wdavidw@USERS.RYBA'
-                password: 'test'
-              ,
                 principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
                 password: 'test'
               ]
         kdc_conf:
-          # realms:
-          #   'HADOOP.RYBA':
-          #     kadmind_port: 4601
-          #   'USERS.RYBA':
-          #     kadmind_port: 4611
           dbmodules:
             'openldap_master3': 
               kdc_master_key: 'test'
