@@ -5,21 +5,18 @@ This project contain configuration files and scripts to control a cluster
 
 # Install Process
 
+## VMs
+
+You may use Vagrant to boostrap a cluster of virtual machines (VMs). Feel free to tweek
+the default Vagrant definition located in "./resources/Vagrantfile" with your own
+topology. The current definition set up a cluster of 6 VMs and require 16GB of memory.
+
 ## Ryba
 
-1. After git clone :
 ```
-cd path/to/ryba-cluster
+git clone https://github.com/ryba-io/ryba-ambari
+cd ryba-ambari
 npm install
-```
-
-NB: you can use npm link instead of locally install node modules.
-example, for masson
-
-```
-git clone https://github.com/wdavidw/node-masson
-cd node-masson
-npm link
 ```
 
 ## Virtual working environment with Vagrant (optional)
