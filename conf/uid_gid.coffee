@@ -28,6 +28,9 @@ module.exports =
     hdfs:
       group: gid: 2401
       user: uid: 2401, gid: 2401
+    httpfs:
+      group: gid: 2427
+      user: uid: 2427, gid: 2427
     yarn:
       group: gid: 2403
       user: uid: 2403, gid: 2403
