@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "description": "Ryba deployment example on a small cluster",
   "dependencies": {
-    "coffee-script": "1.9.1",
-    "masson": "0.1.0",
+    "coffee-script": "1.10.0",
+    "masson": "0.1.1",
     "ryba": "0.0.5",
-    "ryba-repos": "0.0.1"
+    "ryba-repos": "0.0.2"
   }
 }
