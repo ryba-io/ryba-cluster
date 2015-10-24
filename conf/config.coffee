@@ -137,7 +137,9 @@ module.exports =
     security: 'kerberos'
     realm: 'HADOOP.RYBA'
     nameservice: 'torval'
-    krb5_user: password: 'test123' # User used for testing
+    krb5_user: # User used for testing
+      password: 'test123'
+      password_sync: true
     ssl:
       'cacert': "#{__dirname}/certs/cacert.pem"
     #   'cert': "#{__dirname}/certs/hadoop_cert.pem"
@@ -173,7 +175,9 @@ module.exports =
     hadoop_heap: '512'
     hadoop_namenode_init_heap: '-Xms512m'
     hdfs:
-      krb5_user: password: 'hdfs123'
+      krb5_user:
+        password: 'hdfs123'
+        password_sync: true
       sysctl:
         'vm.swappiness': 0 # Default to 60
         'vm.overcommit_memory': 1 # Default to 0
