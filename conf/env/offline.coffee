@@ -12,7 +12,7 @@ module.exports =
   profile:
     'proxy.sh': "" # Created by Vagrant proxy plugin
   ntp:
-    servers: ['master1.ryba']
+    servers: ['master3.ryba']
     fudge: true
   network:
     ifcfg:
@@ -24,4 +24,3 @@ module.exports =
     hue_smtp_host: ''
   ryba:
     hdp_repo: false
-
