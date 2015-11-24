@@ -200,10 +200,6 @@ module.exports =
         'javax.jdo.option.ConnectionUserName': 'hive'
         'javax.jdo.option.ConnectionPassword': 'hive123'
         # 'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
-    oozie:
-      site:
-        'oozie.service.ProxyUserService.proxyuser.hue.hosts': '*'
-        'oozie.service.ProxyUserService.proxyuser.hue.groups': '*'
     hue:
       ini:
         desktop:
