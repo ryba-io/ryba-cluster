@@ -4,4 +4,4 @@
 # ./bin/upgrade -c data/config.coffee
 
 cd $(dirname "${BASH_SOURCE}")/..
-./node_modules/ryba/bin/upgrade -c ./conf -r ./resources/repos/hdp-2.2.4.2.local.repo $@
+./node_modules/ryba/bin/upgrade -c ./conf $@
