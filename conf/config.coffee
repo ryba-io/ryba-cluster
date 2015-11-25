@@ -2,6 +2,7 @@
 module.exports =
   mecano:
     cache_dir: "#{__dirname}/../resources/cache"
+    log_serializer: true
   security:
     selinux: false
     limits: {}
@@ -123,13 +124,14 @@ module.exports =
       'sssd':
         'domains' : 'hadoop,users'
   java: {}
-    # java_home: '/usr/bin/java' # OpenJDK, default
-    # java_home: '/usr/java/default' # Oracle JDK
-    # jdk:
-    #   version: '1.7.0_60'
-    #   location: "#{__dirname}/../resources/java/jdk-7u60-linux-x64.tar.gz"
-    # jce_local_policy: "#{__dirname}/../resources/java/jce_policy-7/local_policy.jar"
-    # jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
+  # java:
+  #   # java_home: '/usr/bin/java' # OpenJDK, default
+  #   java_home: '/usr/java/default' # Oracle JDK
+  #   jdk:
+  #     version: '1.7.0_60'
+  #     location: "#{__dirname}/../resources/java/jdk-7u60-linux-x64.tar.gz"
+  #   jce_local_policy: "#{__dirname}/../resources/java/jce_policy-7/local_policy.jar"
+  #   jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
   ryba:
     clean_logs: true
     force_check: false
@@ -151,6 +153,7 @@ module.exports =
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
+      'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
       'hadoop.proxyuser.flume.groups': '*'
       'hadoop.proxyuser.flume.hosts': '*'
       'hadoop.security.auth_to_local': """
@@ -168,6 +171,8 @@ module.exports =
             DEFAULT
 
       """
+    hadoop_metrics:
+      '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     hadoop_heap: '512'
     hadoop_namenode_init_heap: '-Xms512m'
     hdfs:
@@ -216,6 +221,8 @@ module.exports =
       regionserver_opts: '-Xmx512m'
       admin:
         password: 'hbase123'
+      metrics:
+        '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     nagios:
       users:
         nagiosadmin:

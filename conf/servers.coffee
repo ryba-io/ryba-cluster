@@ -49,7 +49,7 @@ module.exports =
               ]
         kdc_conf:
           dbmodules:
-            'openldap_master3': 
+            'openldap_master3':
               kdc_master_key: 'test'
     'master2.ryba':
       ip: '10.10.10.12'
