@@ -87,6 +87,9 @@ module.exports =
     spark:
       group: gid: 2426
       user: uid: 2426, gid: 2426
+    opentsdb:
+      group: gid: 2428
+      user: uid: 2428, gid: 2428
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
