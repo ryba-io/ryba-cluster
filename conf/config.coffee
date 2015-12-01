@@ -227,6 +227,7 @@ module.exports =
         password: 'hbase123'
       metrics:
         '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
+    kafka: broker: heapsize: 128
     nagios:
       users:
         nagiosadmin:
