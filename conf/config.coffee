@@ -176,7 +176,9 @@ module.exports =
     hadoop_heap: '512'
     hadoop_namenode_init_heap: '-Xms512m'
     hdfs:
-      user: limits: nproc: 16384
+      user: limits:
+        nproc: 16384
+        nofile: 16384
       krb5_user:
         password: 'hdfs123'
         password_sync: true
@@ -192,18 +194,24 @@ module.exports =
         name: 'zkfc'
         password: 'zkfc123'
     yarn:
-      user: limits: nproc: 16384
+      user: limits:
+        nproc: 16384
+        nofile: 16384
       opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
       site: {}
     capacity_scheduler:
       'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
     mapred:
-      user: limits: nproc: 16384
+      user: limits: 
+        nproc: 16384
+        nofile: 16384
       site:
         'mapreduce.job.counters.max': '10000'
         'mapreduce.job.counters.limit': '10000'
     hive:
-      user: limits: nproc: 16384
+      user: limits:
+        nproc: 16384
+        nofile: 16384
       site:
         'javax.jdo.option.ConnectionDriverName': 'com.mysql.jdbc.Driver'
         'javax.jdo.option.ConnectionUserName': 'hive'
