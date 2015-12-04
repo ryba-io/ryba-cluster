@@ -87,6 +87,9 @@ module.exports =
     spark:
       group: gid: 2426
       user: uid: 2426, gid: 2426
+    httpfs:
+      group: gid: 2427
+      user: uid: 2427, gid: 2427
     opentsdb:
       group: gid: 2428
       user: uid: 2428, gid: 2428
