@@ -154,24 +154,23 @@ module.exports =
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
-      'hadoop.proxyuser.flume.groups': '*'
-      'hadoop.proxyuser.flume.hosts': '*'
-      'hadoop.security.auth_to_local': """
-
-            RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
-            RULE:[2:$1@$0](ats@.*)s/.*/yarn/
-            RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
-            RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
-            RULE:[2:$1@$0](hm@.*)s/.*/hbase/
-            RULE:[2:$1@$0](rs@.*)s/.*/hbase/
-            RULE:[2:$1@$0](opentsdb@.*)s/.*/hbase/
-            RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
-            RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
-            RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
-            RULE:[2:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
-            DEFAULT
-
-      """
+      #'hadoop.proxyuser.flume.groups': '*'
+      #'hadoop.proxyuser.flume.hosts': '*'
+      # 'hadoop.security.auth_to_local': """
+      # 
+      #       RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
+      #       RULE:[2:$1@$0](ats@.*)s/.*/yarn/
+      #       RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
+      #       RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
+      #       RULE:[2:$1@$0](hm@.*)s/.*/hbase/
+      #       RULE:[2:$1@$0](rs@.*)s/.*/hbase/
+      #       RULE:[2:$1@$0](opentsdb@.*)s/.*/hbase/
+      #       RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+      #       RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+      #       RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+      #       RULE:[2:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+      #       DEFAULT
+      # """
     hadoop_metrics:
       '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     hadoop_heap: '512'
