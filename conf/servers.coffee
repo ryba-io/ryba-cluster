@@ -135,6 +135,7 @@ module.exports =
         'ryba/kafka/broker'
         'ryba/hue'
         # 'ryba/xasecure/hive'
+        'ryba/opentsdb'
         'ryba/ganglia/collector'
         'ryba/ganglia/monitor'
         'ryba/nagios'

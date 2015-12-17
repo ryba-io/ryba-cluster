@@ -164,6 +164,7 @@ module.exports =
             RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
             RULE:[2:$1@$0](hm@.*)s/.*/hbase/
             RULE:[2:$1@$0](rs@.*)s/.*/hbase/
+            RULE:[2:$1@$0](opentsdb@.*)s/.*/hbase/
             RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
             RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
             RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
@@ -236,6 +237,7 @@ module.exports =
       metrics:
         '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     kafka: broker: heapsize: 128
+    opentsdb: version: '2.2.0RC3'
     nagios:
       users:
         nagiosadmin:
