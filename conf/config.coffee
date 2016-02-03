@@ -235,7 +235,18 @@ module.exports =
         password: 'hbase123'
       metrics:
         '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
-    kafka: broker: heapsize: 128
+    kafka:
+      broker:
+        heapsize: 128
+        # protocols: [
+        #   'SASL_SSL'
+        #   'SASL_PLAINTEXT'
+        #   'PLAINTEXT'
+        #   'SSL'
+        # ]
+      admin:
+        principal: 'kafka'
+        password: 'kafka123'
     opentsdb: version: '2.2.0RC3'
     nagios:
       users:
