@@ -230,6 +230,9 @@ module.exports =
         client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
+      user: limits:
+        nproc: 16384
+        nofile: 16384
       regionserver_opts: '-Xmx512m'
       admin:
         password: 'hbase123'
