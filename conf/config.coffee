@@ -38,7 +38,7 @@ module.exports =
     'root':
       authorized_keys:  []
   yum:
-    packages: "tree": true, "git": true, "htop": true, "vim": true
+    packages: "tree": true, "git": true, "htop": true, "vim": true,  "bash-completion": true
   mysql:
     server:
       current_password: ''
