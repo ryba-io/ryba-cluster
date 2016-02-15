@@ -5,7 +5,7 @@ module.exports = 'servers':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
-    'yarn':
+    'yarn': 'rm':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
         'yarn.scheduler.maximum-allocation-mb': 1536
@@ -20,7 +20,7 @@ module.exports = 'servers':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
-    'yarn':
+    'yarn': 'rm':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
         'yarn.scheduler.maximum-allocation-mb': 1536
