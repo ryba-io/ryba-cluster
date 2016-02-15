@@ -4,4 +4,4 @@
 # ./bin/install -d -c data/config.coffee install -h hadoop1.cluster -m wand/hdp/hdfs_nn -f
 
 cd $(dirname "${BASH_SOURCE}")/..
-./node_modules/masson/bin/masson -c ./conf $@
+./node_modules/.bin/ryba -c ./conf $@
