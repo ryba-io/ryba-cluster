@@ -29,10 +29,17 @@ module.exports =
         'ryba/phoenix/master'
         'ryba/hbase/master'
         'ryba/kafka/broker'
+        #'ryba/mongodb/configsrv'
+        #'ryba/mongodb/shard'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
       ]
       ryba:
+        # designates a primary for the config servers replica set
+        mongo_config_replica_master: true
+        # designates a primary for the sharding servers replica set
+        mongo_shard_replica_master: true
+
         active_nn: true
         ssl:
           'cert': "#{__dirname}/certs/master1_cert.pem"
@@ -81,6 +88,8 @@ module.exports =
         'ryba/hive/hcatalog'
         'ryba/hive/server2'
         'ryba/kafka/broker'
+        #'ryba/mongodb/configsrv'
+        #'ryba/mongodb/router'
         # 'ryba/xasecure/hdfs'
         'ryba/ganglia/monitor'
       ]
@@ -139,8 +148,11 @@ module.exports =
         'ryba/ganglia/collector'
         'ryba/ganglia/monitor'
         'ryba/nagios'
+        #'ryba/mongodb/configsrv'
+        #'ryba/mongodb/router'
       ]
       ryba:
+        mongo_router_for_configsrv: 'configsrvRepSet1'
         ssl:
           'cert': "#{__dirname}/certs/master3_cert.pem"
           'key': "#{__dirname}/certs/master3_key.pem"
@@ -197,6 +209,7 @@ module.exports =
         'ryba/kafka/consumer'
         'ryba/kafka/producer'
         'ryba/ganglia/monitor'
+        #'ryba/mongodb/client'
       ]
       ryba:
         ssl:
@@ -228,6 +241,7 @@ module.exports =
         'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
         'ryba/ganglia/monitor'
+        #'ryba/mongodb/shard'
       ]
       ryba:
         rack: 1
@@ -259,6 +273,7 @@ module.exports =
         'ryba/flume'
         'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
+        #'ryba/mongodb/shard'
         # 'ryba/presto'
         'ryba/ganglia/monitor'
       ]
