@@ -240,7 +240,7 @@ module.exports =
       user: limits:
         nproc: 16384
         nofile: 16384
-      regionserver_opts: '-Xmx512m'
+      rs: opts: '-Xmx512m'
       admin:
         password: 'hbase123'
       metrics:
