@@ -153,7 +153,7 @@ module.exports =
             default_realm: 'HADOOP.RYBA'
           realms:
             'USERS.RYBA':
-              kadmin_principal: 'wdavidw/admin@USERS.RYBA'
+              kadmin_principal: 'users/admin@USERS.RYBA'
               kadmin_password: 'test'
               principals: [
                 principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
