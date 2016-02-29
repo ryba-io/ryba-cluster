@@ -65,6 +65,9 @@ module.exports =
     falcon:
       group: gid: 2421
       user: uid: 2421, gid: 2421
+    mongodb:
+      group: gid: 2429
+      user: uid: 2429, gid: 2429
     nagios:
       group: gid: 2418
       groupcmd: gid: 2419

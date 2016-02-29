@@ -40,7 +40,7 @@ module.exports =
     'root':
       authorized_keys:  []
   yum:
-    packages: "tree": true, "git": true, "htop": true, "vim": true
+    packages: "tree": true, "git": true, "htop": true, "vim": true,  "bash-completion": true
   mysql:
     server:
       current_password: ''
@@ -149,29 +149,36 @@ module.exports =
     #   'key': "#{__dirname}/certs/hadoop_key.pem"
     ambari:
       repo: "#{__dirname}/resources/repos/ambari-2.0.0.repo"
+    mongodb:
+      admin:
+        name: 'admin'
+        password: 'admin123'
+      root:
+        name: 'root_admin'
+        password: 'root123'
     ssh_fencing:
       private_key: "#{__dirname}/hdfs_keys/id_rsa"
       public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
     hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
     core_site:
       'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
-      'hadoop.proxyuser.flume.groups': '*'
-      'hadoop.proxyuser.flume.hosts': '*'
-      'hadoop.security.auth_to_local': """
-
-            RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
-            RULE:[2:$1@$0](ats@.*)s/.*/yarn/
-            RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
-            RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
-            RULE:[2:$1@$0](hm@.*)s/.*/hbase/
-            RULE:[2:$1@$0](rs@.*)s/.*/hbase/
-            RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
-            RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
-            RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
-            RULE:[2:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
-            DEFAULT
-
-      """
+      #'hadoop.proxyuser.flume.groups': '*'
+      #'hadoop.proxyuser.flume.hosts': '*'
+      # 'hadoop.security.auth_to_local': """
+      # 
+      #       RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
+      #       RULE:[2:$1@$0](ats@.*)s/.*/yarn/
+      #       RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
+      #       RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
+      #       RULE:[2:$1@$0](hm@.*)s/.*/hbase/
+      #       RULE:[2:$1@$0](rs@.*)s/.*/hbase/
+      #       RULE:[2:$1@$0](opentsdb@.*)s/.*/hbase/
+      #       RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+      #       RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+      #       RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+      #       RULE:[2:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+      #       DEFAULT
+      # """
     hadoop_metrics:
       '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     hadoop_heap: '512'
@@ -231,12 +238,27 @@ module.exports =
         client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
-      regionserver_opts: '-Xmx512m'
+      user: limits:
+        nproc: 16384
+        nofile: 16384
+      rs: opts: '-Xmx512m'
       admin:
         password: 'hbase123'
       metrics:
         '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
-    kafka: broker: heapsize: 128
+    kafka:
+      broker:
+        heapsize: 128
+        # protocols: [
+        #   'SASL_SSL'
+        #   'SASL_PLAINTEXT'
+        #   'PLAINTEXT'
+        #   'SSL'
+        # ]
+      admin:
+        principal: 'kafka'
+        password: 'kafka123'
+    opentsdb: version: '2.2.0RC3'
     nagios:
       users:
         nagiosadmin:
