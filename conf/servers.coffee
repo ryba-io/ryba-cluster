@@ -4,15 +4,17 @@ module.exports =
     'master1.ryba':
       ip: '10.10.10.11'
       modules: [
-        'masson/core/reload'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
+        'masson/commons/java'
         # Security
         'masson/core/security'
         'masson/core/iptables'
@@ -54,15 +56,17 @@ module.exports =
     'master2.ryba':
       ip: '10.10.10.12'
       modules: [
-        'masson/core/reload'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
+        'masson/commons/java'
         # Security
         'masson/core/security'
         'masson/core/iptables'
@@ -91,29 +95,29 @@ module.exports =
     'master3.ryba':
       ip: '10.10.10.13'
       modules: [
-        'masson/core/reload'
-        # Bind, Commons, OpenLDAP and KRB5
-        'masson/core/bind_server'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
+        # 'masson/core/bind_server'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
-        # Security
+        'masson/commons/java'
+        # # Security
         'masson/core/security'
         'masson/core/iptables'
         'masson/core/openldap_server'
-        'masson/core/openldap_server/install_tls'
-        'masson/core/openldap_server/install_acl'
         'masson/core/openldap_server/install_krb5'
         'masson/core/openldap_client'
         'masson/commons/phpldapadmin'
         'masson/core/krb5_server'
         'masson/core/sssd'
         'masson/commons/docker'
+        'masson/commons/httpd'
         # Hadoop
         'masson/commons/mysql_server'
         # 'ryba/xasecure/policymgr'
@@ -162,15 +166,20 @@ module.exports =
     'front1.ryba':
       ip: '10.10.10.14'
       modules: [
-        'masson/core/reload'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
+        'masson/core/locale'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
+        'masson/commons/java'
+        'masson/commons/maven'
+        'masson/commons/git'
         # Security
         'masson/core/security'
         'masson/core/iptables'
@@ -204,15 +213,17 @@ module.exports =
     'worker1.ryba':
       ip: '10.10.10.16'
       modules: [
-        'masson/core/reload'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
+        'masson/commons/java'
         # Security
         'masson/core/security'
         'masson/core/iptables'
@@ -236,15 +247,17 @@ module.exports =
     'worker2.ryba':
       ip: '10.10.10.17'
       modules: [
-        'masson/core/reload'
+        'masson/bootstrap/log'
+        'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
-        'masson/core/network_check'
+        # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
         'masson/core/ntp'
         'masson/core/proxy'
         'masson/core/yum'
+        'masson/commons/java'
         # Security
         'masson/core/security'
         'masson/core/iptables'
