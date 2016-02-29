@@ -70,6 +70,8 @@ module.exports =
         # Security
         'masson/core/security'
         'masson/core/iptables'
+        # 'masson/core/openldap_server'
+        # 'masson/core/openldap_server/install_krb5'
         'masson/core/krb5_client'
         'masson/core/sssd'
         # Hadoop
@@ -92,6 +94,9 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master2_cert.pem"
           'key': "#{__dirname}/certs/master2_key.pem"
+      openldap_server:
+        tls_cert_file: "#{__dirname}/certs/master2_cert.pem"
+        tls_key_file: "#{__dirname}/certs/master2_key.pem"
     'master3.ryba':
       ip: '10.10.10.13'
       modules: [
