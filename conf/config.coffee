@@ -256,9 +256,6 @@ module.exports =
         #   'PLAINTEXT'
         #   'SSL'
         # ]
-      admin:
-        principal: 'kafka'
-        password: 'kafka123'
     opentsdb: version: '2.2.0RC3'
     nagios:
       users:
