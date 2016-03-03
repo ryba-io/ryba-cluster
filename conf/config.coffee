@@ -5,6 +5,7 @@ module.exports =
     # cache: false
     cache_dir: "#{__dirname}/../resources/cache"
     log_serializer: true
+  log: archive: true
   security:
     selinux: false
     limits: {}
