@@ -41,8 +41,7 @@ module.exports =
         mongo_config_replica_master: true
         # designates a primary for the sharding servers replica set
         mongo_shard_replica_master: true
-
-        active_nn: true
+        # active_nn: true
         ssl:
           'cert': "#{__dirname}/certs/master1_cert.pem"
           'key': "#{__dirname}/certs/master1_key.pem"
