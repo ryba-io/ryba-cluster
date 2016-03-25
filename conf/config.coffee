@@ -41,12 +41,12 @@ module.exports =
     'root':
       authorized_keys:  []
   yum:
-    packages: "tree": true, "git": true, "htop": true, "vim": true,  "bash-completion": true
   mysql:
     server:
       current_password: ''
       password: 'test123'
       my_cnf: mysqld: innodb_file_per_table: '1'
+    packages: "telnet": true, "nc": true, "tree": true, "git": true, "htop": true, "vim": true,  "bash-completion": true
   openldap_server:
     suffix: 'dc=ryba'
     root_dn: 'cn=Manager,dc=ryba'
