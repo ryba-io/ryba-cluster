@@ -93,6 +93,9 @@ module.exports =
     nagvis:
       group: gid: 2430
       user: uid: 2430, gid: 2430
+    hawq:
+      group: gid: 2433
+      user: uid: 2433, gid: 2433
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
