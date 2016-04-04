@@ -93,6 +93,12 @@ module.exports =
     nagvis:
       group: gid: 2430
       user: uid: 2430, gid: 2430
+    nifi:
+      group: gid: 2431
+      user: uid: 2431, gid: 2431
+    solr:
+      group: gid: 2432
+      user: uid: 2432, gid: 2432
     hawq:
       group: gid: 2433
       user: uid: 2433, gid: 2433
