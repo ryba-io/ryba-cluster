@@ -7,6 +7,7 @@ module.exports =
         'masson/bootstrap/log'
         'masson/bootstrap/connection'
         # Commons
+        'masson/core/locale'
         'masson/core/network'
         # 'masson/core/network_check'
         'masson/core/users'
@@ -66,6 +67,7 @@ module.exports =
         'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
+        'masson/core/locale'
         # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
@@ -113,6 +115,7 @@ module.exports =
         # 'masson/core/bind_server'
         # Commons
         'masson/core/network'
+        'masson/core/locale'
         # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
@@ -187,6 +190,7 @@ module.exports =
         'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
+        'masson/core/locale'
         # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
@@ -270,6 +274,7 @@ module.exports =
         'masson/bootstrap/connection'
         # Commons
         'masson/core/network'
+        'masson/core/locale'
         # 'masson/core/network_check'
         'masson/core/users'
         'masson/core/ssh'
