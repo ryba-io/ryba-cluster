@@ -237,6 +237,15 @@ module.exports =
         certificate: "#{__dirname}/certs/master3_cert.pem"
         private_key: "#{__dirname}/certs/master3_key.pem"
         client_ca: "#{__dirname}/certs/cacert.pem"
+    hue_docker:
+      ini:
+        desktop:
+          smtp: host: ''
+          database:
+            engine: 'mysql'
+            password: 'hue123'
+      ssl:
+        client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
       user: limits:
@@ -271,3 +280,17 @@ module.exports =
         admins:
           alias: 'Nagios Administrators'
           members: ['nagiosadmin','guest']
+    nifi:
+      version: '0.6.0'
+      source: 'http://public-repo-1.hortonworks.com/HDF/centos6/1.x/updates/1.2.0.0/HDF-1.2.0.0-91.tar.gz'
+      manager:
+        config:
+          properties:
+            'nifi.security.user.login.identity.provider': 'kerberos-provider'
+          authorized_users: [
+            dn: 'nifi@HADOOP.RYBA'
+            roles: ['ROLE_ADMIN']
+          ,
+            dn: 'solr@HADOOP.RYBA'
+            roles: ['ROLE_ADMIN', 'ROLE_DFM', 'ROLE_NIFI']
+          ]
