@@ -102,6 +102,9 @@ module.exports =
     hawq:
       group: gid: 2433
       user: uid: 2433, gid: 2433
+    ranger:
+      group: gid: 2434
+      user: uid: 2434, gid: 2434
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
