@@ -281,8 +281,9 @@ module.exports =
           alias: 'Nagios Administrators'
           members: ['nagiosadmin','guest']
     nifi:
-      version: '0.6.0'
-      source: 'http://public-repo-1.hortonworks.com/HDF/centos6/1.x/updates/1.2.0.0/HDF-1.2.0.0-91.tar.gz'
+      version: '0.6.1'
+      source: 'http://apache.crihan.fr/dist/nifi/0.6.1/nifi-0.6.1-bin.tar.gz'
+      # source: 'http://public-repo-1.hortonworks.com/HDF/centos6/1.x/updates/1.2.0.0/HDF-1.2.0.0-91.tar.gz'
       manager:
         config:
           properties:
