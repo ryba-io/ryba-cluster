@@ -33,7 +33,7 @@ module.exports =
     ]
   ssh:
     banner:
-      destination: '/etc/banner'
+      target: '/etc/banner'
       content: "Welcome to Hadoop!"
     sshd_config:
       PermitRootLogin: 'without-password'
