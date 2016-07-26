@@ -258,7 +258,7 @@ module.exports =
         '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     kafka:
       broker:
-        heapsize: 128
+        heapsize: 256
         # protocols: [
         #   'SASL_SSL'
         #   'SASL_PLAINTEXT'
