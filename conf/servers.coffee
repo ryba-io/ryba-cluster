@@ -75,6 +75,8 @@ module.exports =
         'masson/core/proxy'
         'masson/core/yum'
         'masson/commons/java'
+        'masson/commons/docker'
+        'masson/commons/postgres_server_docker'
         # Security
         'masson/core/security'
         'masson/core/iptables'
