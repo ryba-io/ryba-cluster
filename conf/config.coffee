@@ -47,6 +47,10 @@ module.exports =
       current_password: ''
       password: 'test123'
       my_cnf: mysqld: innodb_file_per_table: '1'
+  postgres:
+    server:
+      password: 'test123'
+      user: 'root'
   openldap_server:
     suffix: 'dc=ryba'
     root_dn: 'cn=Manager,dc=ryba'
