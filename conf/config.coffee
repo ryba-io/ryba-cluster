@@ -226,8 +226,6 @@ module.exports =
         nproc: 16384
         nofile: 16384
       site:
-        'javax.jdo.option.ConnectionURL': 'jdbc:mysql://master3.ryba:3306/hive?createDatabaseIfNotExist=true'
-        'javax.jdo.option.ConnectionDriverName': 'com.mysql.jdbc.Driver'
         # 'javax.jdo.option.ConnectionURL': 'jdbc:postgresql://master2.ryba:5432/hive?createDatabaseIfNotExist=true'
         # 'javax.jdo.option.ConnectionDriverName': 'org.postgresql.Driver'
         'javax.jdo.option.ConnectionUserName': 'hive'
