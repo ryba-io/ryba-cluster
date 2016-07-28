@@ -3,7 +3,7 @@ module.exports =
   mecano:
     domain: true
     # cache: false
-    cache_dir: "#{__dirname}/../resources/cache"
+    cache_dir: "#{__dirname}/../cache"
     log_serializer: true
   log: archive: true
   security:
