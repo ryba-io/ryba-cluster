@@ -270,7 +270,6 @@ module.exports =
         #   'PLAINTEXT'
         #   'SSL'
         # ]
-    opentsdb: version: '2.2.0RC3'
     nagios:
       users:
         nagiosadmin:
