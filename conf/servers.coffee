@@ -137,7 +137,7 @@ module.exports =
         'masson/commons/docker'
         'masson/commons/httpd'
         # Hadoop
-        'masson/commons/mysql_server'
+        'masson/commons/mysql/server'
         # 'ryba/xasecure/policymgr'
         # 'ryba/xasecure/uxugsync'
         # 'ryba/ambari/server'
