@@ -105,6 +105,9 @@ module.exports =
     ranger:
       group: gid: 2434
       user: uid: 2434, gid: 2434
+    druid:
+      group: gid: 2435
+      user: uid: 2435, gid: 2435
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
