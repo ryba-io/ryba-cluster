@@ -32,6 +32,7 @@ module.exports =
         'ryba/phoenix/master'
         'ryba/hbase/master'
         'ryba/kafka/broker'
+        'ryba/druid/broker'
         #'ryba/mongodb/configsrv'
         #'ryba/mongodb/shard'
         # 'ryba/xasecure/hdfs'
@@ -46,6 +47,9 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master1_cert.pem"
           'key': "#{__dirname}/certs/master1_key.pem"
+        druid: broker: jvm:
+            xms: '128m'
+            xmx: '512m'
       krb5:
         etc_krb5_conf:
           realms:
@@ -97,6 +101,7 @@ module.exports =
         'ryba/hive/hcatalog'
         'ryba/hive/server2'
         'ryba/kafka/broker'
+        'ryba/druid/broker'
         #'ryba/mongodb/configsrv'
         #'ryba/mongodb/router'
         # 'ryba/xasecure/hdfs'
@@ -106,6 +111,9 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master2_cert.pem"
           'key': "#{__dirname}/certs/master2_key.pem"
+        druid: broker: jvm:
+            xms: '128m'
+            xmx: '512m'
       openldap_server:
         tls_cert_file: "#{__dirname}/certs/master2_cert.pem"
         tls_key_file: "#{__dirname}/certs/master2_key.pem"
@@ -156,6 +164,8 @@ module.exports =
         'ryba/titan'
         'ryba/rexster'
         'ryba/kafka/broker'
+        'ryba/druid/broker'
+        'ryba/druid/tranquility'
         'ryba/hue'
         # 'ryba/xasecure/hive'
         'ryba/opentsdb'
@@ -170,6 +180,9 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master3_cert.pem"
           'key': "#{__dirname}/certs/master3_key.pem"
+        druid: broker: jvm:
+            xms: '128m'
+            xmx: '512m'
       krb5:
         etc_krb5_conf:
           libdefaults:
@@ -263,6 +276,10 @@ module.exports =
         'ryba/flume'
         'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
+        'ryba/druid/coordinator'
+        'ryba/druid/overlord'
+        'ryba/druid/historical'
+        'ryba/druid/middlemanager'
         'ryba/ganglia/monitor'
         #'ryba/mongodb/shard'
       ]
@@ -299,6 +316,10 @@ module.exports =
         'ryba/flume'
         'ryba/phoenix/regionserver'
         'ryba/hbase/regionserver'
+        'ryba/druid/coordinator'
+        'ryba/druid/overlord'
+        'ryba/druid/historical'
+        'ryba/druid/middlemanager'
         #'ryba/mongodb/shard'
         # 'ryba/presto'
         'ryba/ganglia/monitor'
