@@ -130,14 +130,6 @@ module.exports =
         'ldap_id_use_start_tls' : 'False'
       'sssd':
         'domains' : 'hadoop,users'
-  java:
-    jce_local_policy: "#{__dirname}/../resources/java/jce_policy-7/local_policy.jar"
-    jce_us_export_policy: "#{__dirname}/../resources/java/jce_policy-7/US_export_policy.jar"
-    java_home: '/usr/java/default/'
-    jre_home: '/usr/java/default/jre'
-    jdk:
-      version: '1.7.0_79'
-      location: "http://download.oracle.com/otn-pub/java/jdk/7u79-b15/jdk-7u79-linux-x64.tar.gz"
   ryba:
     clean_logs: true
     force_check: false
