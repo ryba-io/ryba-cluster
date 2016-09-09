@@ -153,6 +153,7 @@ module.exports =
         'ryba/hbase/rest'
         'ryba/oozie/server'
         'ryba/elasticsearch'
+        'ryba/titan'
         'ryba/rexster'
         'ryba/kafka/broker'
         'ryba/hue'
