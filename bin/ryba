@@ -4,4 +4,11 @@
 # ./bin/install -d -c data/config.coffee install -h hadoop1.cluster -m wand/hdp/hdfs_nn -f
 
 cd $(dirname "${BASH_SOURCE}")/..
-./node_modules/.bin/ryba -c ./conf $@
+./node_modules/.bin/ryba \
+  -c ./conf/bootstrap.coffee \
+  -c ./conf/capacity.coffee \
+  -c ./conf/config.coffee \
+  -c ./conf/servers.coffee \
+  -c ./conf/uid_gid.coffee \
+  -c ./conf/users.coffee \
+  $@
