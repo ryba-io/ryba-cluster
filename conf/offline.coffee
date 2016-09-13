@@ -1,5 +1,5 @@
 
-module.exports =
+module.exports = config:
   proxy: null
   yum:
     epel: false
