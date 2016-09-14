@@ -108,6 +108,12 @@ module.exports =
     druid:
       group: gid: 2435
       user: uid: 2435, gid: 2435
+    smartsense:
+      group: gid: 2436
+      user: uid: 2436, gid: 2436
+    atlas:
+      group: gid: 2437
+      user: uid: 2437, gid: 2437
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
