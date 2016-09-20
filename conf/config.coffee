@@ -5,7 +5,9 @@ module.exports =
     # cache: false
     cache_dir: "#{__dirname}/../cache"
     log_serializer: true
-  log: archive: true
+  log:
+    archive: true
+    rotate: true
   security:
     selinux: false
     limits: {}
