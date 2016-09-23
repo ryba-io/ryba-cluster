@@ -16,10 +16,12 @@ Vagrant.configure("2") do |config|
   # http://cbednarski.com/articles/creating-vagrant-base-box-for-centos-62/
 
   config.vm.synced_folder ".", "/vagrant", disabled: true
+  config.ssh.insert_key = false
   # Virtualbox Configuration
   config.vm.provider :virtualbox do |vb|
     config.vbguest.no_remote = true
     config.vbguest.auto_update = false
+    
   end
   #config.vbguest.no_remote = true
   #config.vbguest.auto_update = false
