@@ -165,7 +165,7 @@ module.exports =
         'ryba/rexster'
         'ryba/kafka/broker'
         'ryba/druid/broker'
-        'ryba/druid/tranquility'
+        # 'ryba/druid/tranquility'
         'ryba/hue'
         # 'ryba/xasecure/hive'
         'ryba/opentsdb'
