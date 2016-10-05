@@ -7,6 +7,10 @@ box = "centos65-x86_64-50g"
 
 Vagrant.configure("2") do |config|
 
+  config.hostmanager.enabled = true
+  config.hostmanager.manage_host = true
+  config.hostmanager.ignore_private_ip = false
+  
   #config.yum_proxy.http     = ENV['VAGRANT_HTTP_PROXY'] || ""
   #config.yum_proxy.https     = ENV['VAGRANT_HTTPS_PROXY'] || ""
   #config.yum_proxy.no_proxy     = ENV['VAGRANT_HTTP_NO_PROXY'] || ""
