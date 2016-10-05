@@ -194,6 +194,7 @@ module.exports =
         'vm.overcommit_memory': 1 # Default to 0
         'vm.overcommit_ratio': 100 # Default to 50
         'net.core.somaxconn': 1024 # Default to 128
+        'net.ipv4.ip_local_port_range': '10000 65000' # Default is "1024 4999"
       site:
         'dfs.namenode.safemode.extension': 1000 # "1s", default to "30s"
     zkfc:
