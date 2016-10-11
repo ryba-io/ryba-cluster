@@ -294,3 +294,16 @@ module.exports =
             dn: 'solr@HADOOP.RYBA'
             roles: ['ROLE_ADMIN', 'ROLE_DFM', 'ROLE_NIFI']
           ]
+    druid:
+      broker: jvm:
+        xms: '128m'
+        xmx: '512m'
+      coordinator: jvm:
+        xms: '128m' # Default is 3g
+        xmx: '512m' # Default is 3g
+      historical: jvm:
+        xms: '128m' # Default is 8g
+        xmx: '512m' # Default is 8g
+      overlord: jvm:
+        xms: '128m' # Default is 3g
+        xmx: '512m' # Default is 3g

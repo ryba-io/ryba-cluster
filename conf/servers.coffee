@@ -47,9 +47,6 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master1_cert.pem"
           'key': "#{__dirname}/certs/master1_key.pem"
-        druid: broker: jvm:
-            xms: '128m'
-            xmx: '512m'
       krb5:
         etc_krb5_conf:
           realms:
@@ -111,9 +108,6 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master2_cert.pem"
           'key': "#{__dirname}/certs/master2_key.pem"
-        druid: broker: jvm:
-            xms: '128m'
-            xmx: '512m'
       openldap_server:
         tls_cert_file: "#{__dirname}/certs/master2_cert.pem"
         tls_key_file: "#{__dirname}/certs/master2_key.pem"
@@ -180,9 +174,6 @@ module.exports =
         ssl:
           'cert': "#{__dirname}/certs/master3_cert.pem"
           'key': "#{__dirname}/certs/master3_key.pem"
-        druid: broker: jvm:
-            xms: '128m'
-            xmx: '512m'
       krb5:
         etc_krb5_conf:
           libdefaults:
