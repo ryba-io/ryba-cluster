@@ -114,6 +114,18 @@ module.exports =
     atlas:
       group: gid: 2437
       user: uid: 2437, gid: 2437
+    zeppelin:
+      group: gid: 2438
+      user: uid: 2438, gid: 2438
+    livy:
+      group: gid: 2439
+      user: uid: 2439, gid: 2439
+    sqoop :
+      group: gid: 2440
+      user: uid: 2440, gid: 2440
+    dataiku :
+      group: gid: 2441
+      user: uid: 2441, gid: 2441
   xasecure:
     group: gid: 2417
     user: uid: 2417, gid: 2417
