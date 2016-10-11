@@ -1,7 +1,7 @@
 
 [HDP-2.5.0.0]
 name=HDP Version - HDP-2.5.0.0
-baseurl=http://10.10.10.1:8080/hdp-2.5.0.0/HDP/centos6/2.x/updates/2.5.0.0
+baseurl=http://10.10.10.1:8080/centos6/hdp-2.5.0.0/HDP/centos6/2.x/updates/2.5.0.0
 gpgcheck=0
 gpgkey=http://10.10.10.1:8080/HDP/centos6/2.x/updates/2.5.0.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
 enabled=1
@@ -9,7 +9,7 @@ priority=1
 
 [HDP-UTILS-1.1.0.21]
 name=HDP Utils Version - HDP-UTILS-1.1.0.21
-baseurl=http://10.10.10.1:8080/hdp-2.5.0.0/HDP-UTILS-1.1.0.21/repos/centos6
+baseurl=http://10.10.10.1:8080/centos6/hdp-2.5.0.0/HDP-UTILS-1.1.0.21/repos/centos6
 gpgcheck=0
 gpgkey=http://10.10.10.1:8080/HDP/centos6/2.x/updates/2.5.0.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
 enabled=1
