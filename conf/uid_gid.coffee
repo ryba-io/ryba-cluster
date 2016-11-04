@@ -4,6 +4,8 @@ module.exports =
     user: uid: 802, gid: 802
     group: gid: 802
   openldap_server:
+    user: uid: 803, gid: 803
+    group: gid: 803
     proxy_user:
       uidNumber: 801
       gidNumber: 801
@@ -22,12 +24,15 @@ module.exports =
     hadoop_group: gid: 2400
     group: gid: 2414
     user: uid: 2414, gid: 2414
+    zookeeper:
+      group: gid: 2402
+      user: uid: 2402, gid: 2402
     hdfs:
       group: gid: 2401
       user: uid: 2401, gid: 2401
-    zookeeper:
-      group: gid: 2402
-      user: uid: 2402, gid: 2400
+    httpfs:
+      group: gid: 2427
+      user: uid: 2427, gid: 2427
     yarn:
       group: gid: 2403
       user: uid: 2403, gid: 2403
@@ -81,18 +86,12 @@ module.exports =
     spark:
       group: gid: 2426
       user: uid: 2426, gid: 2426
-    httpfs:
-      group: gid: 2427
-      user: uid: 2427, gid: 2427
     opentsdb:
       group: gid: 2428
       user: uid: 2428, gid: 2428
     mongodb:
       group: gid: 2429
       user: uid: 2429, gid: 2429
-    nagvis:
-      group: gid: 2430
-      user: uid: 2430, gid: 2430
     nifi:
       group: gid: 2431
       user: uid: 2431, gid: 2431
@@ -117,15 +116,12 @@ module.exports =
     zeppelin:
       group: gid: 2438
       user: uid: 2438, gid: 2438
-    livy:
-      group: gid: 2439
-      user: uid: 2439, gid: 2439
+    # livy:
+    #   group: gid: 2439
+    #   user: uid: 2439, gid: 2439
     sqoop :
       group: gid: 2440
       user: uid: 2440, gid: 2440
     dataiku :
       group: gid: 2441
       user: uid: 2441, gid: 2441
-  xasecure:
-    group: gid: 2417
-    user: uid: 2417, gid: 2417
