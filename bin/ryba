@@ -11,5 +11,7 @@ fi
 
 ./node_modules/.bin/ryba \
   -c ./conf/cluster.coffee \
+  -c ./conf/uid_gid.coffee \
+  -c ./conf/capacity.coffee \
   -c ./conf/user.coffee \
   $@

@@ -1,7 +1,7 @@
 # node node_modules/ryba/bin/capacity -c ./conf -o ./conf/capacity.coffee -w -p /data/1,/data/2
 
-module.exports = 'servers':
-  'master1.ryba': 'ryba':
+module.exports = nodes:
+  'master1.ryba': config: 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
@@ -16,7 +16,7 @@ module.exports = 'servers':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'master2.ryba': 'ryba':
+  'master2.ryba': config: 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
@@ -45,7 +45,7 @@ module.exports = 'servers':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'master3.ryba': 'ryba':
+  'master3.ryba': config: 'ryba':
     'hdfs': 'site': 'dfs.replication': 2
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 256
@@ -68,7 +68,7 @@ module.exports = 'servers':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'front1.ryba': 'ryba':
+  'front1.ryba': config: 'ryba':
     'hdfs': 'site': 'dfs.replication': 2
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 256
@@ -87,7 +87,7 @@ module.exports = 'servers':
     'hive': 'site':
       'hive.tez.container.size': '512'
       'hive.tez.java.opts': '-Xmx409m'
-  'worker1.ryba': 'ryba':
+  'worker1.ryba': config: 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.datanode.data.dir': [
@@ -118,7 +118,7 @@ module.exports = 'servers':
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
     'hbase': 'regionserver_opts': '-Xmx128m'
-  'worker2.ryba': 'ryba':
+  'worker2.ryba': config: 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.datanode.data.dir': [
