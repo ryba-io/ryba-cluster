@@ -47,7 +47,7 @@ module.exports =
     limits: {}
     users:
       'root':
-        authorized_keys:  []
+        authorized_keys: []
   network:
     hosts_auto: true
     hosts:
@@ -254,12 +254,13 @@ module.exports =
       user: limits:
         nproc: 16384
         nofile: 16384
-      site:
-        # 'javax.jdo.option.ConnectionURL': 'jdbc:postgresql://master2.ryba:5432/hive?createDatabaseIfNotExist=true'
-        # 'javax.jdo.option.ConnectionDriverName': 'org.postgresql.Driver'
-        'javax.jdo.option.ConnectionUserName': 'hive'
-        'javax.jdo.option.ConnectionPassword': 'hive123'
-        # 'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
+      # hcatalog:
+      #   db:
+      #     database ?= 'hive'
+      #     username ?= 'hive'
+      #     password ?= 'hive123'
+      #   site: 
+      #     'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
     hue:
       ini:
         desktop:
