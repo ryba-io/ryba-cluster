@@ -24,6 +24,9 @@ module.exports =
     hadoop_group: gid: 2400
     group: gid: 2414
     user: uid: 2414, gid: 2414
+    ambari:
+      group: gid: 2408
+      user: uid: 2408, gid: 2408
     zookeeper:
       group: gid: 2402
       user: uid: 2402, gid: 2402
@@ -58,9 +61,8 @@ module.exports =
       group: gid: 2411
       user: uid: 2411, gid: 2411
     sqoop:
+      group: gid: 2412
       user: uid: 2412, gid: 2400
-    pig:
-      user: uid: 2413, gid: 2400
     nagios:
       group: gid: 2418
       groupcmd: gid: 2419
@@ -116,12 +118,9 @@ module.exports =
     zeppelin:
       group: gid: 2438
       user: uid: 2438, gid: 2438
-    # livy:
-    #   group: gid: 2439
-    #   user: uid: 2439, gid: 2439
-    sqoop :
-      group: gid: 2440
-      user: uid: 2440, gid: 2440
+    livy:
+      group: gid: 2439
+      user: uid: 2439, gid: 2439
     dataiku :
       group: gid: 2441
       user: uid: 2441, gid: 2441
