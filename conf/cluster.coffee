@@ -107,8 +107,8 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/hive/hcatalog':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
-    # 'ryba/hive/server2':
-    #   constraints: nodes: ['master2.ryba', 'master3.ryba']
+    'ryba/hive/server2':
+      constraints: nodes: ['master2.ryba', 'master3.ryba']
     # 'ryba/hive/webhcat':
     #   constraints: nodes: ['master3.ryba']
     # 'ryba/hive/client':
@@ -125,6 +125,11 @@ module.exports =
       constraints: tags: 'role': 'worker'
     'ryba/elasticsearch':
       constraints: tags: 'role': 'worker'
+    # 'ryba/spark/client':
+    #   constraints: tags: 'role': 'client'
+      
+    # 'ryba/zeppelin':
+    #   constraints: tags: 'role': 'client'
   nodes:
     'front1.ryba':
       tags:
