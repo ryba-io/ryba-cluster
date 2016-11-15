@@ -35,4 +35,4 @@ module.exports =
     bootstrap:
       username: 'vagrant'
       # password: 'vagrant'
-      private_key_path: "/Users/wdavidw/.vagrant.d/insecure_private_key"
+      private_key_path: "~/.vagrant.d/insecure_private_key"
