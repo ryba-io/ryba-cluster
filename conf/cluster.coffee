@@ -60,6 +60,8 @@ module.exports =
       constraints: tags: 'role': 'master'
     'ryba/zookeeper/client':
       constraints: tags: 'role': 'client'
+    # 'ryba/ranger/admin':
+    #   constraints: nodes: ['master3.ryba']
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config:
@@ -109,10 +111,22 @@ module.exports =
       constraints: nodes: ['master2.ryba', 'master3.ryba']
     'ryba/hive/server2':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
-    # 'ryba/hive/webhcat':
-    #   constraints: nodes: ['master3.ryba']
-    # 'ryba/hive/client':
-    #   constraints: tags: 'role': 'client'
+    'ryba/hive/webhcat':
+      constraints: nodes: ['master3.ryba']
+    'ryba/hive/client':
+      constraints: tags: 'role': 'client'
+    'ryba/hive/beeline':
+      constraints: tags: 'role': 'client'
+    'ryba/oozie/server':
+      constraints: nodes: ['master3.ryba']
+    'ryba/oozie/client':
+      constraints: tags: 'role': 'client'
+    'ryba/kafka/broker':
+      constraints: tags: 'role': 'master'
+    'ryba/kafka/consumer':
+      constraints: tags: 'role': 'client'
+    'ryba/kafka/producer':
+      constraints: tags: 'role': 'client'
     'ryba/druid/broker':
       constraints: tags: 'role': 'master'
     'ryba/druid/coordinator':
@@ -123,8 +137,14 @@ module.exports =
       constraints: tags: 'role': 'worker'
     'ryba/druid/middlemanager':
       constraints: tags: 'role': 'worker'
-    'ryba/elasticsearch':
-      constraints: tags: 'role': 'worker'
+    # 'ryba/elasticsearch':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/solr/cloud_docker':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/huedocker':
+    #   constraints: tags: 'role': 'client'
+    # 'ryba/knox':
+    #   constraints: tags: 'role': 'client'
     # 'ryba/spark/client':
     #   constraints: tags: 'role': 'client'
       
