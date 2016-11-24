@@ -1,5 +1,5 @@
 
-module.exports =
+module.exports = config:
   bind_server:
     user: uid: 802, gid: 802
     group: gid: 802
@@ -121,9 +121,3 @@ module.exports =
     livy:
       group: gid: 2439
       user: uid: 2439, gid: 2439
-    sqoop:
-      group: gid: 2440
-      user: uid: 2440, gid: 2440
-    dataiku:
-      group: gid: 2441
-      user: uid: 2441, gid: 2441
