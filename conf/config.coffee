@@ -198,7 +198,7 @@ module.exports =
       #'hadoop.proxyuser.flume.groups': '*'
       #'hadoop.proxyuser.flume.hosts': '*'
       # 'hadoop.security.auth_to_local': """
-      # 
+      #
       #       RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
       #       RULE:[2:$1@$0](ats@.*)s/.*/yarn/
       #       RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
@@ -244,7 +244,7 @@ module.exports =
     capacity_scheduler:
       'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
     mapred:
-      user: limits: 
+      user: limits:
         nproc: 16384
         nofile: 16384
       site:
@@ -259,7 +259,7 @@ module.exports =
       #     database ?= 'hive'
       #     username ?= 'hive'
       #     password ?= 'hive123'
-      #   site: 
+      #   site:
       #     'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
     hue:
       ini:
