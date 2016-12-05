@@ -55,6 +55,8 @@ module.exports =
     'masson/core/krb5_client': {}
     'masson/commons/postgres/server':
       constraints: nodes: ['master3.ryba']
+    'masson/commons/mysql/server':
+      constraints: nodes: ['master1.ryba']
     # 'ryba/hdp': {}
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
@@ -66,6 +68,8 @@ module.exports =
       constraints: tags: 'role': ['client', 'master', 'worker']
       config:
         realm: 'HADOOP.RYBA'
+    'ryba/hadoop/kms':
+      constraints: nodes: ['master3.ryba']
     'ryba/hadoop/hdfs_dn':
       constraints: tags: 'role': 'worker'
     'ryba/hadoop/hdfs_jn':
@@ -103,6 +107,8 @@ module.exports =
       constraints: nodes: ['master3.ryba']
     'ryba/hbase/thrift':
       constraints: nodes: ['master3.ryba']
+    'ryba/hbase/client':
+      constraints: nodes: 'role': 'client'
     'ryba/pig':
       constraints: tags: 'role': 'client'
     'ryba/sqoop':
@@ -110,7 +116,7 @@ module.exports =
     'ryba/hive/hcatalog':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
     'ryba/hive/server2':
-      constraints: nodes: ['master2.ryba', 'master3.ryba']
+      constraints: nodes: ['master1.ryba', 'master2.ryba']
     'ryba/hive/webhcat':
       constraints: nodes: ['master3.ryba']
     'ryba/hive/client':
@@ -137,17 +143,30 @@ module.exports =
       constraints: tags: 'role': 'worker'
     'ryba/druid/middlemanager':
       constraints: tags: 'role': 'worker'
-    # 'ryba/elasticsearch':
-    #   constraints: tags: 'role': 'worker'
     # 'ryba/solr/cloud_docker':
     #   constraints: tags: 'role': 'worker'
     # 'ryba/huedocker':
     #   constraints: tags: 'role': 'client'
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
+    # Nifi
+    # 'ryba/nifi/manager':
+    #   constraints: tags: 'role': 'master'
+    # 'ryba/nifi/node':
+    #   constraints: tags: 'role': 'worker'
+    # MongoDB
+    # 'ryba/mongodb/configsrv':
+    #   constraints: tags: 'role': 'master'
+    # 'ryba/mongodb/router':
+    #   constraints: nodes: ['master2.ryba', 'master3.ryba']
+    #   # config:
+    #   #   mongo_router_for_configsrv: 'configsrvRepSet1'
+    # 'ryba/mongodb/shard':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/elasticsearch':
+    #   constraints: tags: 'role': 'worker'
     # 'ryba/spark/client':
     #   constraints: tags: 'role': 'client'
-      
     # 'ryba/zeppelin':
     #   constraints: tags: 'role': 'client'
   nodes:
