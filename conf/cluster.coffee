@@ -133,6 +133,7 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/kafka/producer':
       constraints: tags: 'role': 'client'
+    # Druid
     'ryba/druid/broker':
       constraints: tags: 'role': 'master'
     'ryba/druid/coordinator':
@@ -143,10 +144,15 @@ module.exports =
       constraints: tags: 'role': 'worker'
     'ryba/druid/middlemanager':
       constraints: tags: 'role': 'worker'
+    # ElasticSearch
+    # 'ryba/elasticsearch':
+    #   constraints: tags: 'role': 'worker'
     # 'ryba/solr/cloud_docker':
     #   constraints: tags: 'role': 'worker'
+    # Hue
     # 'ryba/huedocker':
     #   constraints: tags: 'role': 'client'
+    # Knox
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
     # Nifi
