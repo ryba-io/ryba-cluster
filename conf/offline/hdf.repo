@@ -1,0 +1,7 @@
+#VERSION_NUMBER=2.0.1.0-12
+[HDF-2.0.1.0]
+name=HDF Version - HDF-2.0.1.0
+baseurl=http://10.10.10.101/hdf-2.0.1.0/centos$releasever
+gpgcheck=0
+enabled=1
+priority=1
