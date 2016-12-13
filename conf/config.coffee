@@ -45,9 +45,9 @@ module.exports =
   system:
     selinux: false
     limits: {}
-    users:
-      'root':
-        authorized_keys: []
+    users: {}
+      # 'root': 
+      #   authorized_keys: []
   network:
     hosts_auto: true
     hosts:
