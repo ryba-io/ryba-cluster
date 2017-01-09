@@ -70,12 +70,12 @@ module.exports =
       "#{__dirname}/zones/ryba"
       "#{__dirname}/zones/10.10.10.in-addr.arpa"
     ]
-  ssh:
-    banner:
-      target: '/etc/banner'
-      content: "Welcome to Hadoop!"
-    sshd_config:
-      PermitRootLogin: 'without-password'
+  # ssh:
+  #   banner:
+  #     target: '/etc/banner'
+  #     content: "Welcome to Hadoop!"
+  #   sshd_config:
+  #     PermitRootLogin: 'without-password'
   yum:
     packages: 'tree': true, 'git': true, 'htop': true, 'vim': true, 'bash-completion': true
   mysql:
