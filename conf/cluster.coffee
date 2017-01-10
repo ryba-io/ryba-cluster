@@ -134,16 +134,16 @@ module.exports =
     'ryba/kafka/producer':
       constraints: tags: 'role': 'client'
     # Druid
-    'ryba/druid/broker':
-      constraints: tags: 'role': 'master'
-    'ryba/druid/coordinator':
-      constraints: tags: 'role': 'worker'
-    'ryba/druid/overlord':
-      constraints: tags: 'role': 'worker'
-    'ryba/druid/historical':
-      constraints: tags: 'role': 'worker'
-    'ryba/druid/middlemanager':
-      constraints: tags: 'role': 'worker'
+    # 'ryba/druid/broker':
+    #   constraints: tags: 'role': 'master'
+    # 'ryba/druid/coordinator':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/druid/overlord':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/druid/historical':
+    #   constraints: tags: 'role': 'worker'
+    # 'ryba/druid/middlemanager':
+    #   constraints: tags: 'role': 'worker'
     # ElasticSearch
     # 'ryba/elasticsearch':
     #   constraints: tags: 'role': 'worker'
@@ -174,15 +174,6 @@ module.exports =
     # 'ryba/zeppelin':
     #   constraints: tags: 'role': 'client'
   nodes:
-    'front1.ryba':
-      tags:
-        'environment': 'prod'
-        'role': 'client'
-      config:
-        ip: '10.10.10.14'
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/front1_cert.pem"
-          'key': "#{__dirname}/certs/front1_key.pem"
     'master1.ryba':
       tags:
         'environment': 'prod'
@@ -210,6 +201,15 @@ module.exports =
         ryba: ssl:
           'cert': "#{__dirname}/certs/master3_cert.pem"
           'key': "#{__dirname}/certs/master3_key.pem"
+    'front1.ryba':
+      tags:
+        'environment': 'prod'
+        'role': 'client'
+      config:
+        ip: '10.10.10.14'
+        ryba: ssl:
+          'cert': "#{__dirname}/certs/front1_cert.pem"
+          'key': "#{__dirname}/certs/front1_key.pem"
     'worker1.ryba':
       tags:
         'environment': 'prod'

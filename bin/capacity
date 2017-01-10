@@ -4,4 +4,14 @@
 # ./bin/install -d -c data/config.coffee install -h hadoop1.cluster -m wand/hdp/hdfs_nn -f
 
 cd $(dirname "${BASH_SOURCE}")/..
-./node_modules/ryba/bin/capacity -c ./conf $@
+
+if [ ! -f conf/user.coffee ]; then
+  echo > conf/user.coffee
+fi
+
+./node_modules/ryba/bin/capacity \
+  -c ./conf/cluster.coffee \
+  -c ./conf/uid_gid.coffee \
+  -c ./conf/capacity.coffee \
+  -c ./conf/user.coffee \
+  $@
