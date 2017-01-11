@@ -124,3 +124,6 @@ module.exports = config:
     cloudera:
       group: gid: 2440
       user: uid: 2440, gid: 2440
+    phoenix:
+      group: gid: 2441
+      user: uid: 2441, gid: 2441
