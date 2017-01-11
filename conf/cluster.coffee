@@ -113,6 +113,8 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/phoenix/queryserver':
       constraints: nodes: ['master3.ryba']
+    'ryba/opentsdb':
+      constraints: nodes: ['master3.ryba']
     'ryba/pig':
       constraints: tags: 'role': 'client'
     'ryba/sqoop':
