@@ -14,6 +14,8 @@ module.exports =
       constraints: tags: 'environment': 'prod'
     'masson/core/network':
       constraints: tags: 'environment': 'prod'
+    'masson/core/cgroups':
+      constraints: tags: 'role': 'worker'
     'masson/core/openldap_server':
       constraints: nodes: ['master3.ryba']
     'masson/core/krb5_server':
