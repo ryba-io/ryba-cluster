@@ -2,9 +2,9 @@
 
 module.exports = nodes:
   'master1.ryba': config: 'ryba':
-    'hdfs': 'site':
-      'dfs.replication': 2
-      'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
+    'hdfs':
+      'nn': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/nn' ]
+      'site': 'dfs.replication': 2
     'yarn': 'rm':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
@@ -17,9 +17,9 @@ module.exports = nodes:
       '/data/2/kafka'
     ]
   'master2.ryba': config: 'ryba':
-    'hdfs': 'site':
-      'dfs.replication': 2
-      'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
+    'hdfs':
+      'nn': 'site': 'dfs.namenode.name.dir': [ '/var/hdfs/nn' ]
+      'site': 'dfs.replication': 2
     'yarn': 'rm':
       'site':
         'yarn.scheduler.minimum-allocation-mb': 512
@@ -117,7 +117,12 @@ module.exports = nodes:
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'hbase': 'regionserver_opts': '-Xmx128m'
+    'hbase': 'rs': 'heapsize': '128m'
+    'nifi': 'config': 'properties':
+      'nifi.content.repository.directory.cr1': '/data/1/nifi/content_repository'
+      'nifi.content.repository.directory.cr2': '/data/2/nifi/content_repository'
+      'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
+      'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
   'worker2.ryba': config: 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
@@ -148,7 +153,12 @@ module.exports = nodes:
       'mapreduce.task.io.sort.mb': '204'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'hbase': 'regionserver_opts': '-Xmx128m'
+    'hbase': 'rs': 'heapsize': '128m'
+    'nifi': 'config': 'properties':
+      'nifi.content.repository.directory.cr1': '/data/1/nifi/content_repository'
+      'nifi.content.repository.directory.cr2': '/data/2/nifi/content_repository'
+      'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
+      'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
 
 # master1.ryba
 #   Number of core: 2
