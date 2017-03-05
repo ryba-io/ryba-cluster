@@ -4,7 +4,7 @@
   "description": "Ryba deployment example on a small cluster",
   "dependencies": {
     "coffee-script": "~1.10.0",
-    "mecano": "git+https://github.com/adaltas/node-mecano.git#master",
+    "nikita": "git+https://github.com/adaltas/node-nikita.git#master",
     "masson": "git+https://github.com/adaltas/node-masson.git#master",
     "ryba": "git+https://github.com/ryba-io/ryba.git#master",
     "ryba-repos": "~0.0.2"

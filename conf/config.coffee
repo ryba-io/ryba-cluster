@@ -34,7 +34,7 @@ module.exports =
     root:
       username: 'vagrant'
       private_key_path: "/Users/wdavidw/.vagrant.d/insecure_private_key"
-  mecano:
+  nikita:
     domain: true
     # cache: false
     cache_dir: "#{__dirname}/../cache"
