@@ -286,7 +286,6 @@ module.exports =
       user: limits:
         nproc: 16384
         nofile: 16384
-      rs: opts: '-Xmx512m'
       admin:
         password: 'hbase123'
       metrics:
