@@ -77,7 +77,7 @@ module.exports =
   #   sshd_config:
   #     PermitRootLogin: 'without-password'
   yum:
-    packages: 'tree': true, 'git': true, 'htop': true, 'vim': true, 'bash-completion': true
+    packages: 'tree': true, 'git': true, 'htop': true, 'vim': true, 'bash-completion': true, 'unzip': true
   mysql:
     server:
       current_password: ''
