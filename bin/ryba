@@ -9,7 +9,7 @@ if [ ! -f conf/user.coffee ]; then
   echo > conf/user.coffee
 fi
 
-./node_modules/.bin/ryba \
+./node_modules/ryba/bin/ryba \
   -c ./conf/cluster.coffee \
   -c ./conf/uid_gid.coffee \
   -c ./conf/capacity.coffee \
