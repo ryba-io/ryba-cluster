@@ -1,5 +1,5 @@
 #!/bin/bash
 
 #Get path of the script parent directory
-cd $( dirname "${BASH_SOURCE}" )/../resources
+cd $( dirname "${BASH_SOURCE}" )/../conf
 vagrant $@ 

@@ -3,4 +3,4 @@
 
 ## Trunk
 
-* Feel me
+* vagrant: move VagrantFile to conf
