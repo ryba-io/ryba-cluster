@@ -99,11 +99,14 @@ module.exports =
     ldapadd: []
     tls: true
     tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
+    tls_ca_cert_local: true
     tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
+    tls_cert_local: true
     tls_key_file: "#{__dirname}/certs/master3_key.pem"
+    tls_key_local: true
   openldap_client:
     certificates: [ # Same as "sssd.certificates"
-      "#{__dirname}/certs/master3_cert.pem"
+      name: "#{__dirname}/certs/master3_cert.pem", local: true
     ]
     config: {}
   openldap_server_krb5:
