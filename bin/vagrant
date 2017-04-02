@@ -1,5 +1,16 @@
 #!/bin/bash
 
-#Get path of the script parent directory
+# Get path of the script parent directory
 cd $( dirname "${BASH_SOURCE}" )/../conf
+
+# Copy the most appriopriate Vagrantfile based on available memory
+if [ ! -f Vagrantfile ]; then
+  if [ `node -e "Math.floor(os.totalmem() / 1024 / 1024 / 1024)" -p` -gt 16 ]; then
+    cp -p Vagrantfile.32GB Vagrantfile
+  else
+    cp -p Vagrantfile.16GB Vagrantfile
+  fi
+fi
+
+# Run Vagrant
 vagrant $@ 

@@ -2,5 +2,6 @@
 /log/*
 /node_modules
 /conf/user*
+/conf/Vagrantfile
 /cache/*
 !.gitignore
