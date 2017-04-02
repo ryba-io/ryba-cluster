@@ -36,9 +36,9 @@ module.exports =
       private_key_path: "/Users/wdavidw/.vagrant.d/insecure_private_key"
   nikita:
     domain: true
-    # cache: false
     cache_dir: "#{__dirname}/../cache"
     log_serializer: true
+    debug: false
   log:
     archive: true
     rotate: true
