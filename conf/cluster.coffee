@@ -47,7 +47,7 @@ module.exports =
       config: 
         openldap_client:
           certificates: [
-            source: "#{__dirname}/certs/master3_cert.pem", local: true
+            source: "#{__dirname}/certs/cacert.pem", local: true
           ]
           config: {}
     'masson/core/krb5_server':
