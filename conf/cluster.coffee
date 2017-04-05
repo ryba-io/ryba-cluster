@@ -18,11 +18,53 @@ module.exports =
       constraints: tags: 'role': 'worker'
     'masson/core/openldap_server':
       constraints: nodes: ['master3.ryba']
+      config:
+        openldap_server:
+          suffix: 'dc=ryba'
+          root_dn: 'cn=Manager,dc=ryba'
+          root_password: 'test'
+          config_dn: 'cn=admin,cn=config'
+          config_password: 'test'
+          users_dn: 'ou=users,dc=ryba'
+          groups_dn: 'ou=groups,dc=ryba'
+          ldapdelete: []
+          ldapadd: []
+          tls: true
+          tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
+          tls_ca_cert_local: true
+          tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
+          tls_cert_local: true
+          tls_key_file: "#{__dirname}/certs/master3_key.pem"
+          tls_key_local: true
+        openldap_server_krb5:
+          root_dn: 'cn=ldapadm,dc=ryba'
+          root_password: 'test'
+          krbadmin_user:
+            mail: 'david@adaltas.com'
+            userPassword: 'test'
+    'masson/core/openldap_client':
+      constraints: nodes: ['master3.ryba'] tags: 'environment': 'prod'
+      config: 
+        openldap_client:
+          certificates: [
+            source: "#{__dirname}/certs/master3_cert.pem", local: true
+          ]
+          config: {}
     'masson/core/krb5_server':
       constraints: nodes: ['master1.ryba']
       config:
         krb5:
           etc_krb5_conf:
+            libdefaults:
+              default_realm: 'HADOOP.RYBA'
+            # realms:
+            #   'HADOOP.RYBA':
+            #     default_domain: 'ryba'
+            #   'USERS.RYBA':
+            #     default_domain: 'ryba'
+            domain_realm:
+              # '.ryba': 'HADOOP.RYBA'
+              'ryba': 'HADOOP.RYBA'
             realms:
               'HADOOP.RYBA':
                 kadmin_principal: 'wdavidw/admin@HADOOP.RYBA'
@@ -32,6 +74,7 @@ module.exports =
                   password: 'test'
                 ]
           kdc_conf:
+            realms: {}
             dbmodules:
               'openldap_master3':
                 kdc_master_key: 'test'

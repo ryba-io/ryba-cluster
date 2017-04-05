@@ -65,11 +65,6 @@ module.exports =
     rules: [
       # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
     ]
-  bind_server:
-    zones: [
-      "#{__dirname}/zones/ryba"
-      "#{__dirname}/zones/10.10.10.in-addr.arpa"
-    ]
   # ssh:
   #   banner:
   #     target: '/etc/banner'
@@ -87,51 +82,6 @@ module.exports =
     server:
       password: 'test123'
       user: 'root'
-  openldap_server:
-    suffix: 'dc=ryba'
-    root_dn: 'cn=Manager,dc=ryba'
-    root_password: 'test'
-    config_dn: 'cn=admin,cn=config'
-    config_password: 'test'
-    users_dn: 'ou=users,dc=ryba'
-    groups_dn: 'ou=groups,dc=ryba'
-    ldapdelete: []
-    ldapadd: []
-    tls: true
-    tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
-    tls_ca_cert_local: true
-    tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
-    tls_cert_local: true
-    tls_key_file: "#{__dirname}/certs/master3_key.pem"
-    tls_key_local: true
-  openldap_client:
-    certificates: [ # Same as "sssd.certificates"
-      name: "#{__dirname}/certs/master3_cert.pem", local: true
-    ]
-    config: {}
-  openldap_server_krb5:
-    manager_dn: 'cn=Manager,dc=ryba' # Manager must have write access to "kerberos_dn"
-    manager_password: 'test'
-    # kerberos_dn: 'ou=kerberos,dc=ryba'
-    # groups_dn: 'cn=krbadmin,ou=groups,dc=ryba'
-    # users_dn: 'cn=krbadmin,ou=users,dc=ryba'
-    krbadmin_user:
-      mail: 'david@adaltas.com'
-      userPassword: 'test' #test
-  krb5:
-    etc_krb5_conf:
-      libdefaults:
-        default_realm: 'HADOOP.RYBA'
-      # realms:
-      #   'HADOOP.RYBA':
-      #     default_domain: 'ryba'
-      #   'USERS.RYBA':
-      #     default_domain: 'ryba'
-      domain_realm:
-        # '.ryba': 'HADOOP.RYBA'
-        'ryba': 'HADOOP.RYBA'
-    kdc_conf:
-      realms: {}
   sssd:
     # test_user: 'ryba'
     force_check: false
