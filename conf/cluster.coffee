@@ -21,7 +21,7 @@ module.exports =
       config:
         openldap_server:
           suffix: 'dc=ryba'
-          root_dn: 'cn=Manager,dc=ryba'
+          root_dn: 'cn=ldapadm,dc=ryba'
           root_password: 'test'
           config_dn: 'cn=admin,cn=config'
           config_password: 'test'
