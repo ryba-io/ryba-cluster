@@ -43,7 +43,7 @@ module.exports =
             mail: 'david@adaltas.com'
             userPassword: 'test'
     'masson/core/openldap_client':
-      constraints: nodes: ['master3.ryba'] tags: 'environment': 'prod'
+      constraints: nodes: ['master3.ryba']
       config: 
         openldap_client:
           certificates: [
