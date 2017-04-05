@@ -98,6 +98,8 @@ module.exports =
     #           'openldap_master3':
     #             kdc_master_key: 'test'
     'masson/core/krb5_client': {}
+    'masson/commons/httpd':
+      constraints: nodes: ['master3.ryba']
     'masson/commons/postgres/server':
       constraints: nodes: ['master3.ryba']
     'masson/commons/mysql/server':
@@ -143,7 +145,7 @@ module.exports =
     'ryba/hadoop/zkfc':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
     'ryba/tez':
-      constraints: tags: 'role': 'client'
+      constraints: nodes: ['front1.ryba', 'master3.ryba']
     'ryba/hbase/master':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
     'ryba/hbase/regionserver':
