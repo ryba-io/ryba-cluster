@@ -32,16 +32,6 @@ Vagrant.configure("2") do |config|
   end
   #config.vbguest.no_remote = true
   #config.vbguest.auto_update = false
-  # Libvirt Configuration
-  config.vm.provider :libvirt do |libvirt|
-    # Don't forget to create your storage pool
-    libvirt.storage_pool_name="ryba-cluster"
-    libvirt.uri="qemu:///system"
-    # NOT WORKING BUT SHOULD: libvirt.graphics_type= 'none' 
-    # if ARGV[0] == "up"
-    #  config.vm.provision "shell", path: "setswap.sh"
-    # end
-  end
   config.vm.define :master1 do |node|
     node.vm.box = box
     node.vm.hostname = "master1.ryba"
@@ -50,10 +40,6 @@ Vagrant.configure("2") do |config|
     node.vm.provider "virtualbox" do |d|
       d.name = node.vm.hostname
       d.memory = 1280
-    end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 1536
-      d.graphics_port = 5911
     end
   end
   config.vm.define :master2 do |node|
@@ -65,10 +51,6 @@ Vagrant.configure("2") do |config|
       d.name = node.vm.hostname
       d.memory = 1280
     end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 1536
-      d.graphics_port = 5912
-    end
   end
   config.vm.define :master3 do |node|
     node.vm.box = box
@@ -78,10 +60,6 @@ Vagrant.configure("2") do |config|
     node.vm.provider "virtualbox" do |d|
       d.name = node.vm.hostname
       d.memory = 1792
-    end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 2048
-      d.graphics_port = 5913
     end
   end
   config.vm.define :front1 do |node|
@@ -93,10 +71,6 @@ Vagrant.configure("2") do |config|
       d.name = node.vm.hostname
       d.memory = 512
     end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 512
-      d.graphics_port = 5914
-    end
   end
   config.vm.define :worker1 do |node|
     node.vm.box = box
@@ -106,13 +80,8 @@ Vagrant.configure("2") do |config|
     node.vm.provider "virtualbox" do |d|
       d.name = node.vm.hostname
       d.customize ["modifyvm", :id, "--memory", 1792]
-      d.customize ["modifyvm", :id, "--cpus", 3]
+      d.customize ["modifyvm", :id, "--cpus", 2]
       d.customize ["modifyvm", :id, "--ioapic", "on"]
-    end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 2048
-      d.cpus = 2
-      d.graphics_port = 5916
     end
   end
   config.vm.define :worker2 do |node|
@@ -123,13 +92,8 @@ Vagrant.configure("2") do |config|
     node.vm.provider "virtualbox" do |d|
       d.name = node.vm.hostname
       d.customize ["modifyvm", :id, "--memory", 1792]
-      d.customize ["modifyvm", :id, "--cpus", 3]
+      d.customize ["modifyvm", :id, "--cpus", 2]
       d.customize ["modifyvm", :id, "--ioapic", "on"]
-    end
-    node.vm.provider "libvirt" do |d|
-      d.memory = 2048
-      d.cpus = 2
-      d.graphics_port = 5917
     end
   end
 end

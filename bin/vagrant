@@ -5,9 +5,15 @@ cd $( dirname "${BASH_SOURCE}" )/../conf
 
 # Copy the most appriopriate Vagrantfile based on available memory
 if [ ! -f Vagrantfile ]; then
-  if [ `node -e "Math.floor(os.totalmem() / 1024 / 1024 / 1024)" -p` -gt 16 ]; then
+  mem=`node -e "Math.floor(os.totalmem() / 1024 / 1024 / 1024)" -p`
+  if [ $mem -gt 24 ]; then
     cp -p Vagrantfile.32GB Vagrantfile
+  elif [ $mem -gt 16 ]; then
+    cp -p Vagrantfile.24GB Vagrantfile
   else
+    if [ $mem -le 14 ]; then 
+      echo 'WARNING: weak amount of memory: >15GB expected' >&2
+    fi
     cp -p Vagrantfile.16GB Vagrantfile
   fi
 fi
