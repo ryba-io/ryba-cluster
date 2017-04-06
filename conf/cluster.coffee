@@ -102,6 +102,8 @@ module.exports =
       constraints: nodes: ['master3.ryba']
     'masson/commons/postgres/server':
       constraints: nodes: ['master3.ryba']
+    'masson/commons/mysql/client':
+      constraints: tags: 'environment': 'prod'
     'masson/commons/mysql/server':
       constraints: nodes: ['master1.ryba']
     # 'ryba/hdp': {}
