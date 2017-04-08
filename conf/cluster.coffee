@@ -57,13 +57,11 @@ module.exports =
           etc_krb5_conf:
             libdefaults:
               default_realm: 'HADOOP.RYBA'
-            # realms:
-            #   'HADOOP.RYBA':
-            #     default_domain: 'ryba'
-            #   'USERS.RYBA':
-            #     default_domain: 'ryba'
+            realms:
+              'HADOOP.RYBA': {}
+              'USERS.RYBA': {}
             domain_realm:
-              # '.ryba': 'HADOOP.RYBA'
+              '.ryba': 'HADOOP.RYBA'
               'ryba': 'HADOOP.RYBA'
             realms:
               'HADOOP.RYBA':
@@ -78,25 +76,6 @@ module.exports =
             dbmodules:
               'openldap_master3':
                 kdc_master_key: 'test'
-    # 'krb5_server_clients':
-    #   module: 'masson/core/krb5_server'
-    #   constraints:
-    #     nodes: ['master3.ryba']
-    #   config:
-    #     krb5:
-    #       etc_krb5_conf:
-    #         realms:
-    #           'USERS.RYBA':
-    #             kadmin_principal: 'users/admin@USERS.RYBA'
-    #             kadmin_password: 'test'
-    #             principals: [
-    #               principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
-    #               password: 'test'
-    #             ]
-    #       kdc_conf:
-    #         dbmodules:
-    #           'openldap_master3':
-    #             kdc_master_key: 'test'
     'masson/core/krb5_client': {}
     'masson/commons/httpd':
       constraints: nodes: ['master3.ryba']
@@ -186,6 +165,7 @@ module.exports =
       constraints: nodes: ['master3.ryba']
     'ryba/oozie/client':
       constraints: tags: 'role': 'client'
+    # Kafka
     'ryba/kafka/broker':
       constraints: tags: 'role': 'master'
     'ryba/kafka/consumer':
