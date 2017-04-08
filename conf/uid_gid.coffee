@@ -24,7 +24,7 @@ module.exports = config:
     hadoop_group: gid: 2400
     group: gid: 2414
     user: uid: 2414, gid: 2414
-    ambari:
+    ambari_server:
       group: gid: 2408
       user: uid: 2408, gid: 2408
     zookeeper:

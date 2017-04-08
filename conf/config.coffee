@@ -73,11 +73,6 @@ module.exports =
   #     PermitRootLogin: 'without-password'
   yum:
     packages: 'tree': true, 'git': true, 'htop': true, 'vim': true, 'bash-completion': true, 'unzip': true
-  mysql:
-    server:
-      current_password: ''
-      password: 'test123'
-      my_cnf: mysqld: innodb_file_per_table: '1'
   postgres:
     server:
       password: 'test123'
