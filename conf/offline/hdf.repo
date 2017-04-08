@@ -1,15 +1,14 @@
-#VERSION_NUMBER=2.0.1.0-12
-[HDF-2.0.1.0]
-name=HDF Version - HDF-2.0.1.0
-baseurl=http://10.10.10.1:8080/centos6/hdf-2.0.1.0/HDF/centos6/2.x/updates/2.0.1.0
+[HDF-2.1.2.0]
+name=HDF Version - HDF-2.1.2.0
+baseurl=http://10.10.10.1:5680/centos7/hdf-2.1.2.0/HDF/centos7/2.x/updates/2.1.2.0
 gpgcheck=0
+gpgkey=http://public-repo-1.hortonworks.com/HDF/centos7/2.x/updates/2.1.2.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
 enabled=1
 priority=1
-
-
 [HDP-UTILS-1.1.0.21]
 name=HDP-UTILS Version - HDP-UTILS-1.1.0.21
-baseurl=http://10.10.10.1:8080/centos6/hdf-2.0.1.0/HDP-UTILS-1.1.0.21/repos/centos6
+baseurl=http://10.10.10.1:5680/centos7/hdf-2.1.2.0/HDP-UTILS-1.1.0.21/repos/centos7
 gpgcheck=0
+gpgkey=http://public-repo-1.hortonworks.com/HDF/centos7/2.x/updates/2.1.2.0/RPM-GPG-KEY/RPM-GPG-KEY-Jenkins
 enabled=1
 priority=1
