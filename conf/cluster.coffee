@@ -188,6 +188,17 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/kafka/producer':
       constraints: tags: 'role': 'client'
+    # Ambari
+    'ryba/ambari/server':
+      constraints: nodes: ['master3.ryba']
+      config: ryba: ambari_server:
+        repo: false
+        cluster_name: 'cluster_01'
+        db:
+          engine: 'mysql'
+          password: 'ambari123'
+    'ryba/ambari/agent':
+      constraints: tags: 'role': 'client'
     # Druid
     # 'ryba/druid/broker':
     #   constraints: tags: 'role': 'master'
