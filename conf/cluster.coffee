@@ -188,16 +188,16 @@ module.exports =
     'ryba/ambari/agent':
       constraints: tags: 'role': 'client'
     # Druid
-    # 'ryba/druid/broker':
-    #   constraints: tags: 'role': 'master'
-    # 'ryba/druid/coordinator':
-    #   constraints: tags: 'role': 'worker'
-    # 'ryba/druid/overlord':
-    #   constraints: tags: 'role': 'worker'
-    # 'ryba/druid/historical':
-    #   constraints: tags: 'role': 'worker'
-    # 'ryba/druid/middlemanager':
-    #   constraints: tags: 'role': 'worker'
+    'ryba/druid/broker':
+      constraints: tags: 'role': 'master'
+    'ryba/druid/coordinator':
+      constraints: tags: 'role': 'worker'
+    'ryba/druid/overlord':
+      constraints: tags: 'role': 'worker'
+    'ryba/druid/historical':
+      constraints: tags: 'role': 'worker'
+    'ryba/druid/middlemanager':
+      constraints: tags: 'role': 'worker'
     # ElasticSearch
     # 'ryba/elasticsearch':
     #   constraints: tags: 'role': 'worker'
