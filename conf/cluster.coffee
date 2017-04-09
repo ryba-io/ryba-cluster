@@ -87,8 +87,12 @@ module.exports =
       constraints: nodes: ['master1.ryba']
       config: mysql: server:
         current_password: ''
-        password: 'test123'
-        my_cnf: mysqld: innodb_file_per_table: '1'
+        my_conf: {}
+        password: 'MySQL123-'
+    # 'masson/commons/mysql/server.5.7':
+    #   constraints: nodes: ['worker2.ryba']
+    #   config: mysql: server:
+    #     password: 'MySQL123-'
     # 'ryba/hdp': {}
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
