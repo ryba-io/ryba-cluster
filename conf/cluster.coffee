@@ -149,8 +149,8 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/phoenix/queryserver':
       constraints: nodes: ['master3.ryba']
-    'ryba/opentsdb':
-      constraints: nodes: ['master3.ryba']
+    # 'ryba/opentsdb':
+    #   constraints: nodes: ['master3.ryba']
     'ryba/pig':
       constraints: tags: 'role': 'client'
     'ryba/sqoop':
@@ -210,8 +210,8 @@ module.exports =
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
     # Nifi
-    'ryba/nifi':
-      constraints: tags: 'role': 'worker'
+    # 'ryba/nifi':
+    #   constraints: tags: 'role': 'worker'
     # MongoDB
     # 'ryba/mongodb/configsrv':
     #   constraints: tags: 'role': 'master'
