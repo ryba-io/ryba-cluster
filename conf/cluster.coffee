@@ -17,7 +17,7 @@ module.exports =
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
     'masson/core/openldap_server':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master3.ryba', 'master2.ryba']
       config:
         openldap_server:
           suffix: 'dc=ryba'
@@ -43,13 +43,13 @@ module.exports =
             mail: 'david@adaltas.com'
             userPassword: 'test'
     'masson/core/openldap_client':
-      constraints: nodes: ['master3.ryba']
       config: 
         openldap_client:
           certificates: [
             source: "#{__dirname}/certs/cacert.pem", local: true
           ]
           config: {}
+      constraints: nodes: ['master3.ryba', 'master2.ryba']
     'masson/core/krb5_server':
       constraints: nodes: ['master1.ryba']
       config:
