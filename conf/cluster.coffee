@@ -32,50 +32,47 @@ module.exports =
           tls: true
           tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
           tls_ca_cert_local: true
-          tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
           tls_cert_local: true
-          tls_key_file: "#{__dirname}/certs/master3_key.pem"
           tls_key_local: true
         openldap_server_krb5:
-          root_dn: 'cn=ldapadm,dc=ryba'
-          root_password: 'test'
           krbadmin_user:
             mail: 'david@adaltas.com'
             userPassword: 'test'
     'masson/core/openldap_client':
-      config: 
-        openldap_client:
-          certificates: [
-            source: "#{__dirname}/certs/cacert.pem", local: true
-          ]
-          config: {}
       constraints: nodes: ['master3.ryba', 'master2.ryba']
+      config:  openldap_client:
+        certificates: [
+          source: "#{__dirname}/certs/cacert.pem", local: true
+        ]
+        config: {}
     'masson/core/krb5_server':
       constraints: nodes: ['master1.ryba']
-      config:
-        krb5:
-          etc_krb5_conf:
-            libdefaults:
-              default_realm: 'HADOOP.RYBA'
-            realms:
-              'HADOOP.RYBA': {}
-              'USERS.RYBA': {}
-            domain_realm:
-              '.ryba': 'HADOOP.RYBA'
-              'ryba': 'HADOOP.RYBA'
-            realms:
-              'HADOOP.RYBA':
-                kadmin_principal: 'wdavidw/admin@HADOOP.RYBA'
-                kadmin_password: 'test'
-                principals: [
-                  principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
-                  password: 'test'
-                ]
-          kdc_conf:
-            realms: {}
-            dbmodules:
-              'openldap_master3':
-                kdc_master_key: 'test'
+      config: krb5:
+        # database_module: 'openldap_master3'
+        etc_krb5_conf:
+          libdefaults:
+            default_realm: 'HADOOP.RYBA'
+          realms:
+            'HADOOP.RYBA': {}
+            'USERS.RYBA': {}
+          domain_realm:
+            '.ryba': 'HADOOP.RYBA'
+            'ryba': 'HADOOP.RYBA'
+          realms:
+            'HADOOP.RYBA':
+              kadmin_principal: 'wdavidw/admin@HADOOP.RYBA'
+              kadmin_password: 'test'
+              principals: [
+                principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
+                password: 'test'
+              ]
+        kdc_conf:
+          realms:
+            'HADOOP.RYBA':
+              database_module: 'masson_default'
+          dbmodules:
+            'masson_default':
+              kdc_master_key: 'test'
     'masson/core/krb5_client': {}
     'masson/commons/httpd':
       constraints: nodes: ['master3.ryba']
