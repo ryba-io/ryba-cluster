@@ -179,6 +179,7 @@ module.exports =
       config: ryba: ambari_server:
         repo: false
         cluster_name: 'cluster_01'
+        admin_password: 'admin123'
         db:
           engine: 'mysql'
           password: 'ambari123'
