@@ -240,6 +240,9 @@ module.exports =
         'role': 'master'
       config:
         ip: '10.10.10.12'
+        openldap_server:
+          tls_cert_file: "#{__dirname}/certs/master2_cert.pem"
+          tls_key_file: "#{__dirname}/certs/master2_key.pem"
         ryba: ssl:
           'cert': "#{__dirname}/certs/master2_cert.pem"
           'key': "#{__dirname}/certs/master2_key.pem"
@@ -249,6 +252,9 @@ module.exports =
         'role': 'master'
       config:
         ip: '10.10.10.13'
+        openldap_server:
+          tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
+          tls_key_file: "#{__dirname}/certs/master3_key.pem"
         ryba: ssl:
           'cert': "#{__dirname}/certs/master3_cert.pem"
           'key': "#{__dirname}/certs/master3_key.pem"
