@@ -12,6 +12,8 @@ module.exports =
       constraints: tags: 'environment': 'prod'
     'masson/core/ntp':
       constraints: tags: 'environment': 'prod'
+      config: ntp:
+        servers: ['master3.ryba']
     'masson/core/network':
       constraints: tags: 'environment': 'prod'
     'masson/core/cgroups':
@@ -84,8 +86,8 @@ module.exports =
       constraints: nodes: ['master1.ryba']
       config: mysql: server:
         current_password: ''
-        my_conf: {}
         password: 'MySQL123-'
+        my_conf: {}
     # 'masson/commons/mysql/server.5.7':
     #   constraints: nodes: ['worker2.ryba']
     #   config: mysql: server:
