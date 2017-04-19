@@ -78,8 +78,8 @@ module.exports =
     'masson/core/krb5_client': {}
     'masson/commons/httpd':
       constraints: nodes: ['master3.ryba']
-    'masson/commons/postgres/server':
-      constraints: nodes: ['master3.ryba']
+    # 'masson/commons/postgres/server':
+    #   constraints: nodes: ['master3.ryba']
     'masson/commons/mysql/client':
       constraints: tags: 'environment': 'prod'
     'masson/commons/mysql/server':
