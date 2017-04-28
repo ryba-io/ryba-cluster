@@ -3,6 +3,8 @@
 
 ## Trunk
 
+* readme: re-formulate and add urls
+* vagrant: remove comments
 * uid: ams, infra-solr, hcat
 * druid: move config into cluster
 * ambari: password and master key
