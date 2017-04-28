@@ -3,6 +3,8 @@
 
 ## Trunk
 
+* config: declare worker3
+* yum: install netstat through net-tools
 * postgresql: desactivated until docker wait is fixed
 * ntp: synchronize againt master3 clock
 * openldap: activate ha

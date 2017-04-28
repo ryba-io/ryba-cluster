@@ -288,3 +288,12 @@ module.exports =
         ryba: ssl:
           'cert': "#{__dirname}/certs/worker2_cert.pem"
           'key': "#{__dirname}/certs/worker2_key.pem"
+    'worker3.ryba':
+      tags:
+        'environment': 'prod'
+        'role': 'worker'
+      config:
+        ip: '10.10.10.18'
+        ryba: ssl:
+          'cert': "#{__dirname}/certs/worker3_cert.pem"
+          'key': "#{__dirname}/certs/worker3_key.pem"
