@@ -127,3 +127,30 @@ module.exports = config:
     phoenix:
       group: gid: 2441
       user: uid: 2441, gid: 2441
+    mysql:
+      group: gid: 2445
+      user: uid: 2445, gid: 2445
+    postgres:
+      group: gid: 2446
+      user: uid: 2446, gid: 2446
+    tez:
+      group: gid: 2447
+      user: uid: 2447, gid: 2447
+    ambari-qa:
+      group: gid: 2448
+      user: uid: 2448, gid: 2448
+    activity_analyzer:
+      group: gid: 2449
+      user: uid: 2449, gid: 2449
+    slider:
+      group: gid: 2450
+      user: uid: 2450, gid: 2450
+    logsearch:
+      group: gid: 2451
+      user: uid: 2451, gid: 2451
+    sssd:
+      group: gid: 2452
+      user: uid: 2452, gid: 2452
+    kms:
+      group: gid: 2453
+      user: uid: 2453, gid: 2453
