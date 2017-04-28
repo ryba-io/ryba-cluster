@@ -127,6 +127,15 @@ module.exports = config:
     phoenix:
       group: gid: 2441
       user: uid: 2441, gid: 2441
+    ams:
+      group: gid: 2442
+      user: uid: 2442, gid: 2442
+    'infra-solr':
+      group: gid: 2443
+      user: uid: 2443, gid: 2443
+    hcat:
+      group: gid: 2444
+      user: uid: 2444, gid: 2444
     mysql:
       group: gid: 2445
       user: uid: 2445, gid: 2445
@@ -136,7 +145,7 @@ module.exports = config:
     tez:
       group: gid: 2447
       user: uid: 2447, gid: 2447
-    ambari-qa:
+    'ambari-qa':
       group: gid: 2448
       user: uid: 2448, gid: 2448
     activity_analyzer:
