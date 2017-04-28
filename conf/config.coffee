@@ -266,16 +266,3 @@ module.exports =
         properties:
           'nifi.security.identity.mapping.pattern.dn': '^EMAILADDRESS=(.*?), CN=(.*?),(.*)$'
           'nifi.security.identity.mapping.value.dn': '$2'
-    druid:
-      broker: jvm:
-        xms: '128m'
-        xmx: '512m'
-      coordinator: jvm:
-        xms: '128m' # Default is 3g
-        xmx: '512m' # Default is 3g
-      historical: jvm:
-        xms: '128m' # Default is 8g
-        xmx: '512m' # Default is 8g
-      overlord: jvm:
-        xms: '128m' # Default is 3g
-        xmx: '512m' # Default is 3g

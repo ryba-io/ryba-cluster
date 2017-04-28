@@ -243,12 +243,28 @@ module.exports =
     # Druid
     'ryba/druid/broker':
       constraints: tags: 'role': 'master'
+      config: ryba: druid:
+        historical: jvm:
+          xms: '128m'
+          xmx: '512m'
     'ryba/druid/coordinator':
       constraints: tags: 'role': 'worker'
+      config: ryba: druid:
+        historical: jvm:
+          xms: '128m' # Default is 3g
+          xmx: '512m' # Default is 3g
     'ryba/druid/overlord':
       constraints: tags: 'role': 'worker'
+      config: ryba: druid:
+        historical: jvm:
+          xms: '128m' # Default is 3g
+          xmx: '512m' # Default is 3g
     'ryba/druid/historical':
       constraints: tags: 'role': 'worker'
+      config: ryba: druid:
+        historical: jvm:
+          xms: '128m' # Default is 8g
+          xmx: '512m' # Default is 8g
     'ryba/druid/middlemanager':
       constraints: tags: 'role': 'worker'
     # ElasticSearch

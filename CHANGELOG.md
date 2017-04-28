@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* druid: move config into cluster
 * ambari: password and master key
 * config: activate saslauthd
 * config: move yum and hadoop core into cluster
