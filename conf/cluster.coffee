@@ -227,14 +227,17 @@ module.exports =
       constraints: tags: 'role': 'client'
     # Ambari
     'ryba/ambari/server':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master1.ryba']
       config: ryba: ambari_server:
         repo: false
         cluster_name: 'cluster_01'
         admin_password: 'admin123'
+        master_key: 'ambariMasterKey123'
+        config:
+          'api.ssl': 'false'
         db:
           engine: 'mysql'
-          password: 'ambari123'
+          password: 'Ambari123-'
     'ryba/ambari/agent':
       constraints: tags: 'role': 'client'
     # Druid

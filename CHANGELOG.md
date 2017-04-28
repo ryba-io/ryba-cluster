@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* ambari: password and master key
 * config: activate saslauthd
 * config: move yum and hadoop core into cluster
 * config: declare worker3
