@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: move yum and hadoop core into cluster
 * config: declare worker3
 * yum: install netstat through net-tools
 * postgresql: desactivated until docker wait is fixed

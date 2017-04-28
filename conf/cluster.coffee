@@ -8,6 +8,11 @@ module.exports =
       constraints: tags: 'environment': 'prod'
     'masson/core/yum':
       constraints: tags: 'environment': 'prod'
+      config: yum:
+        packages:
+          'tree': true, 'git': true, 'htop': false, 'vim': true, 
+          'bash-completion': true, 'unzip': true,
+          'net-tools': true # Install netstat
     'masson/core/ssh':
       constraints: tags: 'environment': 'prod'
     'masson/core/ntp':
@@ -19,7 +24,7 @@ module.exports =
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
     'masson/core/openldap_server':
-      constraints: nodes: ['master3.ryba', 'master2.ryba']
+      constraints: nodes: ['master2.ryba', 'master3.ryba']
       config:
         openldap_server:
           suffix: 'dc=ryba'
@@ -101,8 +106,44 @@ module.exports =
     #   constraints: nodes: ['master3.ryba']
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
-      config:
+      config: ryba:
+        force_check: true
+        clean_logs: true
+        check_hdfs_fsck: false
+        security: 'kerberos'
+        nameservice: 'torval'
         realm: 'HADOOP.RYBA'
+        krb5_user: # User used for testing
+          password: 'test123'
+          password_sync: true
+        ssl:
+          'cacert': "#{__dirname}/certs/cacert.pem"
+        #   'cert': "#{__dirname}/certs/hadoop_cert.pem"
+        #   'key': "#{__dirname}/certs/hadoop_key.pem"
+        ssh_fencing:
+          private_key: "#{__dirname}/hdfs_keys/id_rsa"
+          public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
+        hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
+        core_site:
+          'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
+          #'hadoop.proxyuser.flume.groups': '*'
+          #'hadoop.proxyuser.flume.hosts': '*'
+          # 'hadoop.security.auth_to_local': """
+          #       RULE:[2:$1@$0]([rn]m@.*)s/.*/yarn/
+          #       RULE:[2:$1@$0](ats@.*)s/.*/yarn/
+          #       RULE:[2:$1@$0](jhs@.*)s/.*/mapred/
+          #       RULE:[2:$1@$0]([nd]n@.*)s/.*/hdfs/
+          #       RULE:[2:$1@$0](hm@.*)s/.*/hbase/
+          #       RULE:[2:$1@$0](rs@.*)s/.*/hbase/
+          #       RULE:[2:$1@$0](opentsdb@.*)s/.*/hbase/
+          #       RULE:[1:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+          #       RULE:[2:$1@$0](^.*@HADOOP\\.RYBA$)s/^(.*)@HADOOP\\.RYBA$/$1/g
+          #       RULE:[1:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+          #       RULE:[2:$1@$0](^.*@USERS\\.RYBA$)s/^(.*)@USERS\\.RYBA$/$1/g
+          #       DEFAULT
+          # """
+        hadoop_metrics:
+          '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     'ryba/hadoop/kms':
       constraints: nodes: ['master3.ryba']
     'ryba/hadoop/hdfs_dn':
