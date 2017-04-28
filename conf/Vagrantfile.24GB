@@ -11,27 +11,12 @@ if Vagrant::VERSION == '1.8.5'
 end
 
 Vagrant.configure("2") do |config|
-
-  # config.hostmanager.enabled = true
-  # config.hostmanager.manage_host = true
-  # config.hostmanager.ignore_private_ip = false
-  
-  #config.yum_proxy.http     = ENV['VAGRANT_HTTP_PROXY'] || ""
-  #config.yum_proxy.https     = ENV['VAGRANT_HTTPS_PROXY'] || ""
-  #config.yum_proxy.no_proxy     = ENV['VAGRANT_HTTP_NO_PROXY'] || ""
-  
-  # See:
-  # http://devops.me/2011/10/10/vagrant-tricks-and-troubleshooting/
-  # http://cbednarski.com/articles/creating-vagrant-base-box-for-centos-62/
   config.vm.synced_folder ".", "/vagrant", disabled: true
   config.ssh.insert_key = false
-  # Virtualbox Configuration
   config.vm.provider :virtualbox do |vb|
     config.vbguest.no_remote = true
     config.vbguest.auto_update = false
   end
-  #config.vbguest.no_remote = true
-  #config.vbguest.auto_update = false
   config.vm.define :master1 do |node|
     node.vm.box = box
     node.vm.hostname = "master1.ryba"
