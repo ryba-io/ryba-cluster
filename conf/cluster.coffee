@@ -23,6 +23,15 @@ module.exports =
       constraints: tags: 'environment': 'prod'
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
+    'masson/core/saslauthd':
+      constraints: nodes: ['master2.ryba', 'master3.ryba']
+      config: saslauthd:
+        "conf":
+          "ldap_servers": "ldap://ryba.io"
+          "ldap_search_base": "dc=ryba,dc=io"
+          "ldap_filter": "cn=%u"
+          "ldap_bind_dn": "cn=sasladm,ou=users,dc=ryba,dc=io"
+          "ldap_password": "secret"
     'masson/core/openldap_server':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
       config:
