@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/ryba-io/ryba-cluster.png?label=ready&title=Ready)](https://waffle.io/ryba-io/ryba-cluster)
 # Getting started
 
 Ryba is a nodejs tool to deploy and configure hadoop nodes through SSH.
