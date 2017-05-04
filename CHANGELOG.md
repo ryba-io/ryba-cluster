@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* yarn: disable pmem vmem check
 * capacity: worker3
 * readme: re-formulate and add urls
 * vagrant: remove comments

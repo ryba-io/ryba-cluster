@@ -174,6 +174,11 @@ module.exports =
       constraints: nodes: ['master3.ryba']
     'ryba/hadoop/yarn_nm':
       constraints: tags: 'role': 'worker'
+      config: ryba: yarn:
+        site:
+          # Set mem check to false for testing purpose
+          'yarn.nodemanager.pmem-check-enabled': 'false'
+          'yarn.nodemanager.vmem-check-enabled': 'false'
     'ryba/hadoop/yarn_client':
       constraints: tags: 'role': 'client'
     'ryba/hadoop/mapred_jhs':
