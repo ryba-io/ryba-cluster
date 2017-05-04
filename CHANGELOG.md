@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* capacity: worker3
 * readme: re-formulate and add urls
 * vagrant: remove comments
 * uid: ams, infra-solr, hcat
