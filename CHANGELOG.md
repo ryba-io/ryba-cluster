@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* druid: fix jvm keys
 * druid: set required password
 * oozie: set required password
 * hive: set required password
