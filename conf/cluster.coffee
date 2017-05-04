@@ -187,6 +187,16 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/hadoop/zkfc':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
+    'ryba/benchmark':
+      constraints: nodes: ['front1.ryba']
+      config: ryba: benchmark:
+        "iterations": 1
+        "datanodes": [
+          "https://worker1.ryba:50475/jmx"
+          "https://worker2.ryba:50475/jmx"
+          "https://worker3.ryba:50475/jmx"
+        ]
+        "output": "./benchmark"
     'ryba/tez':
       constraints: nodes: ['front1.ryba', 'master3.ryba']
     'ryba/hbase/master':
