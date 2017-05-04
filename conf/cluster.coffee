@@ -262,6 +262,9 @@ module.exports =
     'ryba/ambari/agent':
       constraints: tags: 'role': 'client'
     # Druid
+    'ryba/druid':
+      config: ryba: druid:
+        db: password: 'Druid123-'
     'ryba/druid/broker':
       constraints: tags: 'role': 'master'
       config: ryba: druid:
