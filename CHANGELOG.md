@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* hive: set required password
 * hadoop: activate benchmark
 * yarn: disable pmem vmem check
 * capacity: worker3

@@ -221,6 +221,9 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/hive/hcatalog':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
+      config: ryba: hive: hcatalog:
+        db:
+          password: 'Hive123!'
     'ryba/hive/server2':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
     'ryba/hive/webhcat':
