@@ -234,6 +234,9 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/oozie/server':
       constraints: nodes: ['master3.ryba']
+      config: ryba: oozie:
+        db:
+          password: 'Oozie123!'
     'ryba/oozie/client':
       constraints: tags: 'role': 'client'
     # Kafka

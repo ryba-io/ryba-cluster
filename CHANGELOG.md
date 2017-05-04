@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* oozie: set required password
 * hive: set required password
 * hadoop: activate benchmark
 * yarn: disable pmem vmem check
