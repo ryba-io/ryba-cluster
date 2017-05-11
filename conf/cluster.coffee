@@ -184,7 +184,7 @@ module.exports =
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
-        force_check: true
+        force_check: false
         clean_logs: true
         check_hdfs_fsck: false
         security: 'kerberos'

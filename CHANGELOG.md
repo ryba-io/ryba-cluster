@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* check: disable force_check
 * config: postgresql exemple
 * config: sssd exemple
 * config: move network and iptables
