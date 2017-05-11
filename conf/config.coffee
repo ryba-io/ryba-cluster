@@ -42,33 +42,3 @@ module.exports =
   log:
     archive: true
     rotate: true
-  ryba:
-    hive:
-      user: limits:
-        nproc: 16384
-        nofile: 16384
-      # hcatalog:
-      #   db:
-      #     database ?= 'hive'
-      #     username ?= 'hive'
-      #     password ?= 'hive123'
-      #   site:
-      #     'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
-    sqoop: libs: []
-    hbase:
-      user: limits:
-        nproc: 16384
-        nofile: 16384
-      admin:
-        password: 'hbase123'
-      metrics:
-        '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
-    kafka:
-      broker:
-        heapsize: 256
-        # protocols: [
-        #   'SASL_SSL'
-        #   'SASL_PLAINTEXT'
-        #   'PLAINTEXT'
-        #   'SSL'
-        # ]

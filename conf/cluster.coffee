@@ -307,6 +307,14 @@ module.exports =
       constraints: nodes: ['front1.ryba', 'master3.ryba']
     'ryba/hbase/master':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
+      config: ryba: hbase:
+        user: limits:
+          nproc: 16384
+          nofile: 16384
+        admin:
+          password: 'hbase123'
+        metrics:
+          '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     'ryba/hbase/regionserver':
       constraints: tags: 'role': 'worker'
     'ryba/hbase/rest':
@@ -325,11 +333,16 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/sqoop':
       constraints: tags: 'role': 'client'
+      config: sqoop:
+        libs: []
     'ryba/hive/hcatalog':
       constraints: nodes: ['master2.ryba', 'master3.ryba']
-      config: ryba: hive: hcatalog:
-        db:
-          password: 'Hive123!'
+      config: ryba: hive:
+        user: limits:
+          nproc: 16384
+          nofile: 16384
+        hcatalog:
+          db: password: 'Hive123!'
     'ryba/hive/server2':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
     'ryba/hive/webhcat':
@@ -348,6 +361,14 @@ module.exports =
     # Kafka
     'ryba/kafka/broker':
       constraints: tags: 'role': 'master'
+      config: ryba: kafka: broker:
+        heapsize: 256
+        # protocols: [
+        #   'SASL_SSL'
+        #   'SASL_PLAINTEXT'
+        #   'PLAINTEXT'
+        #   'SSL'
+        # ]
     'ryba/kafka/consumer':
       constraints: tags: 'role': 'client'
     'ryba/kafka/producer':
