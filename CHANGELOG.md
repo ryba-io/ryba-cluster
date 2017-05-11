@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: move hadoop
 * check: disable force_check
 * config: postgresql exemple
 * config: sssd exemple

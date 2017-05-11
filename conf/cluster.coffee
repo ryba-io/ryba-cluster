@@ -221,6 +221,27 @@ module.exports =
           # """
         hadoop_metrics:
           '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
+        hadoop_heap: '512'
+        hadoop_namenode_init_heap: '-Xms512m'
+        hdfs:
+          user: limits:
+            nproc: 16384
+            nofile: 16384
+          krb5_user:
+            password: 'hdfs123'
+            password_sync: true
+          sysctl:
+            'vm.swappiness': 0 # Default to 60
+            'vm.overcommit_memory': 1 # Default to 0
+            'vm.overcommit_ratio': 100 # Default to 50
+            'net.core.somaxconn': 1024 # Default to 128
+            'net.ipv4.ip_local_port_range': '10000 65000' # Default is "1024 4999"
+          site:
+            'dfs.namenode.safemode.extension': 1000 # "1s", default to "30s"
+        mapred:
+          user: limits:
+            nproc: 16384
+            nofile: 16384
     'ryba/hadoop/kms':
       constraints: nodes: ['master3.ryba']
     'ryba/hadoop/hdfs_dn':
@@ -238,6 +259,15 @@ module.exports =
       constraints: tags: 'role': 'master'
     'ryba/hadoop/yarn_rm':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
+      config: ryba:
+        yarn:
+          user: limits:
+            nproc: 16384
+            nofile: 16384
+          opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
+          site: {}
+        capacity_scheduler:
+          'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
     'ryba/hadoop/yarn_ts':
       constraints: nodes: ['master3.ryba']
     'ryba/hadoop/yarn_nm':
@@ -249,12 +279,20 @@ module.exports =
           'yarn.nodemanager.vmem-check-enabled': 'false'
     'ryba/hadoop/yarn_client':
       constraints: tags: 'role': 'client'
+      config: ryba: mapred:
+        site:
+          'mapreduce.job.counters.max': '10000'
+          'mapreduce.job.counters.limit': '10000'
     'ryba/hadoop/mapred_jhs':
       constraints: nodes: ['master3.ryba']
     'ryba/hadoop/mapred_client':
       constraints: tags: 'role': 'client'
     'ryba/hadoop/zkfc':
       constraints: nodes: ['master1.ryba', 'master2.ryba']
+      config: ryba: zkfc:
+        digest:
+          name: 'zkfc'
+          password: 'zkfc123'
     'ryba/benchmark':
       constraints: nodes: ['front1.ryba']
       config: ryba: benchmark:
