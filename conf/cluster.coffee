@@ -409,11 +409,23 @@ module.exports =
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
     # Nifi
-    # 'ryba/nifi':
-    #   constraints: tags: 'role': 'worker'
+    'ryba/nifi':
+      constraints: tags: 'role': 'worker'
+      config: ryba: ifi:
+        config:
+          properties:
+            'nifi.security.identity.mapping.pattern.dn': '^EMAILADDRESS=(.*?), CN=(.*?),(.*)$'
+            'nifi.security.identity.mapping.value.dn': '$2'
     # MongoDB
     # 'ryba/mongodb/configsrv':
     #   constraints: tags: 'role': 'master'
+    #   config: mongodb:
+    #     admin:
+    #       name: 'admin'
+    #       password: 'admin123'
+    #     root:
+    #       name: 'root_admin'
+    #       password: 'root123'
     # 'ryba/mongodb/router':
     #   constraints: nodes: ['master2.ryba', 'master3.ryba']
     #   # config:
@@ -426,6 +438,22 @@ module.exports =
     #   constraints: tags: 'role': 'client'
     # 'ryba/zeppelin':
     #   constraints: tags: 'role': 'client'
+    # 'ryba/nagios':
+    #   constrains: nodes: ['master3.ryba']
+    #   config: ryba: nagios:
+    #     users:
+    #       nagiosadmin:
+    #         password: 'nagios123'
+    #         alias: 'Nagios Admin'
+    #         email: ''
+    #       guest:
+    #         password: 'guest123'
+    #         alias: 'Nagios Guest'
+    #         email: ''
+    #     groups:
+    #       admins:
+    #         alias: 'Nagios Administrators'
+    #         members: ['nagiosadmin','guest']
   nodes:
     'master1.ryba':
       tags:
