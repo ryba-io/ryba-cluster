@@ -54,26 +54,6 @@ module.exports =
       #     password ?= 'hive123'
       #   site:
       #     'hive.server2.transport.mode': 'http' # Carefull, beeline client stop working
-    hue:
-      ini:
-        desktop:
-          smtp: host: ''
-          database:
-            engine: 'mysql'
-            password: 'hue123'
-      ssl:
-        certificate: "#{__dirname}/certs/master3_cert.pem"
-        private_key: "#{__dirname}/certs/master3_key.pem"
-        client_ca: "#{__dirname}/certs/cacert.pem"
-    hue_docker:
-      ini:
-        desktop:
-          smtp: host: ''
-          database:
-            engine: 'mysql'
-            password: 'hue123'
-      ssl:
-        client_ca: "#{__dirname}/certs/cacert.pem"
     sqoop: libs: []
     hbase:
       user: limits:

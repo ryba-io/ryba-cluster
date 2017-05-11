@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: move hue and huedocker
 * config: move nifi, mongodb and nagios
 * config: move hadoop
 * check: disable force_check
