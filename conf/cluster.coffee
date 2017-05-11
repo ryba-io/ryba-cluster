@@ -6,6 +6,10 @@ module.exports =
     #   constraints: tags: 'environment': 'prod'
     'masson/core/system':
       constraints: tags: 'environment': 'prod'
+      config: system:
+        selinux: false
+        limits: {}
+        users: {}
     'masson/core/yum':
       constraints: tags: 'environment': 'prod'
       config: yum:

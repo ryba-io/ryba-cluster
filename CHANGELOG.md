@@ -3,6 +3,8 @@
 
 ## Trunk
 
+* config: move selinux
+* config: move ssh
 * druid: fix jvm keys
 * druid: set required password
 * oozie: set required password

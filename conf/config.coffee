@@ -42,12 +42,6 @@ module.exports =
   log:
     archive: true
     rotate: true
-  system:
-    selinux: false
-    limits: {}
-    users: {}
-      # 'root': 
-      #   authorized_keys: []
   network:
     hosts_auto: true
     hosts:
