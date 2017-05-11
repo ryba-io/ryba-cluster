@@ -3,7 +3,8 @@
 
 ## Trunk
 
-* config: sssd example
+* config: postgresql exemple
+* config: sssd exemple
 * config: move network and iptables
 * config: remove connection
 * config: move selinux

@@ -158,6 +158,10 @@ module.exports =
       constraints: nodes: ['master3.ryba']
     # 'masson/commons/postgres/server':
     #   constraints: nodes: ['master3.ryba']
+    #   config: postgres:
+    #     server:
+    #       password: 'test123'
+    #       user: 'root'
     'masson/commons/mysql/client':
       constraints: tags: 'environment': 'prod'
     'masson/commons/mysql/server':

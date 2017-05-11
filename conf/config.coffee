@@ -42,11 +42,6 @@ module.exports =
   log:
     archive: true
     rotate: true
-  # ssh:
-  postgres:
-    server:
-      password: 'test123'
-      user: 'root'
   ryba:
     mongodb:
       admin:
