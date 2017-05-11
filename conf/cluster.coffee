@@ -2,8 +2,6 @@
 module.exports =
   config: require './config'
   services:
-    # 'masson/bootstrap/connection':
-    #   constraints: tags: 'environment': 'prod'
     'masson/core/system':
       constraints: tags: 'environment': 'prod'
       config: system:

@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: remove connection
 * config: move selinux
 * config: move ssh
 * druid: fix jvm keys
