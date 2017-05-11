@@ -66,11 +66,6 @@ module.exports =
       # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
     ]
   # ssh:
-  #   banner:
-  #     target: '/etc/banner'
-  #     content: "Welcome to Hadoop!"
-  #   sshd_config:
-  #     PermitRootLogin: 'without-password'
   postgres:
     server:
       password: 'test123'

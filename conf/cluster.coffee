@@ -15,6 +15,12 @@ module.exports =
           'net-tools': true # Install netstat
     'masson/core/ssh':
       constraints: tags: 'environment': 'prod'
+      config: ssh:
+        banner:
+          target: '/etc/banner'
+          content: "Welcome to Hadoop!"
+        sshd_config:
+          PermitRootLogin: 'without-password'
     'masson/core/ntp':
       constraints: tags: 'environment': 'prod'
       config: ntp:
