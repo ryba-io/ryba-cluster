@@ -29,6 +29,25 @@ module.exports =
         servers: ['master3.ryba']
     'masson/core/network':
       constraints: tags: 'environment': 'prod'
+      config: network:
+        hosts:
+          '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
+          '10.10.10.10': 'repos.ryba ryba'
+        hosts_auto: true
+        resolv: """
+          search ryba
+          nameserver 10.10.10.13
+          nameserver 10.0.2.3
+          """
+    'masson/core/iptables':
+      constraints: tags: 'environment': 'prod'
+      config: iptables:
+        action: 'stop'
+        startup: false
+        log: true
+        rules: [
+          # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
+        ]
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
     'masson/core/saslauthd':

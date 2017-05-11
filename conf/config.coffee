@@ -42,23 +42,6 @@ module.exports =
   log:
     archive: true
     rotate: true
-  network:
-    hosts_auto: true
-    hosts:
-      '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
-      '10.10.10.10': 'repos.ryba ryba'
-    resolv: """
-      search ryba
-      nameserver 10.10.10.13
-      nameserver 10.0.2.3
-      """
-  iptables:
-    action: 'stop'
-    startup: false
-    log: true
-    rules: [
-      # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
-    ]
   # ssh:
   postgres:
     server:

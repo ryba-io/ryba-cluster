@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: move network and iptables
 * config: remove connection
 * config: move selinux
 * config: move ssh
