@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: merge with cluster
 * log: pass md log options to nikita
 * config: move hive, hbase, sqoop and kafka
 * config: move hue and huedocker

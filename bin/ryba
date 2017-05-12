@@ -10,7 +10,7 @@ if [ ! -f conf/user.coffee ]; then
 fi
 
 ./node_modules/ryba/bin/ryba \
-  -c ./conf/cluster.coffee \
+  -c ./conf/config.coffee \
   -c ./conf/uid_gid.coffee \
   -c ./conf/capacity.coffee \
   -c ./conf/user.coffee \
