@@ -39,6 +39,6 @@ module.exports =
     cache_dir: "#{__dirname}/../cache"
     log_serializer: true
     debug: false
-  log:
-    archive: true
-    rotate: true
+    log_md:
+      archive: true
+      rotate: true
