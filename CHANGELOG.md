@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* krb5: rename admin principal
 * config: merge with cluster
 * log: pass md log options to nikita
 * config: move hive, hbase, sqoop and kafka
