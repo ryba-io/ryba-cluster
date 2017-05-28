@@ -73,14 +73,10 @@ module.exports =
       constraints: tags: 'environment': 'prod'
       config: network:
         hosts:
-          '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
+          # '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
           '10.10.10.10': 'repos.ryba ryba'
         hosts_auto: true
-        resolv: """
-          search ryba
-          nameserver 10.10.10.13
-          nameserver 10.0.2.3
-          """
+        resolv: false
     'masson/core/iptables':
       constraints: tags: 'environment': 'prod'
       config: iptables:

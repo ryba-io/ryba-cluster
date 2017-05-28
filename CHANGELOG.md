@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* network: simplify host generation
 * vagrant: rename all hosts
 * krb5: rename admin principal
 * config: merge with cluster
