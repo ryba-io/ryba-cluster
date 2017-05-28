@@ -68,7 +68,7 @@ module.exports =
     'masson/core/ntp':
       constraints: tags: 'environment': 'prod'
       config: ntp:
-        servers: ['master3.ryba']
+        servers: ['master03.metal.ryba']
     'masson/core/network':
       constraints: tags: 'environment': 'prod'
       config: network:
@@ -93,7 +93,7 @@ module.exports =
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
     'masson/core/saslauthd':
-      constraints: nodes: ['master2.ryba', 'master3.ryba']
+      constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config: saslauthd:
         "conf":
           "ldap_servers": "ldap://ryba.io"
@@ -102,7 +102,7 @@ module.exports =
           "ldap_bind_dn": "cn=sasladm,ou=users,dc=ryba,dc=io"
           "ldap_password": "secret"
     'masson/core/openldap_server':
-      constraints: nodes: ['master2.ryba', 'master3.ryba']
+      constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config:
         openldap_server:
           suffix: 'dc=ryba'
@@ -124,7 +124,7 @@ module.exports =
             mail: 'david@adaltas.com'
             userPassword: 'test'
     'masson/core/openldap_client':
-      constraints: nodes: ['master3.ryba', 'master2.ryba']
+      constraints: nodes: ['master03.metal.ryba', 'master02.metal.ryba']
       config:  openldap_client:
         certificates: [
           source: "#{__dirname}/certs/cacert.pem", local: true
@@ -145,7 +145,7 @@ module.exports =
     #         'id_provider' : 'ldap'
     #         'auth_provider' : 'ldap'
     #         'chpass_provider' : 'ldap'
-    #         'ldap_uri' : 'ldaps://master3.ryba:636'
+    #         'ldap_uri' : 'ldaps://master03.metal.ryba:636'
     #         'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
     #         # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
     #         'ldap_default_bind_dn' : 'cn=Manager,dc=ryba'
@@ -159,7 +159,7 @@ module.exports =
     #         'id_provider' : 'ldap'
     #         'auth_provider' : 'ldap'
     #         'chpass_provider' : 'ldap'
-    #         'ldap_uri' : 'ldaps://master3.ryba:636'
+    #         'ldap_uri' : 'ldaps://master03.metal.ryba:636'
     #         'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
     #         # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
     #         'ldap_default_bind_dn' : 'cn=Manager,dc=ryba'
@@ -168,9 +168,9 @@ module.exports =
     #       'sssd':
     #         'domains' : 'hadoop,users'
     'masson/core/krb5_server':
-      constraints: nodes: ['master1.ryba']
+      constraints: nodes: ['master01.metal.ryba']
       config: krb5:
-        # database_module: 'openldap_master3'
+        # database_module: 'openldap_master03'
         etc_krb5_conf:
           libdefaults:
             default_realm: 'HADOOP.RYBA'
@@ -197,9 +197,9 @@ module.exports =
               kdc_master_key: 'test'
     'masson/core/krb5_client': {}
     'masson/commons/httpd':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     # 'masson/commons/postgres/server':
-    #   constraints: nodes: ['master3.ryba']
+    #   constraints: nodes: ['master03.metal.ryba']
     #   config: postgres:
     #     server:
     #       password: 'test123'
@@ -207,13 +207,13 @@ module.exports =
     'masson/commons/mysql/client':
       constraints: tags: 'environment': 'prod'
     'masson/commons/mysql/server':
-      constraints: nodes: ['master1.ryba']
+      constraints: nodes: ['master01.metal.ryba']
       config: mysql: server:
         current_password: ''
         password: 'MySQL123-'
         my_conf: {}
     # 'masson/commons/mysql/server.5.7':
-    #   constraints: nodes: ['worker2.ryba']
+    #   constraints: nodes: ['worker02.metal.ryba']
     #   config: mysql: server:
     #     password: 'MySQL123-'
     # 'ryba/hdp': {}
@@ -222,7 +222,7 @@ module.exports =
     'ryba/zookeeper/client':
       constraints: tags: 'role': 'client'
     # 'ryba/ranger/admin':
-    #   constraints: nodes: ['master3.ryba']
+    #   constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
@@ -285,22 +285,24 @@ module.exports =
             nproc: 16384
             nofile: 16384
     'ryba/hadoop/kms':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/hdfs_dn':
       constraints: tags: 'role': 'worker'
     'ryba/hadoop/hdfs_jn':
       constraints:
         tags: 'role': 'master'
     'ryba/hadoop/hdfs_nn':
-      constraints: nodes: ['master1.ryba', 'master2.ryba']
-      config:
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
+      config: ryba:
         nameservice: 'torval'
+        hdfs: nn: site:
+          'dfs.namenode.safemode.extension': '1000' # "1s", default to "30s"
     'ryba/hadoop/hdfs_client':
       constraints: tags: 'role': 'client'
     'ryba/hadoop/httpfs':
       constraints: tags: 'role': 'master'
     'ryba/hadoop/yarn_rm':
-      constraints: nodes: ['master1.ryba', 'master2.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: ryba:
         yarn:
           user: limits:
@@ -311,7 +313,7 @@ module.exports =
         capacity_scheduler:
           'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
     'ryba/hadoop/yarn_ts':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/yarn_nm':
       constraints: tags: 'role': 'worker'
       config: ryba: yarn:
@@ -326,29 +328,29 @@ module.exports =
           'mapreduce.job.counters.max': '10000'
           'mapreduce.job.counters.limit': '10000'
     'ryba/hadoop/mapred_jhs':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/mapred_client':
       constraints: tags: 'role': 'client'
     'ryba/hadoop/zkfc':
-      constraints: nodes: ['master1.ryba', 'master2.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: ryba: zkfc:
         digest:
           name: 'zkfc'
           password: 'zkfc123'
     'ryba/benchmark':
-      constraints: nodes: ['front1.ryba']
+      constraints: nodes: ['edge01.metal.ryba']
       config: ryba: benchmark:
         "iterations": 1
         "datanodes": [
-          "https://worker1.ryba:50475/jmx"
-          "https://worker2.ryba:50475/jmx"
-          "https://worker3.ryba:50475/jmx"
+          "https://worker01.metal.ryba:50475/jmx"
+          "https://worker02.metal.ryba:50475/jmx"
+          "https://worker03.metal.ryba:50475/jmx"
         ]
         "output": "./benchmark"
     'ryba/tez':
-      constraints: nodes: ['front1.ryba', 'master3.ryba']
+      constraints: nodes: ['edge01.metal.ryba', 'master03.metal.ryba']
     'ryba/hbase/master':
-      constraints: nodes: ['master1.ryba', 'master2.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: ryba: hbase:
         user: limits:
           nproc: 16384
@@ -360,17 +362,17 @@ module.exports =
     'ryba/hbase/regionserver':
       constraints: tags: 'role': 'worker'
     'ryba/hbase/rest':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hbase/thrift':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hbase/client':
       constraints: nodes: 'role': 'client'
     'ryba/phoenix/client':
       constraints: tags: 'role': 'client'
     'ryba/phoenix/queryserver':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     # 'ryba/opentsdb':
-    #   constraints: nodes: ['master3.ryba']
+    #   constraints: nodes: ['master03.metal.ryba']
     'ryba/pig':
       constraints: tags: 'role': 'client'
     'ryba/sqoop':
@@ -378,7 +380,7 @@ module.exports =
       config: sqoop:
         libs: []
     'ryba/hive/hcatalog':
-      constraints: nodes: ['master2.ryba', 'master3.ryba']
+      constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config: ryba: hive:
         user: limits:
           nproc: 16384
@@ -386,15 +388,15 @@ module.exports =
         hcatalog:
           db: password: 'Hive123!'
     'ryba/hive/server2':
-      constraints: nodes: ['master1.ryba', 'master2.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hive/webhcat':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hive/client':
       constraints: tags: 'role': 'client'
     'ryba/hive/beeline':
       constraints: tags: 'role': 'client'
     'ryba/oozie/server':
-      constraints: nodes: ['master3.ryba']
+      constraints: nodes: ['master03.metal.ryba']
       config: ryba: oozie:
         db:
           password: 'Oozie123!'
@@ -417,14 +419,11 @@ module.exports =
       constraints: tags: 'role': 'client'
     # Ambari
     'ryba/ambari/server':
-      constraints: nodes: ['master1.ryba']
+      constraints: nodes: ['master01.metal.ryba']
       config: ryba: ambari_server:
         repo: false
-        cluster_name: 'cluster_01'
         admin_password: 'admin123'
         master_key: 'ambariMasterKey123'
-        config:
-          'api.ssl': 'false'
         db:
           engine: 'mysql'
           password: 'Ambari123-'
@@ -476,8 +475,8 @@ module.exports =
     #           engine: 'mysql'
     #           password: 'Hue123-'
     #     ssl:
-    #       certificate: "#{__dirname}/certs/master3_cert.pem"
-    #       private_key: "#{__dirname}/certs/master3_key.pem"
+    #       certificate: "#{__dirname}/certs/master03_cert.pem"
+    #       private_key: "#{__dirname}/certs/master03_key.pem"
     #       client_ca: "#{__dirname}/certs/cacert.pem"
     # Hue with Docker
     'ryba/huedocker':
@@ -513,7 +512,7 @@ module.exports =
     #       name: 'root_admin'
     #       password: 'root123'
     # 'ryba/mongodb/router':
-    #   constraints: nodes: ['master2.ryba', 'master3.ryba']
+    #   constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
     #   # config:
     #   #   mongo_router_for_configsrv: 'configsrvRepSet1'
     # 'ryba/mongodb/shard':
@@ -525,7 +524,7 @@ module.exports =
     # 'ryba/zeppelin':
     #   constraints: tags: 'role': 'client'
     # 'ryba/nagios':
-    #   constrains: nodes: ['master3.ryba']
+    #   constrains: nodes: ['master03.metal.ryba']
     #   config: ryba: nagios:
     #     users:
     #       nagiosadmin:
@@ -541,72 +540,72 @@ module.exports =
     #         alias: 'Nagios Administrators'
     #         members: ['nagiosadmin','guest']
   nodes:
-    'master1.ryba':
+    'master01.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'master'
       config:
         ip: '10.10.10.11'
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master1_cert.pem"
-          'key': "#{__dirname}/certs/master1_key.pem"
-    'master2.ryba':
+          'cert': "#{__dirname}/certs/master01_cert.pem"
+          'key': "#{__dirname}/certs/master01_key.pem"
+    'master02.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'master'
       config:
         ip: '10.10.10.12'
         openldap_server:
-          tls_cert_file: "#{__dirname}/certs/master2_cert.pem"
-          tls_key_file: "#{__dirname}/certs/master2_key.pem"
+          tls_cert_file: "#{__dirname}/certs/master02_cert.pem"
+          tls_key_file: "#{__dirname}/certs/master02_key.pem"
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master2_cert.pem"
-          'key': "#{__dirname}/certs/master2_key.pem"
-    'master3.ryba':
+          'cert': "#{__dirname}/certs/master02_cert.pem"
+          'key': "#{__dirname}/certs/master02_key.pem"
+    'master03.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'master'
       config:
         ip: '10.10.10.13'
         openldap_server:
-          tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
-          tls_key_file: "#{__dirname}/certs/master3_key.pem"
+          tls_cert_file: "#{__dirname}/certs/master03_cert.pem"
+          tls_key_file: "#{__dirname}/certs/master03_key.pem"
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master3_cert.pem"
-          'key': "#{__dirname}/certs/master3_key.pem"
-    'front1.ryba':
+          'cert': "#{__dirname}/certs/master03_cert.pem"
+          'key': "#{__dirname}/certs/master03_key.pem"
+    'edge01.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'client'
       config:
         ip: '10.10.10.14'
         ryba: ssl:
-          'cert': "#{__dirname}/certs/front1_cert.pem"
-          'key': "#{__dirname}/certs/front1_key.pem"
-    'worker1.ryba':
+          'cert': "#{__dirname}/certs/edge01_cert.pem"
+          'key': "#{__dirname}/certs/edge01_key.pem"
+    'worker01.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'worker'
       config:
         ip: '10.10.10.16'
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker1_cert.pem"
-          'key': "#{__dirname}/certs/worker1_key.pem"
-    'worker2.ryba':
+          'cert': "#{__dirname}/certs/worker01_cert.pem"
+          'key': "#{__dirname}/certs/worker01_key.pem"
+    'worker02.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'worker'
       config:
         ip: '10.10.10.17'
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker2_cert.pem"
-          'key': "#{__dirname}/certs/worker2_key.pem"
-    'worker3.ryba':
+          'cert': "#{__dirname}/certs/worker02_cert.pem"
+          'key': "#{__dirname}/certs/worker02_key.pem"
+    'worker03.metal.ryba':
       tags:
         'environment': 'prod'
         'role': 'worker'
       config:
         ip: '10.10.10.18'
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker3_cert.pem"
-          'key': "#{__dirname}/certs/worker3_key.pem"
+          'cert': "#{__dirname}/certs/worker03_cert.pem"
+          'key': "#{__dirname}/certs/worker03_key.pem"

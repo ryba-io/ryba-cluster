@@ -12,7 +12,7 @@ module.exports = config:
   profile:
     'proxy.sh': "" # Created by Vagrant proxy plugin
   ntp:
-    servers: ['master3.ryba']
+    servers: ['master03.metal.ryba']
     fudge: true
   network:
     ifcfg:

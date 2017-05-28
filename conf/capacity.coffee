@@ -1,7 +1,7 @@
 # /usr/bin/node node_modules/ryba/bin/capacity -c ./conf/cluster.coffee -c ./conf/uid_gid.coffee -c ./conf/capacity.coffee -c ./conf/user.coffee -o ./conf/capacity.coffee -w -p /data/1,/data/2
 
 module.exports = 'nodes':
-  'master1.ryba': 'config': 'ryba':
+  'master01.metal.ryba': 'config': 'ryba':
     'hdfs':
       'nn': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
       'site': 'dfs.replication': 2
@@ -30,7 +30,7 @@ module.exports = 'nodes':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'master2.ryba': 'config': 'ryba':
+  'master02.metal.ryba': 'config': 'ryba':
     'hdfs':
       'nn': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
       'site': 'dfs.replication': 2
@@ -59,7 +59,7 @@ module.exports = 'nodes':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'master3.ryba': 'config': 'ryba':
+  'master03.metal.ryba': 'config': 'ryba':
     'hdfs': 'site': 'dfs.replication': 2
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 192
@@ -79,7 +79,7 @@ module.exports = 'nodes':
       '/data/1/kafka'
       '/data/2/kafka'
     ]
-  'front1.ryba': 'config': 'ryba':
+  'edge01.metal.ryba': 'config': 'ryba':
     'hdfs': 'site': 'dfs.replication': 2
     'mapred': 'site':
       'yarn.app.mapreduce.am.resource.mb': 192
@@ -98,7 +98,7 @@ module.exports = 'nodes':
     'hive': 'site':
       'hive.tez.container.size': '384'
       'hive.tez.java.opts': '-Xmx307m'
-  'worker1.ryba': 'config': 'ryba':
+  'worker01.metal.ryba': 'config': 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.datanode.data.dir': [
@@ -134,7 +134,7 @@ module.exports = 'nodes':
       'nifi.content.repository.directory.cr2': '/data/2/nifi/content_repository'
       'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
       'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
-  'worker2.ryba': 'config': 'ryba':
+  'worker02.metal.ryba': 'config': 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.datanode.data.dir': [
@@ -170,7 +170,7 @@ module.exports = 'nodes':
       'nifi.content.repository.directory.cr2': '/data/2/nifi/content_repository'
       'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
       'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
-  'worker3.ryba': 'config': 'ryba':
+  'worker03.metal.ryba': 'config': 'ryba':
     'hdfs': 'site':
       'dfs.replication': 2
       'dfs.datanode.data.dir': [
@@ -207,31 +207,31 @@ module.exports = 'nodes':
       'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
       'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
 
-# master1.ryba
+# master01.metal.ryba
 #   Number of core: 1
 #   Number of partitions: 2
 #   Memory Total: 3.702 GB
 #   Memory System: 0 B
 
-# master2.ryba
+# master02.metal.ryba
 #   Number of core: 1
 #   Number of partitions: 2
 #   Memory Total: 3.702 GB
 #   Memory System: 0 B
 
-# master3.ryba
+# master03.metal.ryba
 #   Number of core: 1
 #   Number of partitions: 2
 #   Memory Total: 1.708 GB
 #   Memory System: 0 B
 
-# front1.ryba
+# edge01.metal.ryba
 #   Number of core: 1
 #   Number of partitions: 2
 #   Memory Total: 488.668 MB
 #   Memory System: 0 B
 
-# worker1.ryba
+# worker01.metal.ryba
 #   Number of core: 2
 #   Number of partitions: 2
 #   Memory Total: 1.796 GB
@@ -244,7 +244,7 @@ module.exports = 'nodes':
 #     Number of Containers: 4
 #     Memory per Containers: 384 MB
 
-# worker2.ryba
+# worker02.metal.ryba
 #   Number of core: 2
 #   Number of partitions: 2
 #   Memory Total: 1.796 GB
