@@ -32,15 +32,15 @@ The Lightweight Directory Access Protocol, better known as LDAP, is
         ]
         tls: true
         tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
-        tls_cert_file: "#{__dirname}/certs/master3_cert.pem"
-        tls_key_file: "#{__dirname}/certs/master3_key.pem"
+        tls_cert_file: "#{__dirname}/certs/master03_cert.pem"
+        tls_key_file: "#{__dirname}/certs/master03_key.pem"
 
 ## OpenLDAP Client
 
     module.exports =
       openldap_client:
         certificates: [
-          "#{__dirname}/certs/master3_cert.pem"
+          "#{__dirname}/certs/master03_cert.pem"
         ]
         config: {}
 
@@ -108,7 +108,7 @@ each module.
             'id_provider' : 'ldap'
             'auth_provider' : 'ldap'
             'chpass_provider' : 'ldap'
-            'ldap_uri' : 'ldaps://master3.hadoop:636'
+            'ldap_uri' : 'ldaps://master03.metal.ryba:636'
             'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
             # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=adaltas,dc=com'
             'ldap_default_bind_dn' : 'cn=Manager,dc=adaltas,dc=com'
@@ -121,7 +121,7 @@ each module.
             'id_provider' : 'ldap'
             'auth_provider' : 'ldap'
             'chpass_provider' : 'ldap'
-            'ldap_uri' : 'ldaps://master3.hadoop:636'
+            'ldap_uri' : 'ldaps://aster03.metal.ryba:636'
             'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
             # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=adaltas,dc=com'
             'ldap_default_bind_dn' : 'cn=Manager,dc=adaltas,dc=com'

@@ -16,7 +16,7 @@ module.exports =
         # For MySQL database: jdbc:mysql://$mysql.full.hostname:3306/$database.name?createDatabaseIfNotExist=true
         # For Oracle database: jdbc:oracle:thin:@$dbhost:1521/$hive_dbname 
         # For PostgreSQL database: jdbc:postgresql://$dbhost:5432/$hive_dbname 
-        # 'javax.jdo.option.ConnectionURL': 'jdbc:mysql://front1.hadoop:3306/hive?createDatabaseIfNotExist=true'
+        # 'javax.jdo.option.ConnectionURL': 'jdbc:mysql://edge01.metal.hadoop:3306/hive?createDatabaseIfNotExist=true'
         # For MySQL database: com.mysql.jdbc.Driver
         # For Oracle database: oracle.jdbc.driver.OracleDriver 
         # For PostgreSQL database: org.postgresql.Driver
@@ -37,5 +37,3 @@ module.exports =
       admin:
         name: 'nagiosadmin' # Default
         password: 'nagios123' # Default
-
-

@@ -9,9 +9,9 @@ module.exports =
     xasecure:
       'authentication_method': "LDAP"
       'remoteLoginEnabled': "true"
-      'authServiceHostName': "master3.hadoop"
+      'authServiceHostName': "master03.metal.ryba"
       'authServicePort': "389"
-      'xa_ldap_url': "\"ldap://master3.hadoop:389\""
+      'xa_ldap_url': "\"ldap://master03.metal.ryba:389\""
       'xa_ldap_userDNpattern': "\"uid={0},ou=users,dc=adaltas,dc=com\""
       'xa_ldap_groupSearchBase': "\"ou=groups,dc=adaltas,dc=com\""
       'xa_ldap_groupSearchFilter': "\"(memberUid={0})\""
@@ -19,7 +19,7 @@ module.exports =
     uxugsync:
       'SYNC_INTERVAL': "1"
       'SYNC_SOURCE': "ldap"
-      'SYNC_LDAP_URL': "ldap://master3.hadoop:389"
+      'SYNC_LDAP_URL': "ldap://master03.metal.ryba:389"
       'SYNC_LDAP_BIND_DN': "cn=Manager,dc=adaltas,dc=com"
       'SYNC_LDAP_BIND_PASSWORD': "test"
       'SYNC_LDAP_USER_SEARCH_BASE': "ou=users,dc=adaltas,dc=com"
