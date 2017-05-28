@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: remove servers file
 * uid gid: add saslauthd, nfsbody, apache
 * repo: update offline and online repos
 * network: simplify host generation
