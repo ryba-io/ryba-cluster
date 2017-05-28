@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* uid gid: add saslauthd, nfsbody, apache
 * repo: update offline and online repos
 * network: simplify host generation
 * vagrant: rename all hosts

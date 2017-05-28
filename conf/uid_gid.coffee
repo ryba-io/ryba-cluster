@@ -163,3 +163,12 @@ module.exports = config:
     kms:
       group: gid: 2453
       user: uid: 2453, gid: 2453
+    nfsnobody:
+      group: gid: 2454
+      user: uid: 2454, gid: 2454
+    apache:
+      group: gid: 2455
+      user: uid: 2455, gid: 2455
+    saslauthd:
+      group: gid: 2456
+      user: uid: 2456, gid: 2456
