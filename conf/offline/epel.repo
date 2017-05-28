@@ -1,7 +1,0 @@
-
-[centos6-epel-opt]
-name=centos6-epel-opt
-baseurl=http://10.10.10.1:5680/centos7/epel/pub/epel/6/$basearch
-enabled=1
-priority=99
-gpgcheck=0

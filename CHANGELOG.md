@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repo: update offline and online repos
 * network: simplify host generation
 * vagrant: rename all hosts
 * krb5: rename admin principal
