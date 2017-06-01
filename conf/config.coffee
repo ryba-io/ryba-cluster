@@ -77,6 +77,15 @@ module.exports =
           '10.10.10.10': 'repos.ryba ryba'
         hosts_auto: true
         resolv: false
+    'masson/core/ssl':
+      constraints: tags: 'environment': 'dev'
+      config: ssl:
+        cacert:
+          source: "#{__dirname}/certs/cacert.pem"
+          local: true
+        truststore:
+          password: 'Truststore123-'
+        keystore:
     'masson/core/iptables':
       constraints: tags: 'environment': 'prod'
       config: iptables:
@@ -165,32 +174,17 @@ module.exports =
     #         'domains' : 'hadoop,users'
     'masson/core/krb5_server':
       constraints: nodes: ['master01.metal.ryba']
-      config: krb5:
-        # database_module: 'openldap_master03'
-        etc_krb5_conf:
-          libdefaults:
-            default_realm: 'HADOOP.RYBA'
-          realms:
-            'HADOOP.RYBA': {}
-            'USERS.RYBA': {}
-          domain_realm:
-            '.ryba': 'HADOOP.RYBA'
-            'ryba': 'HADOOP.RYBA'
-          realms:
-            'HADOOP.RYBA':
-              kadmin_principal: 'admin/admin@HADOOP.RYBA'
-              kadmin_password: 'test'
-              principals: [
-                principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
-                password: 'test'
-              ]
-        kdc_conf:
-          realms:
-            'HADOOP.RYBA':
-              database_module: 'masson_default'
-          dbmodules:
-            'masson_default':
-              kdc_master_key: 'test'
+      config: krb5_server:
+        admin:
+          'HADOOP.RYBA':
+            kadmin_principal: 'admin/admin@HADOOP.RYBA'
+            kadmin_password: 'test'
+            principals: [
+              principal: 'krbtgt/HADOOP.RYBA@USERS.RYBA'
+              password: 'test'
+            ]
+            database_module: 'hadoop_ryba_db'
+            kdc_master_key: 'test'
     'masson/core/krb5_client': {}
     'masson/commons/httpd':
       constraints: nodes: ['master03.metal.ryba']
