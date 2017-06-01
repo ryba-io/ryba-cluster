@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* ssl: configure masson/core/ssl
 * krb5: split between client & server
 * config: remove servers file
 * uid gid: add saslauthd, nfsbody, apache

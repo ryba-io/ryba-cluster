@@ -86,6 +86,8 @@ module.exports =
         truststore:
           password: 'Truststore123-'
         keystore:
+          password: 'Keystore123-'
+          keypass: 'Keystore123-'
     'masson/core/iptables':
       constraints: tags: 'environment': 'prod'
       config: iptables:
@@ -417,6 +419,7 @@ module.exports =
         db:
           engine: 'mysql'
           password: 'Ambari123-'
+        truststore: password: 'AmbariTruststore123-'
     'ryba/ambari/agent':
       constraints: tags: 'role': 'client'
     # Druid
@@ -536,6 +539,9 @@ module.exports =
         'role': 'master'
       config:
         ip: '10.10.10.11'
+        ssl:
+          'cert': source: "#{__dirname}/certs/master01_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master01_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/master01_cert.pem"
           'key': "#{__dirname}/certs/master01_key.pem"
@@ -548,6 +554,9 @@ module.exports =
         openldap_server:
           tls_cert_file: "#{__dirname}/certs/master02_cert.pem"
           tls_key_file: "#{__dirname}/certs/master02_key.pem"
+        ssl:
+          'cert': source: "#{__dirname}/certs/master02_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master02_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/master02_cert.pem"
           'key': "#{__dirname}/certs/master02_key.pem"
@@ -560,6 +569,9 @@ module.exports =
         openldap_server:
           tls_cert_file: "#{__dirname}/certs/master03_cert.pem"
           tls_key_file: "#{__dirname}/certs/master03_key.pem"
+        ssl:
+          'cert': source: "#{__dirname}/certs/master03_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master03_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/master03_cert.pem"
           'key': "#{__dirname}/certs/master03_key.pem"
@@ -569,6 +581,9 @@ module.exports =
         'role': 'client'
       config:
         ip: '10.10.10.14'
+        ssl:
+          'cert': source: "#{__dirname}/certs/edge01_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/edge01_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/edge01_cert.pem"
           'key': "#{__dirname}/certs/edge01_key.pem"
@@ -578,6 +593,9 @@ module.exports =
         'role': 'worker'
       config:
         ip: '10.10.10.16'
+        ssl:
+          'cert': source: "#{__dirname}/certs/worker01_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker01_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/worker01_cert.pem"
           'key': "#{__dirname}/certs/worker01_key.pem"
@@ -587,6 +605,9 @@ module.exports =
         'role': 'worker'
       config:
         ip: '10.10.10.17'
+        ssl:
+          'cert': source: "#{__dirname}/certs/worker02_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker02_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/worker02_cert.pem"
           'key': "#{__dirname}/certs/worker02_key.pem"
@@ -596,6 +617,9 @@ module.exports =
         'role': 'worker'
       config:
         ip: '10.10.10.18'
+        ssl:
+          'cert': source: "#{__dirname}/certs/worker03_cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker03_key.pem", local: true
         ryba: ssl:
           'cert': "#{__dirname}/certs/worker03_cert.pem"
           'key': "#{__dirname}/certs/worker03_key.pem"
