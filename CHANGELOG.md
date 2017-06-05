@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* krb5 client: declared on all hosts
 * ssl: configure masson/core/ssl
 * krb5: split between client & server
 * config: remove servers file
