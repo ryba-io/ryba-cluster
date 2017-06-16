@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repos: rename repo to source
 * services: comment nifi
 * repo: hdp 2.5.5
 * vagrant: remove hostnames

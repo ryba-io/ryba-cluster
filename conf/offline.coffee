@@ -4,11 +4,11 @@ module.exports = config:
   yum:
     clean: true
     config: proxy: null
-    repo: "#{__dirname}/offline/centos.repo"
+    source: "#{__dirname}/offline/centos.repo"
     epel:
       enabled: true
       url: null
-      repo: "#{__dirname}/offline/epel.repo"
+      source: "#{__dirname}/offline/epel.repo"
   curl:
     check: false
     config: noproxy: ['localhost', '127.0.0.1', '.ryba']
@@ -26,4 +26,4 @@ module.exports = config:
   hdp:
     hue_smtp_host: ''
   ryba:
-    hdp: repo: "#{__dirname}/offline/hdp.repo"
+    hdp: source: "#{__dirname}/offline/hdp.repo"
