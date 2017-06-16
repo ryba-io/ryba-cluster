@@ -499,13 +499,13 @@ module.exports =
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
     # Nifi
-    'ryba/nifi':
-      constraints: tags: 'role': 'worker'
-      config: ryba: ifi:
-        config:
-          properties:
-            'nifi.security.identity.mapping.pattern.dn': '^EMAILADDRESS=(.*?), CN=(.*?),(.*)$'
-            'nifi.security.identity.mapping.value.dn': '$2'
+    # 'ryba/nifi':
+    #   constraints: tags: 'role': 'worker'
+    #   config: ryba: ifi:
+    #     config:
+    #       properties:
+    #         'nifi.security.identity.mapping.pattern.dn': '^EMAILADDRESS=(.*?), CN=(.*?),(.*)$'
+    #         'nifi.security.identity.mapping.value.dn': '$2'
     # MongoDB
     # 'ryba/mongodb/configsrv':
     #   constraints: tags: 'role': 'master'

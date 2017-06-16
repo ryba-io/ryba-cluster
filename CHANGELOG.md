@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* services: comment nifi
 * repo: hdp 2.5.5
 * vagrant: remove hostnames
 * saslauthd: exemple
