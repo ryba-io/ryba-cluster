@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repo: hdp 2.5.5
 * vagrant: remove hostnames
 * saslauthd: exemple
 * krb5 client: declared on all hosts
