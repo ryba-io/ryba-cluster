@@ -57,6 +57,7 @@ module.exports =
           'tree': true, 'git': true, 'htop': false, 'vim': true, 
           'bash-completion': true, 'unzip': true,
           'net-tools': true # Install netstat
+          # 'bind-utils': true # Install dig
     'masson/core/ssh':
       constraints: tags: 'environment': 'prod'
       config: ssh:
@@ -102,6 +103,16 @@ module.exports =
     'masson/core/saslauthd':
       constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config: saslauthd:
+        # 'default':
+        #   'START': 'yes'
+        #   'DESC': 'SASL Authentication Daemon'
+        #   'NAME': 'saslauthd'
+        #   'MECHANISMS': 'kerberos5'
+        #   'MECH_OPTIONS': ''
+        #   'THREADS': '5'
+        #   'OPTIONS': '-c -m /var/run/saslauthd'
+        # "conf":
+        # LDAP example
         "conf":
           "ldap_servers": "ldap://ryba.io"
           "ldap_search_base": "dc=ryba,dc=io"
