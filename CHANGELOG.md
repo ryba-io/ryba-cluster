@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* vagrant: remove hostnames
 * saslauthd: exemple
 * krb5 client: declared on all hosts
 * ssl: configure masson/core/ssl
