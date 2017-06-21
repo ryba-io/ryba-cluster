@@ -220,7 +220,10 @@ module.exports =
     #   constraints: nodes: ['worker02.metal.ryba']
     #   config: mysql: server:
     #     password: 'MySQL123-'
-    # 'ryba/hdp': {}
+    'ryba/hdp':
+      constraints: tags: 'environment': 'dev'
+      config: ryba: hdf:
+        source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
     'ryba/zookeeper/client':
