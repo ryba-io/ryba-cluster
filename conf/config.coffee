@@ -45,13 +45,13 @@ module.exports =
         rotate: true
   services:
     'masson/core/system':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: system:
         selinux: false
         limits: {}
         users: {}
     'masson/core/yum':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: yum:
         packages:
           'tree': true, 'git': true, 'htop': false, 'vim': true, 
@@ -59,7 +59,7 @@ module.exports =
           'net-tools': true # Install netstat
           # 'bind-utils': true # Install dig
     'masson/core/ssh':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: ssh:
         banner:
           target: '/etc/banner'
@@ -67,11 +67,11 @@ module.exports =
         sshd_config:
           PermitRootLogin: 'without-password'
     'masson/core/ntp':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: ntp:
         servers: ['master03.metal.ryba']
     'masson/core/network':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: network:
         hosts:
           # '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
@@ -90,7 +90,7 @@ module.exports =
           password: 'Keystore123-'
           keypass: 'Keystore123-'
     'masson/core/iptables':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
       config: iptables:
         action: 'stop'
         startup: false
@@ -199,7 +199,7 @@ module.exports =
               password: 'test'
             ]
     'masson/core/krb5_client':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
     'masson/commons/httpd':
       constraints: nodes: ['master03.metal.ryba']
     # 'masson/commons/postgres/server':
@@ -209,7 +209,7 @@ module.exports =
     #       password: 'test123'
     #       user: 'root'
     'masson/commons/mysql/client':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
     'masson/commons/mysql/server':
       constraints: nodes: ['master01.metal.ryba']
       config: mysql: server:
@@ -547,7 +547,7 @@ module.exports =
   nodes:
     'master01.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'master'
       config:
         ip: '10.10.10.11'
@@ -559,7 +559,7 @@ module.exports =
           'key': "#{__dirname}/certs/master01_key.pem"
     'master02.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'master'
       config:
         ip: '10.10.10.12'
@@ -574,7 +574,7 @@ module.exports =
           'key': "#{__dirname}/certs/master02_key.pem"
     'master03.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'master'
       config:
         ip: '10.10.10.13'
@@ -589,7 +589,7 @@ module.exports =
           'key': "#{__dirname}/certs/master03_key.pem"
     'edge01.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'client'
       config:
         ip: '10.10.10.14'
@@ -601,7 +601,7 @@ module.exports =
           'key': "#{__dirname}/certs/edge01_key.pem"
     'worker01.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'worker'
       config:
         ip: '10.10.10.16'
@@ -613,7 +613,7 @@ module.exports =
           'key': "#{__dirname}/certs/worker01_key.pem"
     'worker02.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'worker'
       config:
         ip: '10.10.10.17'
@@ -625,7 +625,7 @@ module.exports =
           'key': "#{__dirname}/certs/worker02_key.pem"
     'worker03.metal.ryba':
       tags:
-        'environment': 'prod'
+        'environment': 'dev'
         'role': 'worker'
       config:
         ip: '10.10.10.18'
