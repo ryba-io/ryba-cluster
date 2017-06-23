@@ -9,7 +9,7 @@ to your need based on your production environnement.
 
 ## VMs
 
-You may use Vagrant to boostrap a cluster of virtual machines (VMs). Feel free to tweek
+We use Vagrant to boostrap a cluster of virtual machines (VMs). Feel free to tweek
 the default Vagrant definition located in "./resources/Vagrantfile" with your own
 topology. The current definition set up a cluster of 6 VMs and require 16GB of memory.
 
@@ -22,8 +22,8 @@ To get started with Ryba, we recommend you to read the following resources:
 * [Guide for Operators](http://ryba.io/documentation/operator)
 
 ```
-git clone https://github.com/ryba-io/ryba-cluster
-cd ryba-cluster
+git clone https://github.com/ryba-io/ryba-env-metal
+cd ryba-env-metal
 npm install
 ./bin/vagrant up
 ./bin/ryba install
