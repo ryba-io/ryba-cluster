@@ -222,7 +222,7 @@ module.exports =
     #     password: 'MySQL123-'
     'ryba/hdp':
       constraints: tags: 'environment': 'dev'
-      config: ryba: hdf:
+      config: ryba: hdp:
         source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
@@ -425,6 +425,10 @@ module.exports =
     'ryba/kafka/producer':
       constraints: tags: 'role': 'client'
     # Ambari
+    'ryba/ambari/repo':
+      constraints: tags: 'environment': 'dev'
+      config: ryba: ambari: repo:
+        source: 'http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.2.0'
     'ryba/ambari/server':
       constraints: nodes: ['master01.metal.ryba']
       config: ryba: ambari_server:

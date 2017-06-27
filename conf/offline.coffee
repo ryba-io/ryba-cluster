@@ -31,4 +31,7 @@ module.exports =
         fudge: true
     'ryba/hdp':
       config: ryba: hdp:
-        source: "#{__dirname}/offline/hdp.repo"
+        source: "#{__dirname}/offline/hdp-2.5.3.0.repo"
+    'ryba/ambari/repo':
+      config: ryba: ambari: repo:
+        source: "#{__dirname}/offline/ambari-2.4.2.0.repo"
