@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repo: update path to centos in offline mode
 * repo: disable epel in offline mode
 * repo: mysql offline url
 * config: repo declaration per service
