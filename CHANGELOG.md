@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repo: disable epel in offline mode
 * repo: mysql offline url
 * config: repo declaration per service
 * repos: rename repo to source

@@ -16,7 +16,7 @@ module.exports =
         config: proxy: null
         source: "#{__dirname}/offline/centos.repo"
         epel:
-          enabled: true
+          enabled: false
           url: null
           source: "#{__dirname}/offline/epel.repo"
     'masson/core/network':
