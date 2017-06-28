@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* repo: mysql offline url
 * config: repo declaration per service
 * repos: rename repo to source
 * services: comment nifi
