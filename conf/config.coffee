@@ -217,7 +217,7 @@ module.exports =
       config: ryba: hdp:
         source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
     'masson/commons/mariadb/client':
-      constraints: tags: 'environment': 'prod'
+      constraints: tags: 'environment': 'dev'
     'masson/commons/mariadb/server':
       constraints: nodes: ['master01.metal.ryba','master02.metal.ryba']
       config: mariadb: server:
