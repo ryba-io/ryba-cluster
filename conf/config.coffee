@@ -208,14 +208,6 @@ module.exports =
     #     server:
     #       password: 'test123'
     #       user: 'root'
-    'masson/commons/mysql/client':
-      constraints: tags: 'environment': 'dev'
-    'masson/commons/mysql/server':
-      constraints: nodes: ['master01.metal.ryba']
-      config: mysql: server:
-        current_password: ''
-        password: 'MySQL123-'
-        my_conf: {}
     # 'masson/commons/mysql/server.5.7':
     #   constraints: nodes: ['worker02.metal.ryba']
     #   config: mysql: server:
@@ -224,6 +216,14 @@ module.exports =
       constraints: tags: 'environment': 'dev'
       config: ryba: hdp:
         source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
+    'masson/commons/mariadb/client':
+      constraints: tags: 'environment': 'prod'
+    'masson/commons/mariadb/server':
+      constraints: nodes: ['master01.metal.ryba','master02.metal.ryba']
+      config: mariadb: server:
+        current_password: ''
+        password: 'MySQL123-'
+        my_conf: {}
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
     'ryba/zookeeper/client':
