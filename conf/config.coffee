@@ -348,11 +348,6 @@ module.exports =
       constraints: nodes: ['edge01.metal.ryba']
       config: ryba: benchmark:
         "iterations": 1
-        "datanodes": [
-          "https://worker01.metal.ryba:50475/jmx"
-          "https://worker02.metal.ryba:50475/jmx"
-          "https://worker03.metal.ryba:50475/jmx"
-        ]
         "output": "./benchmark"
     'ryba/tez':
       constraints: nodes: ['edge01.metal.ryba', 'master03.metal.ryba']
