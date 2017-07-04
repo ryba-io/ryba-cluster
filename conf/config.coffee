@@ -58,6 +58,23 @@ module.exports =
           'bash-completion': true, 'unzip': true,
           'net-tools': true # Install netstat
           # 'bind-utils': true # Install dig
+    # 'masson/core/fstab':
+    #   constraints: tags: 'role': ['worker']
+    #   config: fstab:
+    #     enabled: true
+    #     volumes:
+    #       '/data/1':
+    #         dump: '0'
+    #         pass: '0'
+    #         name: 'sdd'
+    #         type: 'ext4'
+    #         format: true
+    #       '/data/2':
+    #         dump: '0'
+    #         pass: '0'
+    #         name: 'sde'
+    #         type: 'ext4'
+    #         format: true
     'masson/core/ssh':
       constraints: tags: 'environment': 'dev'
       config: ssh:
