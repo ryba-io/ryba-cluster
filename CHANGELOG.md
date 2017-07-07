@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* config: add example for ambari/standalone and views
 * repo: update path to centos in offline mode
 * repo: disable epel in offline mode
 * repo: mysql offline url

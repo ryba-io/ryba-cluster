@@ -164,6 +164,34 @@ module.exports =
           source: "#{__dirname}/certs/cacert.pem", local: true
         ]
         config: {}
+    # 'ryba/ambari/standalone':
+    #   constraints: nodes: ['edge01.metal.ryba']
+    #   config: ryba: ambari_standalone:
+    #     source: "#{__dirname}/users/offline/ambari.repo"
+    #     admin_password: 'admin123'
+    #     master_key: 'ambariMasterKey123'
+    #     db:
+    #       engine: 'mysql'
+    #       database: 'ambari_views'
+    #       password: 'Ambari123-'
+    #     truststore: password: 'AmbariTruststore123-'
+    #     jaas:
+    #       enabled: true
+    #       principal: 'ambari/_HOST@HADOOP.RYBA'
+    #     views:
+    #       enabled: true
+    #       files:
+    #         enabled: true#default to true
+    #         version: '1.0.0'
+    #       hive:
+    #         enabled: true
+    #         version: '1.5.0'
+    #       tez:
+    #         enabled: true
+    #         version: '0.7.0.2.6.1.0-118'
+    #       wfmanager:
+    #         enabled: true
+    #         version: '1.0.0'
     # 'masson/core/sssd':
     #   config: sssd:
     #     force_check: false
