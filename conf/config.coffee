@@ -1,6 +1,6 @@
 
 module.exports =
-  config: 
+  config:
     ssh:
       private_key: """
       -----BEGIN RSA PRIVATE KEY-----
@@ -40,9 +40,8 @@ module.exports =
       cache_dir: "#{__dirname}/../cache"
       log_serializer: true
       debug: false
-      log_md:
-        archive: false
-        rotate: true
+    ryba:
+      hive: metastore: db: password: 'Hive123!'
   services:
     'masson/core/system':
       constraints: tags: 'environment': 'dev'
@@ -404,8 +403,6 @@ module.exports =
         user: limits:
           nproc: 16384
           nofile: 16384
-        hcatalog:
-          db: password: 'Hive123!'
     'ryba/hive/server2':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hive/webhcat':
