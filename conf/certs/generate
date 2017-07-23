@@ -6,17 +6,17 @@
 cd `dirname "${BASH_SOURCE}"`
 
 cacert(){
-  if [ -f "cacert_key.pem" ]; then  echo ''; echo '!!! cacert files already exists !!!'; echo ''; help; exit 1; fi
-  # RSA Private key (create "cacert_key.pem")
-  openssl genrsa -out cacert_key.pem 2048
-  # Self-signed (with the key previously generated) root CA certificate (create "cacert.pem")
+  if [ -f "ca.key.pem" ]; then  echo ''; echo '!!! cacert files already exists !!!'; echo ''; help; exit 1; fi
+  # RSA Private key (create "ca.key.pem")
+  openssl genrsa -out ca.key.pem 2048
+  # Self-signed (with the key previously generated) root CA certificate (create "ca.cert.pem")
   # "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=adaltas.com/emailAddress=david@adaltas.com"
-  openssl req -x509 -new -sha256 -key cacert_key.pem -days 7300 -out cacert.pem -subj "/C=FR/O=Adaltas/L=Paris/CN=adaltas.com"
+  openssl req -x509 -new -sha256 -key ca.key.pem -days 7300 -out ca.cert.pem -subj "/C=FR/O=Adaltas/L=Paris/CN=adaltas.com"
 }
 
 cacert_check(){
   shortname=`echo $1 | sed 's/\([[:alnum:]]\)\..*/\1/'`
-  openssl verify -CAfile cacert.pem ${shortname}_cert.pem
+  openssl verify -CAfile ca.cert.pem ${shortname}.cert.pem
 }
 
 # The first time you use your CA to sign a certificate you can use the -CAcreateserial
@@ -28,21 +28,21 @@ cert(){
   if [ -z "$1" ]; then help; exit 1; fi
   fqdn=$1
   shortname=`echo $fqdn | sed 's/\([[:alnum:]]\)\..*/\1/'`
-  if [ ! -f cacert_key.pem ]; then echo 'Run `./generate.sh cacert` first.'; exit 1; fi
-  # Certificate signing request (CSR) and private key (create "hadoop_cert.csr" and "hadoop_key.pem")
+  if [ ! -f ca.key.pem ]; then echo 'Run `./generate.sh cacert` first.'; exit 1; fi
+  # Certificate signing request (CSR) and private key (create "hadoop.cert.csr" and "hadoop.key.pem")
   # "/C=FR/ST=IDF/L=Paris/O=Adaltas/CN=${fqdn}/emailAddress=david@adaltas.com"
-  openssl req -newkey rsa:2048 -sha256 -nodes -out ${shortname}_cert.csr -keyout ${shortname}_key.pem -subj "/C=FR/O=Adaltas/L=Paris/CN=${fqdn}"
-  # to view the CSR: `openssl req -in toto_cert.csr -noout -text`
-  # Sign the CSR (create "hadoop_cert.pem")
-  openssl x509 -req -sha256 -days 7300 -in ${shortname}_cert.csr -CA cacert.pem -CAkey cacert_key.pem -out ${shortname}_cert.pem -CAcreateserial -CAserial cacert.seq
+  openssl req -newkey rsa:2048 -sha256 -nodes -out ${shortname}.cert.csr -keyout ${shortname}.key.pem -subj "/C=FR/O=Adaltas/L=Paris/CN=${fqdn}"
+  # to view the CSR: `openssl req -in toto.cert.csr -noout -text`
+  # Sign the CSR (create "hadoop.cert.pem")
+  openssl x509 -req -sha256 -days 7300 -in ${shortname}.cert.csr -CA ca.cert.pem -CAkey ca.key.pem -out ${shortname}.cert.pem -CAcreateserial -CAserial ca.seq
   # Clean up
-  echo ${shortname}_cert.csr
-  rm -rf ${shortname}_cert.csr
+  echo ${shortname}.cert.csr
+  rm -rf ${shortname}.cert.csr
 }
 
 cert_view(){
   shortname=`echo $1 | sed 's/\([[:alnum:]]\)\..*/\1/'`
-  openssl x509 -in ${shortname}_cert.pem -text
+  openssl x509 -in ${shortname}.cert.pem -text
 }
 
 help(){

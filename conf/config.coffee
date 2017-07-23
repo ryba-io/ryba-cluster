@@ -99,7 +99,7 @@ module.exports =
       constraints: tags: 'environment': 'dev'
       config: ssl:
         cacert:
-          source: "#{__dirname}/certs/cacert.pem"
+          source: "#{__dirname}/certs/ca.cert.pem"
           local: true
         truststore:
           password: 'Truststore123-'
@@ -150,7 +150,7 @@ module.exports =
           ldapdelete: []
           ldapadd: []
           tls: true
-          tls_ca_cert_file: "#{__dirname}/certs/cacert.pem"
+          tls_ca_cert_file: "#{__dirname}/certs/ca.cert.pem"
           tls_ca_cert_local: true
           tls_cert_local: true
           tls_key_local: true
@@ -162,7 +162,7 @@ module.exports =
       constraints: nodes: ['master03.metal.ryba', 'master02.metal.ryba']
       config:  openldap_client:
         certificates: [
-          source: "#{__dirname}/certs/cacert.pem", local: true
+          source: "#{__dirname}/certs/ca.cert.pem", local: true
         ]
         config: {}
     # 'ryba/ambari/standalone':
@@ -197,7 +197,7 @@ module.exports =
     #   config: sssd:
     #     force_check: false
     #     certificates: [
-    #       "#{__dirname}/certs/cacert.pem"
+    #       "#{__dirname}/certs/ca.cert.pem"
     #     ]
     #     config:
     #       'domain/hadoop':
@@ -231,7 +231,7 @@ module.exports =
     #       'sssd':
     #         'domains' : 'hadoop,users'
     'masson/core/krb5_server':
-      constraints: nodes: ['master01.metal.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: krb5_server:
         admin:
           'HADOOP.RYBA':
@@ -288,9 +288,9 @@ module.exports =
           password: 'test123'
           password_sync: true
         ssl:
-          'cacert': "#{__dirname}/certs/cacert.pem"
-        #   'cert': "#{__dirname}/certs/hadoop_cert.pem"
-        #   'key': "#{__dirname}/certs/hadoop_key.pem"
+          'cacert': "#{__dirname}/certs/ca.cert.pem"
+        #   'cert': "#{__dirname}/certs/hadoop.cert.pem"
+        #   'key': "#{__dirname}/certs/hadoop.key.pem"
         ssh_fencing:
           private_key: "#{__dirname}/hdfs_keys/id_rsa"
           public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
@@ -528,8 +528,8 @@ module.exports =
     #           engine: 'mysql'
     #           password: 'Hue123-'
     #     ssl:
-    #       certificate: "#{__dirname}/certs/master03_cert.pem"
-    #       private_key: "#{__dirname}/certs/master03_key.pem"
+    #       certificate: "#{__dirname}/certs/master03.cert.pem"
+    #       private_key: "#{__dirname}/certs/master03.key.pem"
     #       client_ca: "#{__dirname}/certs/cacert.pem"
     # Hue with Docker
     'ryba/huedocker':
@@ -600,11 +600,15 @@ module.exports =
       config:
         ip: '10.10.10.11'
         ssl:
-          'cert': source: "#{__dirname}/certs/master01_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/master01_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/master01.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master01.key.pem", local: true
+        krb5_server:
+          admin:
+            'HADOOP.RYBA':
+              master: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master01_cert.pem"
-          'key': "#{__dirname}/certs/master01_key.pem"
+          'cert': "#{__dirname}/certs/master01.cert.pem"
+          'key': "#{__dirname}/certs/master01.key.pem"
     'master02.metal.ryba':
       tags:
         'environment': 'dev'
@@ -612,14 +616,14 @@ module.exports =
       config:
         ip: '10.10.10.12'
         openldap_server:
-          tls_cert_file: "#{__dirname}/certs/master02_cert.pem"
-          tls_key_file: "#{__dirname}/certs/master02_key.pem"
+          tls_cert_file: "#{__dirname}/certs/master02.cert.pem"
+          tls_key_file: "#{__dirname}/certs/master02.key.pem"
         ssl:
-          'cert': source: "#{__dirname}/certs/master02_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/master02_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/master02.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master02.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master02_cert.pem"
-          'key': "#{__dirname}/certs/master02_key.pem"
+          'cert': "#{__dirname}/certs/master02.cert.pem"
+          'key': "#{__dirname}/certs/master02.key.pem"
     'master03.metal.ryba':
       tags:
         'environment': 'dev'
@@ -627,14 +631,14 @@ module.exports =
       config:
         ip: '10.10.10.13'
         openldap_server:
-          tls_cert_file: "#{__dirname}/certs/master03_cert.pem"
-          tls_key_file: "#{__dirname}/certs/master03_key.pem"
+          tls_cert_file: "#{__dirname}/certs/master03.cert.pem"
+          tls_key_file: "#{__dirname}/certs/master03.key.pem"
         ssl:
-          'cert': source: "#{__dirname}/certs/master03_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/master03_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/master03.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/master03.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/master03_cert.pem"
-          'key': "#{__dirname}/certs/master03_key.pem"
+          'cert': "#{__dirname}/certs/master03.cert.pem"
+          'key': "#{__dirname}/certs/master03.key.pem"
     'edge01.metal.ryba':
       tags:
         'environment': 'dev'
@@ -642,11 +646,11 @@ module.exports =
       config:
         ip: '10.10.10.14'
         ssl:
-          'cert': source: "#{__dirname}/certs/edge01_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/edge01_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/edge01.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/edge01.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/edge01_cert.pem"
-          'key': "#{__dirname}/certs/edge01_key.pem"
+          'cert': "#{__dirname}/certs/edge01.cert.pem"
+          'key': "#{__dirname}/certs/edge01.key.pem"
     'worker01.metal.ryba':
       tags:
         'environment': 'dev'
@@ -654,11 +658,11 @@ module.exports =
       config:
         ip: '10.10.10.16'
         ssl:
-          'cert': source: "#{__dirname}/certs/worker01_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/worker01_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/worker01.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker01.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker01_cert.pem"
-          'key': "#{__dirname}/certs/worker01_key.pem"
+          'cert': "#{__dirname}/certs/worker01.cert.pem"
+          'key': "#{__dirname}/certs/worker01.key.pem"
     'worker02.metal.ryba':
       tags:
         'environment': 'dev'
@@ -666,11 +670,11 @@ module.exports =
       config:
         ip: '10.10.10.17'
         ssl:
-          'cert': source: "#{__dirname}/certs/worker02_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/worker02_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/worker02.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker02.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker02_cert.pem"
-          'key': "#{__dirname}/certs/worker02_key.pem"
+          'cert': "#{__dirname}/certs/worker02.cert.pem"
+          'key': "#{__dirname}/certs/worker02.key.pem"
     'worker03.metal.ryba':
       tags:
         'environment': 'dev'
@@ -678,8 +682,8 @@ module.exports =
       config:
         ip: '10.10.10.18'
         ssl:
-          'cert': source: "#{__dirname}/certs/worker03_cert.pem", local: true
-          'key': source: "#{__dirname}/certs/worker03_key.pem", local: true
+          'cert': source: "#{__dirname}/certs/worker03.cert.pem", local: true
+          'key': source: "#{__dirname}/certs/worker03.key.pem", local: true
         ryba: ssl:
-          'cert': "#{__dirname}/certs/worker03_cert.pem"
-          'key': "#{__dirname}/certs/worker03_key.pem"
+          'cert': "#{__dirname}/certs/worker03.cert.pem"
+          'key': "#{__dirname}/certs/worker03.key.pem"

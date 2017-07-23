@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* ssl: rename certificates
 * ssh: remove from global to nikita
 * hive mestastore: remove from global
 * yum: remove clean option for centos repo in offline
