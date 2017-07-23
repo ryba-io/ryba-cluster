@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* yum: remove clean option for centos repo in offline
 * config: add example for ambari/standalone and views
 * repo: update path to centos in offline mode
 * repo: disable epel in offline mode

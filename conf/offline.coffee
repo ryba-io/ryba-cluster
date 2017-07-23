@@ -12,7 +12,6 @@ module.exports =
   services:
     'masson/core/yum':
       config: yum:
-        clean: true
         config: proxy: null
         source: "#{__dirname}/offline/centos.repo"
         epel:
