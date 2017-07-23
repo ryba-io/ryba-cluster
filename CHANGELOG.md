@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* ssh: remove from global to nikita
 * hive mestastore: remove from global
 * yum: remove clean option for centos repo in offline
 * config: add example for ambari/standalone and views
