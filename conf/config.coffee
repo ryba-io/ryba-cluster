@@ -40,8 +40,6 @@ module.exports =
       cache_dir: "#{__dirname}/../cache"
       log_serializer: true
       debug: false
-    ryba:
-      hive: metastore: db: password: 'Hive123!'
   services:
     'masson/core/system':
       constraints: tags: 'environment': 'dev'
@@ -425,6 +423,9 @@ module.exports =
       constraints: tags: 'role': 'client'
       config: sqoop:
         libs: []
+    'ryba/hive/metastore':
+      config: ryba: hive: metastore:
+        db: password: 'Hive123!'
     'ryba/hive/hcatalog':
       constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config: ryba: hive:
