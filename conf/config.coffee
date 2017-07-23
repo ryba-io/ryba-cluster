@@ -247,16 +247,6 @@ module.exports =
       constraints: tags: 'environment': 'dev'
     'masson/commons/httpd':
       constraints: nodes: ['master03.metal.ryba']
-    # 'masson/commons/postgres/server':
-    #   constraints: nodes: ['master03.metal.ryba']
-    #   config: postgres:
-    #     server:
-    #       password: 'test123'
-    #       user: 'root'
-    # 'masson/commons/mysql/server.5.7':
-    #   constraints: nodes: ['worker02.metal.ryba']
-    #   config: mysql: server:
-    #     password: 'MySQL123-'
     'ryba/hdp':
       constraints: tags: 'environment': 'dev'
       config: ryba: hdp:
@@ -269,6 +259,24 @@ module.exports =
         current_password: ''
         password: 'MySQL123-'
         my_conf: {}
+    # 'masson/commons/postgres/server':
+    #   constraints: nodes: ['master03.metal.ryba']
+    #   config: postgres:
+    #     server:
+    #       password: 'test123'
+    #       user: 'root'
+    # 'masson/commons/mysql/client':
+    #   constraints: tags: 'environment': 'dev'
+    # 'masson/commons/mysql/server':
+    #   constraints: nodes: ['master02.metal.ryba']
+    #   config: mysql: server:
+    #     current_password: ''
+    #     password: 'MySQL123-'
+    #     my_conf: {}
+    # 'masson/commons/mysql/server.5.7':
+    #   constraints: nodes: ['worker02.metal.ryba']
+    #   config: mysql: server:
+    #     password: 'MySQL123-'
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
     'ryba/zookeeper/client':
