@@ -332,12 +332,6 @@ module.exports =
           krb5_user:
             password: 'hdfs123'
             password_sync: true
-          sysctl:
-            'vm.swappiness': 0 # Default to 60
-            'vm.overcommit_memory': 1 # Default to 0
-            'vm.overcommit_ratio': 100 # Default to 50
-            'net.core.somaxconn': 1024 # Default to 128
-            'net.ipv4.ip_local_port_range': '10000 65000' # Default is "1024 4999"
           site:
             'dfs.namenode.safemode.extension': 1000 # "1s", default to "30s"
         mapred:
@@ -348,6 +342,35 @@ module.exports =
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/hdfs_dn':
       constraints: tags: 'role': 'worker'
+      config: ryba: hdfs:
+        sysctl:
+          'vm.swappiness': 1 # Default to 60
+          'vm.overcommit_memory': 1 # Default to 0
+          'vm.overcommit_ratio': 100 # Default to 50
+          'net.core.netdev_max_backlog': 4096 # Was 1000
+          'net.core.somaxconn': 4096 # Default to 128
+          'net.ipv4.ip_forward': 0 # Was already 0
+          'net.ipv4.conf.default.rp_filter': 1 # Was already 0
+          'net.ipv4.tcp_syncookies': 1
+          'net.ipv4.tcp_sack': 1
+          'net.ipv4.tcp_dsack': 1
+          'net.ipv4.tcp_keepalive_intvl': 15 # Was 75
+          'net.ipv4.tcp_keepalive_probes': 5 # Was 9
+          'net.ipv4.tcp_keepalive_time': 600  # Was 7200
+          'net.ipv4.tcp_fin_timeout': 30 # Was 60
+          'net.ipv4.tcp_rmem': '32768 436600 4193404' # Was 4096 87380 6291456
+          'net.ipv4.tcp_wmem': '32768 436600 4193404' # Was 4096 16384 4194304
+          'net.ipv4.tcp_retries2': 10 # Was 15
+          'net.ipv4.tcp_synack_retries': 3 # Was 5
+          'net.ipv6.conf.all.disable_ipv6': null # Was missing, error if set to 0
+          'net.ipv6.conf.default.disable_ipv6': null # Was missing, error if set to 0
+          'net.ipv6.conf.lo.disable_ipv6': null # Was missing, error if set to 0
+          'kernel.sysrq': 0 # Was 16
+          'kernel.core_uses_pid': 1 # Was alraedy 1
+          'kernel.msgmax': 65536 # Was 8192
+          'kernel.msgmnb': 65536 # Was 16384
+          'kernel.shmall': 4294967296 # Was 18446744073692774399
+          'kernel.shmmax': 68719476736 # Was 18446744073692774399
     'ryba/hadoop/hdfs_jn':
       constraints:
         tags: 'role': 'master'

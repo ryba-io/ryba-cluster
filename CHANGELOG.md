@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* hdfs dn: move and enrich sysctl variables
 * ssl: rename certificates
 * ssh: remove from global to nikita
 * hive mestastore: remove from global
