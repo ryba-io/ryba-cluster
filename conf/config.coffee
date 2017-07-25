@@ -53,6 +53,7 @@ module.exports =
     'masson/core/yum':
       constraints: tags: 'environment': 'dev'
       config: yum:
+        update: true
         packages:
           'tree': true, 'git': true, 'htop': false, 'vim': true, 
           'bash-completion': true, 'unzip': true,
