@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* vagrant: disable box check update
 * hdfs dn: move and enrich sysctl variables
 * ssl: rename certificates
 * ssh: remove from global to nikita
