@@ -255,7 +255,7 @@ module.exports =
     'masson/commons/mariadb/client':
       constraints: tags: 'environment': 'dev'
     'masson/commons/mariadb/server':
-      constraints: nodes: ['master01.metal.ryba','master02.metal.ryba']
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: mariadb: server:
         current_password: ''
         password: 'MySQL123-'
@@ -515,35 +515,35 @@ module.exports =
     'ryba/ambari/agent':
       constraints: tags: 'role': 'client'
     # Druid
-    'ryba/druid':
-      config: ryba: druid:
-        db: password: 'Druid123-'
-    'ryba/druid/broker':
-      constraints: tags: 'role': 'master'
-      config: ryba: druid:
-        broker: jvm:
-          xms: '128m'
-          xmx: '512m'
-    'ryba/druid/coordinator':
-      constraints: tags: 'role': 'worker'
-      config: ryba: druid:
-        coordinator: jvm:
-          xms: '128m' # Default is 3g
-          xmx: '512m' # Default is 3g
-    'ryba/druid/overlord':
-      constraints: tags: 'role': 'worker'
-      config: ryba: druid:
-        overlord: jvm:
-          xms: '128m' # Default is 3g
-          xmx: '512m' # Default is 3g
-    'ryba/druid/historical':
-      constraints: tags: 'role': 'worker'
-      config: ryba: druid:
-        historical: jvm:
-          xms: '128m' # Default is 8g
-          xmx: '512m' # Default is 8g
-    'ryba/druid/middlemanager':
-      constraints: tags: 'role': 'worker'
+    # 'ryba/druid':
+    #   config: ryba: druid:
+    #     db: password: 'Druid123-'
+    # 'ryba/druid/broker':
+    #   constraints: tags: 'role': 'master'
+    #   config: ryba: druid:
+    #     broker: jvm:
+    #       xms: '128m'
+    #       xmx: '512m'
+    # 'ryba/druid/coordinator':
+    #   constraints: tags: 'role': 'worker'
+    #   config: ryba: druid:
+    #     coordinator: jvm:
+    #       xms: '128m' # Default is 3g
+    #       xmx: '512m' # Default is 3g
+    # 'ryba/druid/overlord':
+    #   constraints: tags: 'role': 'worker'
+    #   config: ryba: druid:
+    #     overlord: jvm:
+    #       xms: '128m' # Default is 3g
+    #       xmx: '512m' # Default is 3g
+    # 'ryba/druid/historical':
+    #   constraints: tags: 'role': 'worker'
+    #   config: ryba: druid:
+    #     historical: jvm:
+    #       xms: '128m' # Default is 8g
+    #       xmx: '512m' # Default is 8g
+    # 'ryba/druid/middlemanager':
+    #   constraints: tags: 'role': 'worker'
     # ElasticSearch
     # 'ryba/elasticsearch':
     #   constraints: tags: 'role': 'worker'
