@@ -1,12 +1,10 @@
 {
-  "name": "ryba-cluster",
+  "name": "ryba-env-metal",
   "version": "0.0.0",
   "description": "Ryba deployment example on a small cluster",
   "dependencies": {
-    "coffee-script": "~1.12.4",
+    "coffee-script": "~1.12.7",
     "nikita": "git+https://github.com/adaltas/node-nikita.git#master",
-    "masson": "git+https://github.com/adaltas/node-masson.git#master",
-    "ryba": "git+https://github.com/ryba-io/ryba.git#master",
-    "ryba-repos": "~0.0.3"
+    "ryba-repos": "~0.1.0"
   }
 }
