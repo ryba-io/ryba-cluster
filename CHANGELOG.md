@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* druid: revert recent commit commenting config
 * run: remove global configuration
 * vagrant: disable box check update
 * hdfs dn: move and enrich sysctl variables
