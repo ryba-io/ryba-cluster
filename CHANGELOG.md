@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* run: remove global configuration
 * vagrant: disable box check update
 * hdfs dn: move and enrich sysctl variables
 * ssl: rename certificates
