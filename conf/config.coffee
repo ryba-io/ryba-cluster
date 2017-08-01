@@ -138,23 +138,22 @@ module.exports =
           "ldap_password": "secret"
     'masson/core/openldap_server':
       constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
-      config:
-        openldap_server:
-          suffix: 'dc=ryba'
-          root_dn: 'cn=ldapadm,dc=ryba'
-          root_password: 'test'
-          config_dn: 'cn=admin,cn=config'
-          config_password: 'test'
-          users_dn: 'ou=users,dc=ryba'
-          groups_dn: 'ou=groups,dc=ryba'
-          ldapdelete: []
-          ldapadd: []
-          tls: true
-          tls_ca_cert_file: "#{__dirname}/certs/ca.cert.pem"
-          tls_ca_cert_local: true
-          tls_cert_local: true
-          tls_key_local: true
-        openldap_server_krb5:
+      config: openldap_server:
+        suffix: 'dc=ryba'
+        root_dn: 'cn=ldapadm,dc=ryba'
+        root_password: 'test'
+        config_dn: 'cn=admin,cn=config'
+        config_password: 'test'
+        users_dn: 'ou=users,dc=ryba'
+        groups_dn: 'ou=groups,dc=ryba'
+        ldapdelete: []
+        ldapadd: []
+        tls: true
+        tls_ca_cert_file: "#{__dirname}/certs/ca.cert.pem"
+        tls_ca_cert_local: true
+        tls_cert_local: true
+        tls_key_local: true
+        krb5:
           krbadmin_user:
             mail: 'david@adaltas.com'
             userPassword: 'test'
