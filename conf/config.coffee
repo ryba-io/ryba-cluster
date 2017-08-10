@@ -48,7 +48,8 @@ module.exports =
       config: system:
         selinux: false
         limits: {}
-        users: {}
+        users:
+          ryba: {}
     'masson/core/yum':
       constraints: tags: 'environment': 'dev'
       config: yum:
@@ -111,7 +112,7 @@ module.exports =
       config: iptables:
         action: 'stop'
         startup: false
-        log: true
+        redirect_log: true
         rules: [
           # { chain: 'INPUT', jump: 'ACCEPT', source: "10.10.10.0/24", comment: 'Local Network' }
         ]
@@ -244,6 +245,12 @@ module.exports =
             ]
     'masson/core/krb5_client':
       constraints: tags: 'environment': 'dev'
+    'masson/commons/git':
+      constraints: tags: 'environment': 'dev'
+      config: git:
+        users:
+          'ryba': config:
+            "user": { "name": 'Ryba User', email: "ryba@ryba.io" }
     'masson/commons/httpd':
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hdp':
@@ -256,7 +263,8 @@ module.exports =
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: mariadb: server:
         current_password: ''
-        password: 'MySQL123-'
+        admin_password: 'Maria123-'
+        repl_master: password: 'MariaReqpl123-'
         my_conf: {}
     # 'masson/commons/postgres/server':
     #   constraints: nodes: ['master03.metal.ryba']
