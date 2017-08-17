@@ -48,6 +48,7 @@ module.exports =
     'ryba/zookeeper/server':
       config: ryba: zookeeper:
         group: gid: 2402
+        hadoop_group: gid: 2400
         user: uid: 2402, gid: 2402
     'ryba/ambari/server':
       config: ryba: ambari_server:

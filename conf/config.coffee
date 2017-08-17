@@ -286,6 +286,8 @@ module.exports =
     #     password: 'MySQL123-'
     'ryba/zookeeper/server':
       constraints: tags: 'role': 'master'
+      config: ryba: zookeeper:
+        clean_logs: true
     'ryba/zookeeper/client':
       constraints: tags: 'role': 'client'
     # 'ryba/ranger/admin':
@@ -299,11 +301,11 @@ module.exports =
         security: 'kerberos'
         nameservice: 'torval'
         realm: 'HADOOP.RYBA'
-        krb5_user: # User used for testing
+        krb5: user: # User used for testing
           password: 'test123'
           password_sync: true
-        ssl:
-          'cacert': "#{__dirname}/certs/ca.cert.pem"
+        # ssl:
+        #   'cacert': "#{__dirname}/certs/ca.cert.pem"
         #   'cert': "#{__dirname}/certs/hadoop.cert.pem"
         #   'key': "#{__dirname}/certs/hadoop.key.pem"
         ssh_fencing:
@@ -332,6 +334,9 @@ module.exports =
           '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
         hadoop_heap: '512'
         hadoop_namenode_init_heap: '-Xms512m'
+        ssl_server:
+          'ssl.server.keystore.password': 'HadoopKeystore!'
+          'ssl.client.truststore.password': 'HadoopTruststore!'
         hdfs:
           user: limits:
             nproc: 16384
@@ -349,7 +354,7 @@ module.exports =
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/hdfs_dn':
       constraints: tags: 'role': 'worker'
-      config: ryba: hdfs:
+      config: ryba: hdfs: dn:
         sysctl:
           'vm.swappiness': 1 # Default to 60
           'vm.overcommit_memory': 1 # Default to 0
@@ -644,9 +649,9 @@ module.exports =
           admin:
             'HADOOP.RYBA':
               master: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/master01.cert.pem"
-          'key': "#{__dirname}/certs/master01.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/master01.cert.pem"
+        #   'key': "#{__dirname}/certs/master01.key.pem"
     'master02.metal.ryba':
       tags:
         'environment': 'dev'
@@ -659,9 +664,9 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/master02.cert.pem", local: true
           'key': source: "#{__dirname}/certs/master02.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/master02.cert.pem"
-          'key': "#{__dirname}/certs/master02.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/master02.cert.pem"
+        #   'key': "#{__dirname}/certs/master02.key.pem"
     'master03.metal.ryba':
       tags:
         'environment': 'dev'
@@ -674,9 +679,9 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/master03.cert.pem", local: true
           'key': source: "#{__dirname}/certs/master03.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/master03.cert.pem"
-          'key': "#{__dirname}/certs/master03.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/master03.cert.pem"
+        #   'key': "#{__dirname}/certs/master03.key.pem"
     'edge01.metal.ryba':
       tags:
         'environment': 'dev'
@@ -686,9 +691,9 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/edge01.cert.pem", local: true
           'key': source: "#{__dirname}/certs/edge01.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/edge01.cert.pem"
-          'key': "#{__dirname}/certs/edge01.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/edge01.cert.pem"
+        #   'key': "#{__dirname}/certs/edge01.key.pem"
     'worker01.metal.ryba':
       tags:
         'environment': 'dev'
@@ -698,9 +703,9 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/worker01.cert.pem", local: true
           'key': source: "#{__dirname}/certs/worker01.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/worker01.cert.pem"
-          'key': "#{__dirname}/certs/worker01.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/worker01.cert.pem"
+        #   'key': "#{__dirname}/certs/worker01.key.pem"
     'worker02.metal.ryba':
       tags:
         'environment': 'dev'
@@ -710,9 +715,9 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/worker02.cert.pem", local: true
           'key': source: "#{__dirname}/certs/worker02.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/worker02.cert.pem"
-          'key': "#{__dirname}/certs/worker02.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/worker02.cert.pem"
+        #   'key': "#{__dirname}/certs/worker02.key.pem"
     'worker03.metal.ryba':
       tags:
         'environment': 'dev'
@@ -722,6 +727,6 @@ module.exports =
         ssl:
           'cert': source: "#{__dirname}/certs/worker03.cert.pem", local: true
           'key': source: "#{__dirname}/certs/worker03.key.pem", local: true
-        ryba: ssl:
-          'cert': "#{__dirname}/certs/worker03.cert.pem"
-          'key': "#{__dirname}/certs/worker03.key.pem"
+        # ryba: ssl:
+        #   'cert': "#{__dirname}/certs/worker03.cert.pem"
+        #   'key': "#{__dirname}/certs/worker03.key.pem"
