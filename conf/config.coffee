@@ -290,8 +290,8 @@ module.exports =
         clean_logs: true
     'ryba/zookeeper/client':
       constraints: tags: 'role': 'client'
-    # 'ryba/ranger/admin':
-    #   constraints: nodes: ['master03.metal.ryba']
+    'ryba/ranger/admin':
+      constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
