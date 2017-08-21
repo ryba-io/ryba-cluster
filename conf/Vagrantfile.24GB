@@ -6,7 +6,7 @@ box = "centos/7"
 if Vagrant::VERSION == '1.8.5'
   ui = Vagrant::UI::Colored.new
   ui.error 'Unsupported Vagrant Version: 1.8.5'
-  ui.error 'Version 1.8.5 introduced an SSH key permissions bug, downgrade until version 1.8.6'
+  ui.error 'Version 1.8.5 introduced an SSH key permissions bug, please upgrade to version 1.8.6+'
   ui.error ''
 end
 
