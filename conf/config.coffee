@@ -5,6 +5,7 @@ module.exports =
     cache_dir: "#{__dirname}/../cache"
     log_serializer: true
     debug: false
+    clean_logs: true
     log_md:
       archive: false
       rotate: true
@@ -299,18 +300,10 @@ module.exports =
         clean_logs: true
         check_hdfs_fsck: false
         security: 'kerberos'
-        nameservice: 'torval'
         realm: 'HADOOP.RYBA'
         krb5: user: # User used for testing
           password: 'test123'
           password_sync: true
-        # ssl:
-        #   'cacert': "#{__dirname}/certs/ca.cert.pem"
-        #   'cert': "#{__dirname}/certs/hadoop.cert.pem"
-        #   'key': "#{__dirname}/certs/hadoop.key.pem"
-        ssh_fencing:
-          private_key: "#{__dirname}/hdfs_keys/id_rsa"
-          public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
         hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
         core_site:
           'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
@@ -388,10 +381,12 @@ module.exports =
         tags: 'role': 'master'
     'ryba/hadoop/hdfs_nn':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
-      config: ryba:
-        nameservice: 'torval'
-        hdfs: nn: site:
+      config: ryba: hdfs: nn:
+        site:
+          'dfs.nameservices': 'torval'
           'dfs.namenode.safemode.extension': '1000' # "1s", default to "30s"
+    'ryba/ranger/plugins/hdfs':
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hadoop/hdfs_client':
       constraints: tags: 'role': 'client'
     'ryba/hadoop/httpfs':
@@ -432,6 +427,9 @@ module.exports =
         digest:
           name: 'zkfc'
           password: 'zkfc123'
+        ssh_fencing:
+          private_key: "#{__dirname}/hdfs_keys/id_rsa"
+          public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
     'ryba/benchmark':
       constraints: nodes: ['edge01.metal.ryba']
       config: ryba: benchmark:
