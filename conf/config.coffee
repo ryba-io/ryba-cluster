@@ -293,6 +293,12 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/ranger/admin':
       constraints: nodes: ['master03.metal.ryba']
+    'ryba/commons/test_user':
+      constraints: tags: 'environment': 'dev'
+      config: ryba: test_user:
+        krb5: user: # User used for testing
+          password: 'test123'
+          password_sync: true
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
@@ -301,9 +307,6 @@ module.exports =
         check_hdfs_fsck: false
         security: 'kerberos'
         realm: 'HADOOP.RYBA'
-        krb5: user: # User used for testing
-          password: 'test123'
-          password_sync: true
         hadoop_opts: '-Djava.net.preferIPv4Stack=true -Dsun.security.krb5.debug=false'
         core_site:
           'hadoop.ssl.exclude.cipher.suites': 'SSL_DHE_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_DES40_CBC_SHA,SSL_RSA_EXPORT_WITH_RC4_40_MD5,TLS_DHE_RSA_WITH_AES_128_CBC_SHA,TLS_DHE_RSA_WITH_AES_256_CBC_SHA'
