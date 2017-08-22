@@ -385,8 +385,8 @@ module.exports =
     'ryba/hadoop/hdfs_nn':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: ryba: hdfs: nn:
+        nameservice: 'torval'
         site:
-          'dfs.nameservices': 'torval'
           'dfs.namenode.safemode.extension': '1000' # "1s", default to "30s"
     'ryba/ranger/plugins/hdfs':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
