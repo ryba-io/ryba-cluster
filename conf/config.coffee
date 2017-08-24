@@ -6,6 +6,7 @@ module.exports =
     log_serializer: true
     debug: false
     clean_logs: true
+    force_check: false
     log_md:
       archive: false
       rotate: true
@@ -302,8 +303,8 @@ module.exports =
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
-        force_check: false
-        clean_logs: true
+        # force_check: false
+        # clean_logs: true
         check_hdfs_fsck: false
         security: 'kerberos'
         realm: 'HADOOP.RYBA'
