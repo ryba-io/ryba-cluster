@@ -341,7 +341,7 @@ module.exports =
           krb5_user:
             password: 'hdfs123'
             password_sync: true
-          site:
+          hdfs_site:
             'dfs.namenode.safemode.extension': 1000 # "1s", default to "30s"
         mapred:
           user: limits:
@@ -349,6 +349,9 @@ module.exports =
             nofile: 16384
     'ryba/hadoop/kms':
       constraints: nodes: ['master03.metal.ryba']
+      config: ryba: kms:
+        ssl:
+          password: 'KmsKeystore123!'
     'ryba/hadoop/hdfs_dn':
       constraints: tags: 'role': 'worker'
       config: ryba: hdfs: dn:
@@ -387,7 +390,7 @@ module.exports =
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: ryba: hdfs: nn:
         nameservice: 'torval'
-        site:
+        hdfs_site:
           'dfs.namenode.safemode.extension': '1000' # "1s", default to "30s"
     'ryba/ranger/plugins/hdfs':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
@@ -397,28 +400,30 @@ module.exports =
       constraints: tags: 'role': 'master'
     'ryba/hadoop/yarn_rm':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
-      config: ryba:
-        yarn:
-          user: limits:
-            nproc: 16384
-            nofile: 16384
-          opts: '-Dsun.net.spi.nameservice.provider.1=sun,dns' # HADOOP_JAAS_DEBUG=true
-          site: {}
+      config: ryba: yarn: rm:
+        user: limits:
+          nproc: 16384
+          nofile: 16384
+        opts:
+          'sun.net.spi.nameservice.provider.1': 'sun,dns' # HADOOP_JAAS_DEBUG=true
+        yarn_site: {}
         capacity_scheduler:
           'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
+    'ryba/ranger/plugins/yarn':
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hadoop/yarn_ts':
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hadoop/yarn_nm':
       constraints: tags: 'role': 'worker'
-      config: ryba: yarn:
-        site:
+      config: ryba: yarn: nm:
+        yarn_site:
           # Set mem check to false for testing purpose
           'yarn.nodemanager.pmem-check-enabled': 'false'
           'yarn.nodemanager.vmem-check-enabled': 'false'
     'ryba/hadoop/yarn_client':
       constraints: tags: 'role': 'client'
-      config: ryba: mapred:
-        site:
+      config: ryba: yarn_client:
+        yarn_site:
           'mapreduce.job.counters.max': '10000'
           'mapreduce.job.counters.limit': '10000'
     'ryba/hadoop/mapred_jhs':
