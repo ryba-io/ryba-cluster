@@ -94,7 +94,7 @@ module.exports =
         group: gid: 2407
         user: uid: 2407, gid: 2407
     'ryba/hbase/master':
-      config: ryba: hbase:
+      config: ryba: hbase: master:
         group: gid: 2409
         user: uid: 2409, gid: 2409
     'ryba/hue':
