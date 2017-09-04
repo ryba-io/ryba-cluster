@@ -120,6 +120,8 @@ module.exports =
         ]
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
+    'masson/commons/java':
+      constraints: tags: 'environment': 'dev'
     'masson/core/saslauthd':
       constraints: nodes: ['master02.metal.ryba', 'master03.metal.ryba']
       config: saslauthd:
@@ -255,10 +257,6 @@ module.exports =
             "user": { "name": 'Ryba User', email: "ryba@ryba.io" }
     'masson/commons/httpd':
       constraints: nodes: ['master03.metal.ryba']
-    'ryba/hdp':
-      constraints: tags: 'environment': 'dev'
-      config: ryba: hdp:
-        source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
     'masson/commons/mariadb/client':
       constraints: tags: 'environment': 'dev'
     'masson/commons/mariadb/server':
@@ -268,6 +266,10 @@ module.exports =
         admin_password: 'Maria123-'
         repl_master: password: 'MariaReqpl123-'
         my_conf: {}
+    'ryba/hdp':
+      constraints: tags: 'environment': 'dev'
+      config: ryba: hdp:
+        source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
     # 'masson/commons/postgres/server':
     #   constraints: nodes: ['master03.metal.ryba']
     #   config: postgres:
@@ -448,7 +450,7 @@ module.exports =
       constraints: nodes: ['edge01.metal.ryba', 'master03.metal.ryba']
     'ryba/hbase/master':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
-      config: ryba: hbase:
+      config: ryba: hbase: master:
         user: limits:
           nproc: 16384
           nofile: 16384
@@ -456,8 +458,11 @@ module.exports =
           password: 'hbase123'
         metrics:
           '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
+    'ryba/ranger/plugins/hbase':
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hbase/regionserver':
       constraints: tags: 'role': 'worker'
+      config: ryba: hbase: regionserver: {}
     'ryba/hbase/rest':
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hbase/thrift':
@@ -674,6 +679,10 @@ module.exports =
         # ryba: ssl:
         #   'cert': "#{__dirname}/certs/master02.cert.pem"
         #   'key': "#{__dirname}/certs/master02.key.pem"
+        # krb5_server:
+        #   admin:
+        #     'HADOOP.RYBA':
+        #       master: false
     'master03.metal.ryba':
       tags:
         'environment': 'dev'
