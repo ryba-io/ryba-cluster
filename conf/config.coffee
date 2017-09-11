@@ -296,6 +296,10 @@ module.exports =
       constraints: tags: 'role': 'client'
     'ryba/ranger/admin':
       constraints: nodes: ['master03.metal.ryba']
+      config: ryba: ranger: admin:
+        install:
+          db_password: 'rangeradmin123'
+          audit_db_password: 'rangerlogger123'
     'ryba/commons/test_user':
       constraints: tags: 'environment': 'dev'
       config: ryba: test_user:
@@ -491,6 +495,8 @@ module.exports =
           nproc: 16384
           nofile: 16384
     'ryba/hive/server2':
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
+    'ryba/ranger/plugins/hiveserver2':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hive/webhcat':
       constraints: nodes: ['master03.metal.ryba']
