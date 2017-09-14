@@ -522,9 +522,12 @@ module.exports =
         #   'PLAINTEXT'
         #   'SSL'
         # ]
-    'ryba/kafka/consumer':
-      constraints: tags: 'role': 'client'
-    'ryba/kafka/producer':
+        admin:
+          password: 'kafka123'
+        config:
+          'ssl.keystore.password': 'KafkaKeystore!'
+          'ssl.truststore.password': 'KafkaTruststore!'
+    'ryba/kafka/client':
       constraints: tags: 'role': 'client'
     # Ambari
     'ryba/ambari/repo':
