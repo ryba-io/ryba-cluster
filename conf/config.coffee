@@ -464,11 +464,11 @@ module.exports =
           password: 'hbase123'
         metrics:
           '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
-    'ryba/ranger/plugins/hbase':
-      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hbase/regionserver':
       constraints: tags: 'role': 'worker'
       config: ryba: hbase: regionserver: {}
+    'ryba/ranger/plugins/hbase':
+      constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba', 'worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
     'ryba/hbase/rest':
       constraints: nodes: ['master03.metal.ryba']
     'ryba/hbase/thrift':
@@ -543,23 +543,8 @@ module.exports =
           'ssl.truststore.password': 'KafkaTruststore!'
     'ryba/kafka/client':
       constraints: tags: 'role': 'client'
-    # Ambari
-    'ryba/ambari/repo':
-      constraints: tags: 'environment': 'dev'
-      config: ryba: ambari: repo:
-        source: 'http://public-repo-1.hortonworks.com/ambari/centos7/2.x/updates/2.4.2.0'
-    'ryba/ambari/server':
-      constraints: nodes: ['master01.metal.ryba']
-      config: ryba: ambari_server:
-        repo: false
-        admin_password: 'admin123'
-        master_key: 'ambariMasterKey123'
-        db:
-          engine: 'mysql'
-          password: 'Ambari123-'
-        truststore: password: 'AmbariTruststore123-'
-    'ryba/ambari/agent':
-      constraints: tags: 'role': 'client'
+    'ryba/ranger/plugins/kafka':
+      constraints: tags: 'role': 'master'
     # Druid
     'ryba/druid':
       config: ryba: druid:
