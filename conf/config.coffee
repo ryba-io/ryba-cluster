@@ -120,6 +120,8 @@ module.exports =
         ]
     'masson/core/cgroups':
       constraints: tags: 'role': 'worker'
+    'masson/core/locale':
+      constraints: tags: 'environment': 'dev'
     'masson/commons/java':
       constraints: tags: 'environment': 'dev'
     'masson/core/saslauthd':
@@ -511,6 +513,18 @@ module.exports =
           password: 'Oozie123!'
     'ryba/oozie/client':
       constraints: tags: 'role': 'client'
+    'ryba/mongodb/repo':
+      constraints: tags: 'role': 'master'
+    'ryba/mongodb/configsrv':
+      constraints: tags: 'role': 'master'
+      config: ryba: mongodb: configsrv:
+        replicaset: 'configSrvReplicatSet01'
+        admin:
+          name: 'admin'
+          password: 'admin123'
+        root:
+          name: 'root_admin'
+          password: 'root123'
     # Kafka
     'ryba/kafka/broker':
       constraints: tags: 'role': 'master'
@@ -670,6 +684,7 @@ module.exports =
           admin:
             'HADOOP.RYBA':
               master: true
+        ryba: mongodb: configsrv: is_master: true
         # ryba: ssl:
         #   'cert': "#{__dirname}/certs/master01.cert.pem"
         #   'key': "#{__dirname}/certs/master01.key.pem"
