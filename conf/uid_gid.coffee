@@ -29,6 +29,11 @@ module.exports =
       config: saslauthd:
         group: gid: 2456
         user: uid: 2456, gid: 2456
+    'masson/commons/docker': 
+      config: docker:
+        group: gid: 2457
+        group_dockerroot: gid: 2458
+        user_dockerroot: uid: 2458, gid: 2458
     'masson/commons/mariadb/server':
       config: ryba: mariadb:
         group: gid: 2445
@@ -161,7 +166,7 @@ module.exports =
       config: ryba: ranger:
         group: gid: 2434
         user: uid: 2434, gid: 2434
-    'ryba/druid':
+    'ryba/druid/base':
       config: ryba: druid:
         group: gid: 2435
         user: uid: 2435, gid: 2435
