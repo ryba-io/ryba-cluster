@@ -4,15 +4,16 @@ module.exports = 'nodes':
   'master01.metal.ryba': 'config': 'ryba':
     'hdfs':
       'nn': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
-      'site': 'dfs.replication': 2
+    'hdfs_client':
+      'hdfs_site': 'dfs.replication': 2
     'yarn':
-      'rm': 'site':
+      'rm': 'yarn_site':
         'yarn.scheduler.minimum-allocation-mb': 384
         'yarn.scheduler.maximum-allocation-mb': 1536
         'yarn.scheduler.minimum-allocation-vcores': 1
         'yarn.scheduler.maximum-allocation-vcores': 2
       'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
-    'mapred': 'site':
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -22,7 +23,7 @@ module.exports = 'nodes':
       'mapreduce.task.io.sort.mb': '153'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'tez': 'site':
+    'tez': 'tez_site':
       'tez.am.resource.memory.mb': 192
       'tez.task.resource.memory.mb': '384'
       'tez.runtime.io.sort.mb': '153'
@@ -33,15 +34,16 @@ module.exports = 'nodes':
   'master02.metal.ryba': 'config': 'ryba':
     'hdfs':
       'nn': 'site': 'dfs.namenode.name.dir': [ 'file:///var/hdfs/name' ]
-      'site': 'dfs.replication': 2
+    'hdfs_client':
+      'hdfs_site': 'dfs.replication': 2
     'yarn':
-      'rm': 'site':
+      'rm': 'yarn_site':
         'yarn.scheduler.minimum-allocation-mb': 384
         'yarn.scheduler.maximum-allocation-mb': 1536
         'yarn.scheduler.minimum-allocation-vcores': 1
         'yarn.scheduler.maximum-allocation-vcores': 2
       'capacity_scheduler': 'yarn.scheduler.capacity.resource-calculator': 'org.apache.hadoop.yarn.util.resource.DominantResourceCalculator'
-    'mapred': 'site':
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -51,7 +53,7 @@ module.exports = 'nodes':
       'mapreduce.task.io.sort.mb': '153'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'tez': 'site':
+    'tez': 'tez_site':
       'tez.am.resource.memory.mb': 192
       'tez.task.resource.memory.mb': '384'
       'tez.runtime.io.sort.mb': '153'
@@ -60,8 +62,8 @@ module.exports = 'nodes':
       '/data/2/kafka'
     ]
   'master03.metal.ryba': 'config': 'ryba':
-    'hdfs': 'site': 'dfs.replication': 2
-    'mapred': 'site':
+    'hdfs_client': 'hdfs_site': 'dfs.replication': 2
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -71,7 +73,7 @@ module.exports = 'nodes':
       'mapreduce.task.io.sort.mb': '153'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'tez': 'site':
+    'tez': 'tez_site':
       'tez.am.resource.memory.mb': 192
       'tez.task.resource.memory.mb': '384'
       'tez.runtime.io.sort.mb': '153'
@@ -80,8 +82,8 @@ module.exports = 'nodes':
       '/data/2/kafka'
     ]
   'edge01.metal.ryba': 'config': 'ryba':
-    'hdfs': 'site': 'dfs.replication': 2
-    'mapred': 'site':
+    'hdfs_client': 'hdfs_site': 'dfs.replication': 2
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -91,21 +93,22 @@ module.exports = 'nodes':
       'mapreduce.task.io.sort.mb': '153'
       'mapreduce.map.cpu.vcores': 1
       'mapreduce.reduce.cpu.vcores': 1
-    'tez': 'site':
+    'tez': 'tez_site':
       'tez.am.resource.memory.mb': 192
       'tez.task.resource.memory.mb': '384'
       'tez.runtime.io.sort.mb': '153'
-    'hive': 'site':
+    'hive': 'hive_site':
       'hive.tez.container.size': '384'
       'hive.tez.java.opts': '-Xmx307m'
   'worker01.metal.ryba': 'config': 'ryba':
-    'hdfs': 'site':
+    'hdfs_client': 'hdfs_site':
       'dfs.replication': 2
+    'hdfs': 'dn': 'hdfs_site':
       'dfs.datanode.data.dir': [
         '/data/1/hdfs/data'
         '/data/2/hdfs/data'
       ]
-    'yarn': 'site':
+    'yarn': 'nm': 'yarn_site':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
       'yarn.nodemanager.vmem-pmem-ratio': '2.1'
@@ -118,7 +121,7 @@ module.exports = 'nodes':
         '/data/1/yarn/log'
         '/data/2/yarn/log'
       ]
-    'mapred': 'site':
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -135,13 +138,14 @@ module.exports = 'nodes':
       'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
       'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
   'worker02.metal.ryba': 'config': 'ryba':
-    'hdfs': 'site':
+    'hdfs_client': 'hdfs_site':
       'dfs.replication': 2
+    'hdfs': 'dn': 'hdfs_site':
       'dfs.datanode.data.dir': [
         '/data/1/hdfs/data'
         '/data/2/hdfs/data'
       ]
-    'yarn': 'site':
+    'yarn': 'nm', 'yarn_site':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
       'yarn.nodemanager.vmem-pmem-ratio': '2.1'
@@ -154,7 +158,7 @@ module.exports = 'nodes':
         '/data/1/yarn/log'
         '/data/2/yarn/log'
       ]
-    'mapred': 'site':
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
@@ -171,13 +175,14 @@ module.exports = 'nodes':
       'nifi.provenance.repository.directory.pr1': '/data/1/nifi/provenance_repository'
       'nifi.provenance.repository.directory.pr2': '/data/2/nifi/provenance_repository'
   'worker03.metal.ryba': 'config': 'ryba':
-    'hdfs': 'site':
+    'hdfs': 'hdfs_site':
       'dfs.replication': 2
+    'hdfs': 'dn': 'hdfs_site':
       'dfs.datanode.data.dir': [
         '/data/1/hdfs/data'
         '/data/2/hdfs/data'
       ]
-    'yarn': 'site':
+    'yarn': 'nm', 'yarn_site':
       'yarn.nodemanager.resource.percentage-physical-cpu-limit': '100'
       'yarn.nodemanager.resource.memory-mb': 1536
       'yarn.nodemanager.vmem-pmem-ratio': '2.1'
@@ -190,7 +195,7 @@ module.exports = 'nodes':
         '/data/1/yarn/log'
         '/data/2/yarn/log'
       ]
-    'mapred': 'site':
+    'mapred': 'mapred_site':
       'yarn.app.mapreduce.am.resource.mb': 192
       'yarn.app.mapreduce.am.command-opts': '-Xmx153m'
       'mapreduce.map.memory.mb': '384'
