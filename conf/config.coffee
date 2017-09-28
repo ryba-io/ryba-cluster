@@ -648,8 +648,8 @@ module.exports =
     #   constraints: tags: 'role': 'worker'
     # 'ryba/elasticsearch':
     #   constraints: tags: 'role': 'worker'
-    # 'ryba/spark/client':
-    #   constraints: tags: 'role': 'client'
+    'ryba/spark/client':
+      constraints: tags: 'role': 'client'
     # 'ryba/zeppelin':
     #   constraints: tags: 'role': 'client'
     # 'ryba/nagios':
