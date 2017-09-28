@@ -40,3 +40,7 @@ Detailed information are available on the [official website](http://ryba.io).
   https://master01.metal.ryba:8090/cluster/apps
 * Hadoop YARN TS (krb rest)
   https://master03.metal.ryba:8190/ws/v1/timeline/
+* Druid Overlord
+  http://worker01.metal.ryba:8090/console.html
+* Druid MiddleManager
+  http://worker02.metal.ryba:8081/#/datasources
