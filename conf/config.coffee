@@ -490,6 +490,10 @@ module.exports =
       constraints: tags: 'role': 'client'
       config: sqoop:
         libs: []
+    'ryba/flume':
+      constraints: tags: 'role': 'client'
+      config: flume:
+        libs: []
     'ryba/hive/metastore':
       config: ryba: hive: metastore:
         db: password: 'Hive123!'
