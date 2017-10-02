@@ -81,11 +81,11 @@ module.exports =
       config: ryba: flume:
         group: gid: 2405
         user: uid: 2405, gid: 2405
-    'ryba/ganglia/collector':
+    'ryba/retired/ganglia/collector':
       config: ryba: ganglia:
         rrdcached_group: gid: 2406
         rrdcached_user: uid: 2406, gid: 2406
-    'ryba/nagios':
+    'ryba/retired/nagios':
       config: ryba: nagios:
         group: gid: 2418
         groupcmd: gid: 2419
@@ -118,7 +118,7 @@ module.exports =
       config: ryba: knox:
         group: gid: 2420
         user: uid: 2420, gid: 2420
-    'ryba/falcon/server':
+    'ryba/retired/falcon/server':
       config: ryba: falcon:
         group: gid: 2421
         user: uid: 2421, gid: 2421

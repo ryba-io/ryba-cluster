@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "description": "Ryba deployment example on a small cluster",
   "dependencies": {
-    "coffee-script": "~1.12.7",
+    "coffeescript": "^2.0.1",
+    "masson": "^0.1.5",
     "nikita": "git+https://github.com/adaltas/node-nikita.git#master",
+    "ryba": "0.0.7",
     "ryba-repos": "~0.1.0"
   }
 }
