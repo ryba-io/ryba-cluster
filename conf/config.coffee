@@ -302,12 +302,21 @@ module.exports =
         install:
           db_password: 'rangeradmin123'
           audit_db_password: 'rangerlogger123'
-    'ryba/commons/test_user':
-      constraints: tags: 'environment': 'dev'
-      config: ryba: test_user:
-        krb5: user: # User used for testing
-          password: 'test123'
-          password_sync: true
+    # Atlas
+    # 'ryba/atlas':
+    #   constraints: nodes: ['master03.metal.ryba']
+    #   config: ryba: atlas: {}
+    # 'ryba/atlas/hive':
+    #   constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
+    #   config: ryba: atlas: {}
+    # 'ryba/ranger/plugins/atlas':
+    #   constraints: nodes: ['master03.metal.ryba']
+    # 'ryba/commons/test_user':
+    #   constraints: tags: 'environment': 'dev'
+    #   config: ryba: test_user:
+    #     krb5: user: # User used for testing
+    #       password: 'test123'
+    #       password_sync: true
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
@@ -626,6 +635,27 @@ module.exports =
     # Knox
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
+    #   config: ryba: knox:
+    #     topologies:
+    #       ryba_users:
+    #         userDnTemplate:'cn={0},ou=users,dc=ryba'
+    #         ldap_search_base: 'ou=users,dc=ryba'
+    #         ldap_uri: 'ldaps://master03.metal.ryba:636'
+    #         ldap_tls_cacertdir: '/etc/openldap/cacerts'
+    #         ldap_default_bind_dn: 'cn=ldapadm,dc=ryba'
+    #         ldap_default_authtok: 'test'
+    #         group:
+    #           lookup: 'domain/clients'
+    #           groupObjectClass: 'posixGroup'
+    #           memberAttribute: 'memberUId'
+    #         services:
+    #           namenode: true
+    #           jobtracker: true
+    #           webhdfs: true
+    #           hive: true
+    #           webhcat: true
+    #           oozie: true
+    #           webhbase: true
     # Nifi
     # 'ryba/nifi':
     #   constraints: tags: 'role': 'worker'
@@ -654,8 +684,8 @@ module.exports =
     #   constraints: tags: 'role': 'worker'
     'ryba/spark/client':
       constraints: tags: 'role': 'client'
-    # 'ryba/zeppelin':
-    #   constraints: tags: 'role': 'client'
+    'ryba/zeppelin':
+      constraints: tags: 'role': 'client'
     # 'ryba/nagios':
     #   constrains: nodes: ['master03.metal.ryba']
     #   config: ryba: nagios:
