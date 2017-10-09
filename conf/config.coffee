@@ -311,12 +311,12 @@ module.exports =
     #   config: ryba: atlas: {}
     # 'ryba/ranger/plugins/atlas':
     #   constraints: nodes: ['master03.metal.ryba']
-    # 'ryba/commons/test_user':
-    #   constraints: tags: 'environment': 'dev'
-    #   config: ryba: test_user:
-    #     krb5: user: # User used for testing
-    #       password: 'test123'
-    #       password_sync: true
+    'ryba/commons/test_user':
+      constraints: tags: 'environment': 'dev'
+      config: ryba: test_user:
+        krb5: user: # User used for testing
+          password: 'test123'
+          password_sync: true
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
