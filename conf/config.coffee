@@ -656,6 +656,50 @@ module.exports =
     #           webhcat: true
     #           oozie: true
     #           webhbase: true
+    'ryba/ranger/plugins/knox':
+      constraints: nodes: ['edge01.metal.ryba']
+    'ryba/knox/client':
+      constraints: tags: 'role': 'client'
+    'ryba/knox/server':
+      constraints: tags: 'role': 'client'
+      config: ryba: knox:
+        test:
+          user:
+            name: 'test_user_ryba'
+            password: 'test'
+        topologies:
+          ryba_users:
+            services:
+              namenode: true
+              jobtracker: true
+              webhdfs: true
+              hive: true
+              webhcat: true
+              oozie: true
+              webhbase: true
+            realms:
+              'ldapRealm':
+                  userDnTemplate:'cn={0},ou=users,dc=ryba'
+                  ldap_search_base: 'ou=users,dc=ryba'
+                  ldap_uri: 'ldaps://master03.metal.ryba:636'
+                  ldap_tls_cacertdir: '/etc/openldap/cacerts'
+                  ldap_default_bind_dn: 'cn=ldapadm,dc=ryba'
+                  ldap_default_authtok: 'test'
+                  userSearchBase: 'ou=users,dc=ryba'
+                  groupSearchBase: 'ou=groups,dc=ryba'
+                  groupObjectClass: 'posixGroup'
+                  memberAttribute: 'memberUId'
+              'ldapGroupRealm':
+                  sssd_lookup: 'domain/users'
+                  userDnTemplate:'cn={0},ou=users,dc=ryba'
+                  ldap_search_base: 'ou=users,dc=ryba'
+                  ldap_uri: 'ldaps://master03.metal.ryba:636'
+                  ldap_tls_cacertdir: '/etc/openldap/cacerts'
+                  ldap_default_bind_dn: 'cn=ldapadm,dc=ryba'
+                  ldap_default_authtok: 'test'
+                  groupObjectClass: 'posixGroup'
+                  userSearchBase: 'ou=groups,dc=ryba'
+                  memberAttribute: 'memberUId'
     # Nifi
     # 'ryba/nifi':
     #   constraints: tags: 'role': 'worker'
