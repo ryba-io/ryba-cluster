@@ -199,43 +199,44 @@ module.exports =
     #       wfmanager:
     #         enabled: true
     #         version: '1.0.0'
-    # 'masson/core/sssd':
-    #   config: sssd:
-    #     force_check: false
-    #     certificates: [
-    #       "#{__dirname}/certs/ca.cert.pem"
-    #     ]
-    #     config:
-    #       'domain/hadoop':
-    #         'debug_level': '1'
-    #         'cache_credentials' : 'True'
-    #         'ldap_search_base' : 'ou=users,dc=ryba'
-    #         'ldap_group_search_base' : 'ou=groups,dc=ryba'
-    #         'id_provider' : 'ldap'
-    #         'auth_provider' : 'ldap'
-    #         'chpass_provider' : 'ldap'
-    #         'ldap_uri' : 'ldaps://master03.metal.ryba:636'
-    #         'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
-    #         # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
-    #         'ldap_default_bind_dn' : 'cn=Manager,dc=ryba'
-    #         'ldap_default_authtok' : 'test'
-    #         'ldap_id_use_start_tls' : 'True'
-    #       'domain/users':
-    #         'debug_level': '1'
-    #         'cache_credentials' : 'True'
-    #         'ldap_search_base' : 'ou=users,dc=ryba'
-    #         'ldap_group_search_base' : 'ou=groups,dc=ryba'
-    #         'id_provider' : 'ldap'
-    #         'auth_provider' : 'ldap'
-    #         'chpass_provider' : 'ldap'
-    #         'ldap_uri' : 'ldaps://master03.metal.ryba:636'
-    #         'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
-    #         # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
-    #         'ldap_default_bind_dn' : 'cn=Manager,dc=ryba'
-    #         'ldap_default_authtok' : 'test'
-    #         'ldap_id_use_start_tls' : 'False'
-    #       'sssd':
-    #         'domains' : 'hadoop,users'
+    'masson/core/sssd':
+      constraints: tags: 'environment': 'dev'
+      config: sssd:
+        force_check: false
+        certificates: [
+          "#{__dirname}/certs/ca.cert.pem"
+        ]
+        config:
+          # 'domain/hadoop':
+          #   'debug_level': '1'
+          #   'cache_credentials' : 'True'
+          #   'ldap_search_base' : 'ou=users,dc=ryba'
+          #   'ldap_group_search_base' : 'ou=groups,dc=ryba'
+          #   'id_provider' : 'ldap'
+          #   'auth_provider' : 'ldap'
+          #   'chpass_provider' : 'ldap'
+          #   'ldap_uri' : 'ldaps://master03.metal.ryba:636'
+          #   'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
+          #   # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
+          #   'ldap_default_bind_dn' : 'cn=Manager,dc=ryba'
+          #   'ldap_default_authtok' : 'test'
+          #   'ldap_id_use_start_tls' : 'True'
+          'domain/users':
+            'debug_level': '1'
+            'cache_credentials' : 'True'
+            'ldap_search_base' : 'ou=users,dc=ryba'
+            'ldap_group_search_base' : 'ou=groups,dc=ryba'
+            'id_provider' : 'ldap'
+            'auth_provider' : 'ldap'
+            'chpass_provider' : 'ldap'
+            'ldap_uri' : 'ldaps://master03.metal.ryba:636'
+            'ldap_tls_cacertdir' : '/etc/openldap/cacerts'
+            # 'ldap_default_bind_dn' : 'cn=nssproxy,dc=ryba'
+            'ldap_default_bind_dn' : 'cn=ldapadm,dc=ryba'
+            'ldap_default_authtok' : 'test'
+            'ldap_id_use_start_tls' : 'False'
+          'sssd':
+            'domains' : 'hadoop,users'
     'masson/core/krb5_server':
       constraints: nodes: ['master01.metal.ryba', 'master02.metal.ryba']
       config: krb5_server:
