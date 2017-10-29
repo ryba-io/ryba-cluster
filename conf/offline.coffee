@@ -38,3 +38,7 @@ module.exports =
     'ryba/ambari/repo':
       config: ryba: ambari: repo:
         source: "#{__dirname}/offline/ambari-2.4.2.0.repo"
+    'ryba/grafana/repo':
+      constraints: nodes: ['edge01.metal.ryba']
+      config: ryba: grafana: repo:
+        source: "#{__dirname}/offline/grafana.repo"

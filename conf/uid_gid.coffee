@@ -194,6 +194,14 @@ module.exports =
       config: ryba: tez:
         group: gid: 2447
         user: uid: 2447, gid: 2447
+    'ryba/prometheus/monitor':
+      config: ryba: prometheus: monitor:
+        group: gid: 2459
+        user: uid: 2459, gid: 2459
+    'ryba/grafana/webui':
+      config: ryba: grafana: webui:
+        group: gid: 2460
+        user: uid: 2460, gid: 2460
 
 ###
 

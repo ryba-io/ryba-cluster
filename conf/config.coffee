@@ -318,6 +318,17 @@ module.exports =
         krb5: user: # User used for testing
           password: 'test123'
           password_sync: true
+    # metrology
+    'ryba/prometheus/monitor':
+        constraints: nodes: ['master03.metal.ryba']
+    'ryba/prometheus/jmx_exporters/zookeeper':
+      constraints: tags: 'role': 'master'
+    'ryba/grafana/webui':
+      constraints: nodes: ['edge01.metal.ryba']
+      config: ryba: grafana: webui:
+        db: password: 'grafana123!-'
+    'ryba/grafana/repo':
+      constraints: nodes: ['edge01.metal.ryba']
     'ryba/hadoop/core':
       constraints: tags: 'role': ['client', 'master', 'worker']
       config: ryba:
