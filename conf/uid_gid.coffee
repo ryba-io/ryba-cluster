@@ -2,7 +2,7 @@
 module.exports =
   services:
     'masson/core/sssd':
-      config: ryba: sssd:
+      config: sssd:
         group: gid: 2452
         user: uid: 2452, gid: 2452
     'masson/core/bind_server':
@@ -29,21 +29,21 @@ module.exports =
       config: saslauthd:
         group: gid: 2456
         user: uid: 2456, gid: 2456
-    'masson/commons/docker': 
+    'masson/commons/docker':
       config: docker:
         group: gid: 2457
         group_dockerroot: gid: 2458
         user_dockerroot: uid: 2458, gid: 2458
     'masson/commons/mariadb/server':
-      config: ryba: mariadb:
+      config: mariadb: server:
         group: gid: 2445
         user: uid: 2445, gid: 2445
     'masson/commons/mysql/server':
-      config: ryba: mysql:
+      config: mysql: server:
         group: gid: 2445
         user: uid: 2445, gid: 2445
     'masson/commons/postgres/server':
-      config: ryba: postgres:
+      config: postgres:
         group: gid: 2446
         user: uid: 2446, gid: 2446
     'masson/commons/httpd':
@@ -102,8 +102,8 @@ module.exports =
       config: ryba: hbase: master:
         group: gid: 2409
         user: uid: 2409, gid: 2409
-    'ryba/hue':
-      config: ryba: hue:
+    'ryba/huedocker':
+      config: ryba: hue_docker:
         group: gid: 2410
         user: uid: 2410, gid: 2410
     'ryba/oozie/server':
@@ -114,7 +114,7 @@ module.exports =
       config: ryba: sqoop:
         group: gid: 2412
         user: uid: 2412, gid: 2400
-    'ryba/knox':
+    'ryba/knox/server':
       config: ryba: knox:
         group: gid: 2420
         user: uid: 2420, gid: 2420
