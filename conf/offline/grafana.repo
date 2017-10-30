@@ -1,0 +1,8 @@
+[grafana]
+name=grafana
+baseurl=http://10.10.10.1:10080/centos7/grafana/grafana/stable/el/6
+enabled=1
+gpgcheck=0
+gpgkey=https://packagecloud.io/gpg.key
+sslverify=1
+sslcacert=/etc/pki/tls/certs/ca-bundle.crt
