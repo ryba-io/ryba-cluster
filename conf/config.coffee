@@ -619,31 +619,10 @@ module.exports =
     # 'ryba/solr/cloud_docker':
     #   constraints: tags: 'role': 'worker'
     # Hue
-    # 'ryba/hue':
-    #   constraints: tags: 'role': 'client'
-    #   config: ryba: hue:
-    #     ini:
-    #       desktop:
-    #         smtp: host: ''
-    #         database:
-    #           engine: 'mysql'
-    #           password: 'Hue123-'
-    #     ssl:
-    #       certificate: "#{__dirname}/certs/master03.cert.pem"
-    #       private_key: "#{__dirname}/certs/master03.key.pem"
-    #       client_ca: "#{__dirname}/certs/cacert.pem"
-    # Hue with Docker
     'ryba/huedocker':
       constraints: tags: 'role': 'client'
       config: ryba: hue_docker:
-        ini:
-          desktop:
-            smtp: host: ''
-            database:
-              engine: 'mysql'
-              password: 'Hue1234-'
-        # ssl:
-        #   client_ca: "#{__dirname}/certs/cacert.pem"
+        db: password: 'hue1234!-'
     # Knox
     # 'ryba/knox':
     #   constraints: tags: 'role': 'client'
