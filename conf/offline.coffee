@@ -23,9 +23,9 @@ module.exports =
     #   options:
     #     repo:
     #       source: "#{__dirname}/offline/mysql.repo"
-    # 'ryba/hdp':
-    #   options:
-    #     source: "#{__dirname}/offline/hdp-2.5.3.0.repo"
+    'ryba/hdp':
+      options:
+        source: "#{__dirname}/offline/hdp-2.5.3.0.repo"
     # 'ryba/ambari/repo':
     #   options:
     #     source: "#{__dirname}/offline/ambari-2.4.2.0.repo"
