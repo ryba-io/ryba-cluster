@@ -6,4 +6,5 @@
 /conf/user*
 /conf/Vagrantfile
 /cache/*
+/yarn.lock
 !.gitignore
