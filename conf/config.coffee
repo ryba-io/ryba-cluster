@@ -44,6 +44,10 @@ module.exports =
       root:
         username: 'vagrant'
         private_key_path: "#{require('os').homedir()}/.vagrant.d/insecure_private_key"
+  params:
+    commands:
+      my_command:
+        run: './lib/my_command'
   clusters: 'vagrant': services:
     'masson/core/system':
       affinity: type: 'tags', values: 'environment': 'dev'
