@@ -4,7 +4,8 @@ module.exports =
     'masson/core/yum':
       options:
         config: proxy: null
-        source: "#{__dirname}/offline/centos.repo"
+        repo:
+          source: "#{__dirname}/offline/centos.repo"
         epel:
           enabled: false
           url: null
