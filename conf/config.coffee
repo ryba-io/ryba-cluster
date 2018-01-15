@@ -46,8 +46,63 @@ module.exports =
         private_key_path: "#{require('os').homedir()}/.vagrant.d/insecure_private_key"
   params:
     commands:
-      my_command:
-        run: './lib/my_command'
+      capacity:
+        run: 'ryba/lib/capacity'
+        options: [
+          name: 'output', shortcut: 'o', type: 'string', required: true
+          description: 'output file'
+        ,
+          name: 'config', shortcut: 'c', type: 'array'
+          description: 'config files'
+        ,
+          name: 'clusters', type: 'boolean'
+          description: 'Print list of cluster names'
+        ,
+          name: 'format', shortcut: 'f', type: 'string'
+          description: 'Format of the output files: [json, cson, js, coffee]'
+        ,
+          name: 'overwrite', shortcut: 'w', type: 'boolean' # default: 'text'
+          description: 'Overwrite any existing file.'
+        ,
+          name: 'service', shortcut: 's', type: 'string'
+          description: 'Print configuration of a services (format cluster:service)'
+        ,
+          name: 'service_names', type: 'boolean'
+          description: 'Print list of service names'
+        ,
+          name: 'partitions', shortcut: 'p', type: 'array'
+          description: 'List of disk partitions unless discovered.'
+        ,
+          name: 'hdfs_nn_name_dir' # default: './hdfs/name'
+          description: 'Absolute path to a single directory or relative path to the HDFS NameNode directories.'
+        ,
+          name: 'hdfs_dn_data_dir' # default: './hdfs/data', eg '/mydata/1/hdfs/dn,/mydata/2/hdfs/dn'
+          description: 'List of absolute paths or a relative path for HDFS DataNode directories.'
+        ,
+          name: 'yarn_nm_local_dir' # default: './yarn/local', eg '/mydata/1/yarn/local,/mydata/2/yarn/local'
+          description: 'List of absolute paths or a relative path for YARN NodeManager directories.'
+        ,
+          name: 'yarn_nm_log_dir' # default: './yarn/log', eg '/mydata/1/yarn/log,/mydata/2/yarn/log'
+          description: 'List of absolute paths or a relative path for YARN NodeManager directories.'
+        ,
+          name: 'kafka_data_dir' # default: './kafka', eg '/mydata/1/kafka,/mydata/2/kafka'
+          description: 'List of absolute paths or a relative path for Kafka Broker directories.'
+        ,
+          name: 'total_memory_gb'
+          description: " the total memory available per server in GB"
+        ,
+          name: 'reserved_memory_gb'
+          description: " the reserved memory for the OS in GB"
+        ,
+          name: 'nodemanager_memory_gb'
+          description: "the memory allocated for yarn nodemanager process"
+        ,
+          name: 'datanode_memory_gb'
+          description: "the memory allocated for hdfs nodemanager process"
+        ,
+          name: 'regionserver_memory_gb'
+          description: "the memory allocated for hbase regionserver process"
+        ]
   clusters: 'vagrant': services:
     'masson/core/system':
       affinity: type: 'tags', values: 'environment': 'dev'
@@ -61,7 +116,7 @@ module.exports =
       options:
         update: true
         packages:
-          'tree': true, 'git': true, 'htop': false, 'vim': true, 
+          'tree': true, 'git': true, 'htop': false, 'vim': true,
           'bash-completion': true, 'unzip': true,
           'net-tools': true # Install netstat
           # 'bind-utils': true # Install dig
@@ -90,6 +145,12 @@ module.exports =
           content: "Welcome to Hadoop!"
         sshd_config:
           PermitRootLogin: 'without-password'
+        users:
+          root:
+            home: '/root'
+            authorized_keys:  [
+              'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCwlAlI5py1aXaK8LMLjiAn1bCH3ke4DuZmsdTXjGPTdngp4bS2ANRKDSfCB1+OlII6mf+U4dkt/CiNftuhLfyYiXzwgmEM5Wa7nfuVOFKKAfnz6aVi+aARgMd4q63RGuCHkdU+NYGZr038PyfElalYo2OYrcqGA+25GCjCooOi4VPkPcEKF8MyyK+WDKcFAvZyuQtLQ/yLGhFkNYtQbzprYl+FQ8cyBFS8D4/R4soztyqd0oi/cHl/wc8MAMJ2wZ3D1dv0LYgzJeUhsrbQCwzrhgUK6dQwTm32DztMrwqWGAtUZjb4EYFAcky1dpn476Ay3GWxcIvT5VlYR3FvVs6B bakalian@lucas-adaltas'
+            ]
     'masson/core/ntp':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -100,8 +161,13 @@ module.exports =
         hosts:
           # '127.0.0.1': 'localhost localhost.localdomain localhost4 localhost4.localdomain4'
           '10.10.10.10': 'repos.ryba ryba'
+          '10.10.10.1': 'bakalian.ryba'
         hosts_auto: true
-        resolv: false
+        resolv: """
+          search metal.ryba
+          nameserver 10.10.10.13
+          nameserver 10.0.2.3
+          """
     'masson/core/ssl':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -128,6 +194,13 @@ module.exports =
       affinity: type: 'tags', values: 'environment': 'dev'
     'masson/commons/java':
       affinity: type: 'tags', values: 'environment': 'dev'
+      options:
+        jdk:
+          version: '1.8.0_101'
+          versions:
+            '1.8.0_101':
+              jdk_location: 'http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz'
+              jce_location: 'http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip'
     'masson/core/saslauthd':
       affinity: type: 'nodes', match: 'any', values: ['master02.metal.ryba', 'master03.metal.ryba']
       options:
@@ -168,6 +241,12 @@ module.exports =
           krbadmin_user:
             mail: 'david@adaltas.com'
             userPassword: 'test'
+        entries:
+          users:
+            test_user_ryba:
+              userPassword: 'test'
+              uidNumber: 9600
+              gidNumber: 9600
     'masson/core/openldap_client':
       affinity: type: 'nodes', match: 'any', values: ['master03.metal.ryba', 'master02.metal.ryba']
       options:
@@ -262,6 +341,10 @@ module.exports =
         users:
           'ryba': config:
             "user": { "name": 'Ryba User', email: "ryba@ryba.io" }
+    'masson/commons/docker':
+      affinity: type: 'tags', values: 'environment': 'dev'
+      options: other_args:
+        'insecure-registry': 'bakalian.ryba:5000'
     'masson/commons/httpd':
       affinity: type: 'nodes', values: ['master03.metal.ryba']
     'masson/commons/mariadb/client':
@@ -273,6 +356,13 @@ module.exports =
         admin_password: 'Maria123-'
         repl_master: password: 'MariaReqpl123-'
         my_conf: {}
+    # 'ryba/metrics':
+    #   constraints: tags: 'environment': 'dev'
+    # 'ryba/log4j':
+    #   constraints: tags: 'environment': 'dev'
+    #   config: ryba: log4j:
+    #     remote_host: 'master03.metal.ryba'
+    #     remote_port: 2222
     'ryba/hdp':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -301,12 +391,12 @@ module.exports =
         clean_logs: true
     'ryba/zookeeper/client':
       affinity: type: 'tags', values: 'role': 'client'
-    # 'ryba/ranger/admin':
-    #   affinity: type: 'nodes', values: ['master03.metal.ryba']
-    #   options:
-    #     install:
-    #       db_password: 'rangeradmin123'
-    #       audit_db_password: 'rangerlogger123'
+    'ryba/ranger/admin':
+      affinity: type: 'nodes', values: ['master02.metal.ryba']
+      options:
+        install:
+          db_password: 'rangeradmin123'
+          audit_db_password: 'rangerlogger123'
     # # Atlas
     # # 'ryba/atlas':
     # #   affinity: type: 'nodes', values: ['master03.metal.ryba']
@@ -425,8 +515,9 @@ module.exports =
         nameservice: 'torval'
         hdfs_site:
           'dfs.namenode.safemode.extension': '1000' # "1s", default to "30s"
-    # 'ryba/ranger/plugins/hdfs':
-    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
+        heapsize: '512m'
+    'ryba/ranger/plugins/hdfs':
+      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hadoop/hdfs_client':
       affinity: type: 'tags', values: 'role': 'client'
     'ryba/hadoop/httpfs':
@@ -434,6 +525,7 @@ module.exports =
     'ryba/hadoop/yarn_rm':
       affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
       options:
+        heapsize: '512m'
         user: limits:
           nproc: 16384
           nofile: 16384
@@ -442,8 +534,8 @@ module.exports =
         yarn_site: {}
         capacity_scheduler:
           'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
-    # 'ryba/ranger/plugins/yarn':
-    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
+    'ryba/ranger/plugins/yarn':
+      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hadoop/yarn_ts':
       affinity: type: 'nodes', values: ['master03.metal.ryba']
     'ryba/hadoop/yarn_nm':
@@ -482,6 +574,7 @@ module.exports =
     'ryba/hbase/master':
       affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
       options:
+        heapsize: '1024m'
         user: limits:
           nproc: 16384
           nofile: 16384
@@ -490,13 +583,13 @@ module.exports =
         metrics:
           '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
     'ryba/hbase/regionserver':
-      affinity: type: 'tags', values: 'role': 'worker'
-    # 'ryba/ranger/plugins/hbase':
-    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba', 'worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
+      affinity: type: 'nodes', match: 'any', values: ['worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
+    'ryba/ranger/plugins/hbase':
+      affinity: type: 'nodes', match: 'any', values: ['worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
     'ryba/hbase/rest':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
+      affinity: type: 'nodes', values: ['master02.metal.ryba']
     'ryba/hbase/thrift':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
+      affinity: type: 'nodes', values: ['master02.metal.ryba']
     'ryba/hbase/client':
       affinity: type: 'tags', values: 'role': 'client'
     'ryba/phoenix/client':
@@ -504,9 +597,9 @@ module.exports =
         match: 'any'
         values: [
           type: 'tags', values: 'role': 'client'
-        , 
+        ,
           type: 'tags', values: 'role': 'worker' # HBase RegionServer
-        , 
+        ,
           type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba'] # HBase Master
         ]
     'ryba/phoenix/queryserver':
@@ -528,8 +621,8 @@ module.exports =
           nofile: 16384
     'ryba/hive/server2':
       affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-    # 'ryba/ranger/plugins/hiveserver2':
-    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
+    'ryba/ranger/plugins/hiveserver2':
+      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hive/webhcat':
       affinity: type: 'nodes', values: ['master03.metal.ryba']
     'ryba/hive/client':
@@ -699,6 +792,23 @@ module.exports =
     #               groupObjectClass: 'posixGroup'
     #               userSearchBase: 'ou=groups,dc=ryba'
     #               memberAttribute: 'memberUId'
+    # Hue
+    'ryba/huedocker':
+      affinity: type: 'tags', values: 'role': 'client'
+      options:
+        db: password: 'Hue123-'
+        version: '4.1.0'
+        container: 'hue_server'
+        image_dir: '/var/lib/docker_images'
+        cache_dir: "#{__dirname}/../cache"
+        service: 'hue-server-docker'
+        ini:
+          'desktop':
+            'smtp': 'host': 'mailhost.der.edf.fr'
+            'database':
+              'engine': 'mysql'
+              'user': 'hue'
+              'password': 'Ryba4MysqlHue'
     # # Nifi
     # # 'ryba/nifi':
     # #   affinity: type: 'tags', values: 'role': 'worker'
@@ -759,8 +869,8 @@ module.exports =
           admin:
             'HADOOP.RYBA':
               master: true
-      #   'vagrant:ryba/mongodb/configsrv':
-      #     is_master: true
+        # 'vagrant:ryba/mongodb/configsrv':
+        #   is_master: true
     'master02.metal.ryba':
       ip: '10.10.10.12'
       tags:
@@ -795,6 +905,7 @@ module.exports =
           'cert': source: "#{__dirname}/certs/edge01.cert.pem", local: true
           'key': source: "#{__dirname}/certs/edge01.key.pem", local: true
     'worker01.metal.ryba':
+      rack: 1
       ip: '10.10.10.16'
       tags:
         'environment': 'dev'
@@ -804,6 +915,7 @@ module.exports =
           'cert': source: "#{__dirname}/certs/worker01.cert.pem", local: true
           'key': source: "#{__dirname}/certs/worker01.key.pem", local: true
     'worker02.metal.ryba':
+      rack: 2
       ip: '10.10.10.17'
       tags:
         'environment': 'dev'
@@ -813,6 +925,7 @@ module.exports =
           'cert': source: "#{__dirname}/certs/worker02.cert.pem", local: true
           'key': source: "#{__dirname}/certs/worker02.key.pem", local: true
     'worker03.metal.ryba':
+      rack: 2
       ip: '10.10.10.18'
       tags:
         'environment': 'dev'
