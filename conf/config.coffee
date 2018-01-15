@@ -672,8 +672,8 @@ module.exports =
           'ssl.truststore.password': 'KafkaTruststore!'
     'ryba/kafka/client':
       affinity: type: 'tags', values: 'role': 'client'
-    # 'ryba/ranger/plugins/kafka':
-    #   affinity: type: 'tags', values: 'role': 'master'
+    'ryba/ranger/plugins/kafka':
+      affinity: type: 'tags', values: 'role': 'master'
     # Druid
     'ryba/druid/base':
       options:
