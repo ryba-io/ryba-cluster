@@ -343,8 +343,6 @@ module.exports =
             "user": { "name": 'Ryba User', email: "ryba@ryba.io" }
     'masson/commons/docker':
       affinity: type: 'tags', values: 'environment': 'dev'
-      options: other_args:
-        'insecure-registry': 'bakalian.ryba:5000'
     'masson/commons/httpd':
       affinity: type: 'nodes', values: ['master03.metal.ryba']
     'masson/commons/mariadb/client':
