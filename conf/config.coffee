@@ -11,6 +11,10 @@ module.exports =
       archive: false
       rotate: true
     ssh:
+      # Sudo Access
+      # username: 'vagrant'
+      # private_key_path: "#{require('os').homedir()}/.vagrant.d/insecure_private_key"
+      # Root Access
       private_key: """
       -----BEGIN RSA PRIVATE KEY-----
       MIIEogIBAAKCAQEArBDFt50aN9jfIJ629pRGIMA1fCMb9RyTHt9A+jx3FOsIOtJs
