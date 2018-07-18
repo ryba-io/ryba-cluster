@@ -397,8 +397,10 @@ module.exports =
       affinity: type: 'nodes', values: ['master02.metal.ryba']
       options:
         install:
-          db_password: 'rangeradmin123'
-          audit_db_password: 'rangerlogger123'
+          db_password: 'rangerAdminDb123'
+          audit_db_password: 'rangerLogger123'
+        admin:
+          password: 'rangerAdmin123'
     # # Atlas
     # # 'ryba/atlas':
     # #   affinity: type: 'nodes', values: ['master03.metal.ryba']
