@@ -3,6 +3,7 @@
 
 ## Trunk
 
+* ssh: move public key to root
 * openldap: unify krb5 into one configuration
 * druid: revert recent commit commenting config
 * run: remove global configuration
