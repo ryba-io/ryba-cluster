@@ -134,7 +134,7 @@ module.exports =
       options:
         group: gid: 2424
         user: uid: 2424, gid: 2424
-    'ryba/spark/client':
+    'ryba/spark2/client':
       options:
         group: gid: 2426
         user: uid: 2426, gid: 2426

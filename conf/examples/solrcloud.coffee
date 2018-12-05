@@ -108,6 +108,12 @@ module.exports =
           description: "the memory allocated for hbase regionserver process"
         ]
   clusters: 'vagrant': services:
+    # 'ryba-k8s/packages':
+    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba']
+    #   options:
+    #     offline: true
+    # 'ryba-k8s/kubeadm':
+    #   affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba']
     'masson/core/system':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -167,11 +173,11 @@ module.exports =
           '10.10.10.10': 'repos.ryba ryba'
           '10.10.10.1': 'bakalian.ryba'
         hosts_auto: true
-        resolv: """
-          search metal.ryba
-          nameserver 10.10.10.13
-          nameserver 10.0.2.3
-          """
+        # resolv: """
+        #   search metal.ryba
+        #   nameserver 10.10.10.13
+        #   nameserver 10.0.2.3
+        #   """
     'masson/core/ssl':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -186,7 +192,7 @@ module.exports =
     'masson/core/iptables':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
-        action: 'stop'
+        state: 'stop'
         startup: false
         redirect_log: true
         rules: [
@@ -200,10 +206,10 @@ module.exports =
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
         jdk:
-          version: '1.8.0_101'
+          version: '1.8.0_172'
           versions:
-            '1.8.0_101':
-              jdk_location: 'http://download.oracle.com/otn-pub/java/jdk/8u101-b13/jdk-8u101-linux-x64.tar.gz'
+            '1.8.0_172':
+              jdk_location: 'http://download.oracle.com/otn-pub/java/jdk/8u172-b11/a58eab1ec242421181065cdc37240b08/jdk-8u172-linux-x64.tar.gz'
               jce_location: 'http://download.oracle.com/otn-pub/java/jce/8/jce_policy-8.zip'
     'masson/core/saslauthd':
       affinity: type: 'nodes', match: 'any', values: ['master02.metal.ryba', 'master03.metal.ryba']
@@ -258,34 +264,6 @@ module.exports =
           source: "#{__dirname}/certs/ca.cert.pem", local: true
         ]
         config: {}
-    # 'ryba/ambari/standalone':
-    #   affinity: type: 'nodes', values: ['edge01.metal.ryba']
-    #   options:
-    #     source: "#{__dirname}/users/offline/ambari.repo"
-    #     admin_password: 'admin123'
-    #     master_key: 'ambariMasterKey123'
-    #     db:
-    #       engine: 'mysql'
-    #       database: 'ambari_views'
-    #       password: 'Ambari123-'
-    #     truststore: password: 'AmbariTruststore123-'
-    #     jaas:
-    #       enabled: true
-    #       principal: 'ambari/_HOST@HADOOP.RYBA'
-    #     views:
-    #       enabled: true
-    #       files:
-    #         enabled: true#default to true
-    #         version: '1.0.0'
-    #       hive:
-    #         enabled: true
-    #         version: '1.5.0'
-    #       tez:
-    #         enabled: true
-    #         version: '0.7.0.2.6.1.0-118'
-    #       wfmanager:
-    #         enabled: true
-    #         version: '1.0.0'
     'masson/core/sssd':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -339,6 +317,18 @@ module.exports =
             ]
     'masson/core/rngd':
       affinity: type: 'tags', values: 'environment': 'dev'
+    # 'masson/core/freeipa/server':
+    #   affinity: type: 'nodes', match: 'any', values: ['ldap01.metal.ryba']
+    #   options:
+    #     tls_ca_cert_local: true
+    #     tls_key_local: true
+    #     manager_password: 'manager123-'
+    #     admin_password: 'admin123-'
+    #     dns_domain_name: 'metal.ryba'
+    #     dns_email_manager: 'lucas@adaltas.com'
+    #     realm_name: 'METAL.RYBA'
+    # 'masson/core/freeipa/client':
+    #   affinity: type: 'tags', values: 'environment': 'dev'
     'masson/core/krb5_client':
       affinity: type: 'tags', values: 'environment': 'dev'
     'masson/commons/git':
@@ -349,59 +339,10 @@ module.exports =
             "user": { "name": 'Ryba User', email: "ryba@ryba.io" }
     'masson/commons/docker':
       affinity: type: 'tags', values: 'environment': 'dev'
-    'masson/commons/httpd':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-    'masson/commons/mariadb/client':
-      affinity: type: 'tags', values: 'environment': 'dev'
-    'masson/commons/mariadb/server':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-      options:
-        current_password: ''
-        admin_password: 'Maria123-'
-        repl_master: password: 'MariaReqpl123-'
-        my_conf: {}
-    # 'ryba/metrics':
-    #   constraints: tags: 'environment': 'dev'
-    # 'ryba/log4j':
-    #   constraints: tags: 'environment': 'dev'
-    #   config: ryba: log4j:
-    #     remote_host: 'master03.metal.ryba'
-    #     remote_port: 2222
     'ryba/hdp':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
-        source: 'http://public-repo-1.hortonworks.com/HDP/centos6/2.x/updates/2.5.5.0/hdp.repo'
         source: 'http://public-repo-1.hortonworks.com/HDP/centos7/3.x/updates/3.0.0.0/hdp.repo'
-    # 'ryba/metrics':
-    #   affinity: type: 'tags', values: 'environment': 'dev'
-    #   options:
-    #     sinks:
-    #       file_enabled: false
-    #       ganglia_enabled: false
-    #       graphite_enabled: false
-    #     config:
-    #       '*.record.filter.class': 'org.apache.hadoop.metrics2.filter.RegexFilter'
-    #       '*.metric.filter.class': 'org.apache.hadoop.metrics2.filter.RegexFilter'
-    #       'datanode.sink.graphite.record.filter.exclude.tags': 'Context:(metricssystem)' #^(MetricsSystem|UgiMetrics|JvmMetrics|datanode|rpc|org.apache.hadoop.hdfs.server.datanode.fsdataset.impl.FsDatasetImpl)$
-    #       'nodemanager.sink.graphite.record.filter.exclude.tags': 'Context:(metricssystem|container)'
-    # 'masson/commons/postgres/server':
-    #   affinity: type: 'nodes', values: ['master03.metal.ryba']
-    #   options:
-    #     server:
-    #       password: 'test123'
-    #       user: 'root'
-    # 'masson/commons/mysql/client':
-    #   affinity: type: 'tags', values: 'environment': 'dev'
-    # 'masson/commons/mysql/server':
-    #   affinity: type: 'nodes', values: ['master02.metal.ryba']
-    #   options:
-    #     current_password: ''
-    #     admin_password: 'MySQL123-'
-    #     my_conf: {}
-    # 'masson/commons/mysql/server.5.7':
-    #   affinity: type: 'nodes', values: ['worker02.metal.ryba']
-    #   options:
-    #     admin_password: 'MySQL123-'
     'ryba/zookeeper/server':
       affinity: type: 'tags', values: 'role': 'master'
       options:
@@ -418,35 +359,21 @@ module.exports =
         install:
           db_password: 'rangeradmin123'
           audit_db_password: 'rangerlogger123'
-        solr_type: 'embedded'
-    # Atlas
-    'ryba/atlas':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-      options:
-        max_heap: '512m'
-        min_heap: '512m'
-        admin_password: 'atlas123'
-        truststore: password: 'ryba123!'
-        keystore: password: 'ryba123!'
-        serverkey_password: 'ryba123'
         solr_type: 'external'
         solr: cluster_config:
           # is_ssl_enabled: true
           user: 'solr'
           ssl_enabled: true
+          authentication: 'kerberos'
           admin_principal: 'solr@HADOOP.RYBA'
           admin_password: 'solr123'
-          port: 8984
+          port: 8983
           master: 'worker01.metal.ryba'
           hosts: ['worker01.metal.ryba','worker02.metal.ryba','worker03.metal.ryba']
           zk_urls: 'master01.metal.ryba:2181,master02.metal.ryba:2181,master03.metal.ryba:2181'
-          zk_node: '/solr_atlas_infra'
+          zk_node: '/solr_ranger_cluster'
           heap_size: '512m'
           mem_limit: '1g'
-    'ryba/atlas/hive':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-    'ryba/ranger/plugins/atlas':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
     'ryba/commons/test_user':
       affinity: type: 'tags', values: 'environment': 'dev'
       options:
@@ -536,199 +463,6 @@ module.exports =
       affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
     'ryba/hadoop/hdfs_client':
       affinity: type: 'tags', values: 'role': 'client'
-    'ryba/hadoop/httpfs':
-      affinity: type: 'tags', values: 'role': 'master'
-    'ryba/hadoop/yarn_rm':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-      options:
-        heapsize: '256m'
-        user: limits:
-          nproc: 16384
-          nofile: 16384
-        opts:
-          'sun.net.spi.nameservice.provider.1': 'sun,dns' # HADOOP_JAAS_DEBUG=true
-        yarn_site: {}
-        capacity_scheduler:
-          'yarn.scheduler.capacity.maximum-am-resource-percent': '.5'
-    'ryba/hadoop/yarn_registry':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba']
-      options:
-        yarn_site:
-          'hadoop.registry.dns.domain-name': 'METAL.RYBA'
-    'ryba/ranger/plugins/yarn':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-    'ryba/hadoop/yarn_ts':
-      affinity: type: 'tags', values: 'name': 'master3'
-    'ryba/hadoop/yarn_tr':
-      affinity: type: 'nodes', match: 'any', values: ['master02.metal.ryba', 'master03.metal.ryba']
-      options: ranger_user: password: 'YarnTsUser123'
-    'ryba/hadoop/yarn_tr_hbase_embedded':
-      affinity: type: 'nodes', match: 'any', values: ['master02.metal.ryba']
-    # 'ryba/hadoop/yarn_tr_hbase_service':
-    #   affinity:
-    #     type: 'tags', values: 'role':
-    #       match: 'any'
-    #       values: ['master', 'worker']
-    'ryba/hadoop/yarn_nm':
-      affinity: type: 'tags', values: 'role': 'worker'
-      options:
-        yarn_site:
-          # Set mem check to false for testing purpose
-          'yarn.nodemanager.pmem-check-enabled': 'false'
-          'yarn.nodemanager.vmem-check-enabled': 'false'
-    'ryba/hadoop/yarn_client':
-      affinity: type: 'tags', values: 'role': 'client'
-      options:
-        yarn_site:
-          'mapreduce.job.counters.max': '10000'
-          'mapreduce.job.counters.limit': '10000'
-    'ryba/hadoop/mapred_jhs':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-    'ryba/hadoop/mapred_client':
-      affinity: type: 'tags', values: 'role': 'client'
-    'ryba/hadoop/zkfc':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-      options:
-        digest:
-          name: 'zkfc'
-          password: 'zkfc123'
-        ssh_fencing:
-          private_key: "#{__dirname}/hdfs_keys/id_rsa"
-          public_key: "#{__dirname}/hdfs_keys/id_rsa.pub"
-    # 'ryba/benchmark':
-    #   affinity: type: 'nodes', values: ['edge01.metal.ryba']
-    #   options:
-    #     "iterations": 1
-    #     "output": "./benchmark"
-    'ryba/tez':
-      affinity: type: 'nodes', match: 'any', values: ['edge01.metal.ryba', 'master03.metal.ryba']
-    'ryba/hbase/master':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-      options:
-        process_name: 'ambari-service-start'
-        heapsize: '512m'
-        user: limits:
-          nproc: 16384
-          nofile: 16384
-        admin:
-          password: 'hbase123'
-        metrics:
-          '*.sink.file.class': 'org.apache.hadoop.metrics2.sink.FileSink'
-    'ryba/hbase/regionserver':
-      affinity: type: 'nodes', match: 'any', values: ['worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
-    'ryba/ranger/plugins/hbase':
-      affinity: type: 'nodes', match: 'any', values: ['worker01.metal.ryba', 'worker02.metal.ryba', 'worker03.metal.ryba']
-    'ryba/hbase/rest':
-      affinity: type: 'nodes', values: ['master02.metal.ryba']
-      options:
-        heapsize: '256m'
-        ranger_user: password: 'rangerUser123!'
-    'ryba/hbase/thrift':
-      affinity: type: 'nodes', values: ['master02.metal.ryba']
-      options:
-        heapsize: '256m'
-    'ryba/hbase/client':
-      affinity: type: 'tags', values: 'role': match: 'any', values: ['master', 'worker', 'client']
-    'ryba/phoenix/client':
-      affinity: type: 'tags', values: 'role': match: 'any', values: ['master', 'worker', 'client']
-    'ryba/phoenix/queryserver':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-    # # 'ryba/opentsdb':
-    # #   affinity: type: 'nodes', values: ['master03.metal.ryba']
-    'ryba/flume':
-      affinity: type: 'tags', values: 'role': 'client'
-      options:
-        libs: []
-    'ryba/hive/metastore':
-      options:
-        db: password: 'Hive123!'
-    'ryba/hive/hcatalog':
-      affinity: type: 'nodes', match: 'any', values: ['master02.metal.ryba', 'master03.metal.ryba']
-      options:
-        user: limits:
-          nproc: 16384
-          nofile: 16384
-    'ryba/hive/server2':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-    'ryba/ranger/plugins/hiveserver2':
-      affinity: type: 'nodes', match: 'any', values: ['master01.metal.ryba', 'master02.metal.ryba']
-    'ryba/hive/webhcat':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-    'ryba/hive/beeline':
-      affinity: type: 'tags', values: 'role': 'client'
-    'ryba/pig':
-      affinity: type: 'tags', values: 'role': 'client'
-    'ryba/sqoop':
-      affinity: type: 'tags', values: 'role': 'client'
-      options:
-        libs: []
-    'ryba/oozie/server':
-      affinity: type: 'nodes', values: ['master03.metal.ryba']
-      options:
-        db:
-          password: 'Oozie123!'
-    'ryba/oozie/client':
-      affinity: type: 'tags', values: 'role': 'client'
-    # Kafka
-    'ryba/kafka/broker':
-      affinity: type: 'tags', values: 'role': 'master'
-      options:
-        heapsize: 256
-        # protocols: [
-        #   'SASL_SSL'
-        #   'SASL_PLAINTEXT'
-        #   'PLAINTEXT'
-        #   'SSL'
-        # ]
-        admin:
-          password: 'kafka123'
-        config:
-          'ssl.keystore.password': 'ryba123'
-          'ssl.truststore.password': 'ryba123'
-    'ryba/kafka/client':
-      affinity: type: 'tags', values: 'role': 'client'
-    'ryba/ranger/plugins/kafka':
-      affinity: type: 'tags', values: 'role': 'master'
-    # Druid
-    'ryba/druid/base':
-      options:
-        db: password: 'Druid123-'
-    'ryba/druid/broker':
-      affinity: type: 'tags', values: 'role': 'master'
-      options:
-        runtime:
-          'druid.processing.numThreads': 1
-          'druid.processing.buffer.sizeBytes': '134217728' # 128Go
-        jvm:
-          xms: '128m'
-          xmx: '512m'
-    'ryba/druid/coordinator':
-      affinity: type: 'tags', values: 'role': 'worker'
-      options:
-        jvm:
-          xms: '128m' # Default is 3g
-          xmx: '512m' # Default is 3g
-    'ryba/druid/overlord':
-      affinity: type: 'tags', values: 'role': 'worker'
-      options:
-        jvm:
-          xms: '128m' # Default is 3g
-          xmx: '512m' # Default is 3g
-    'ryba/druid/historical':
-      affinity: type: 'tags', values: 'role': 'worker'
-      options:
-        runtime:
-          'druid.processing.numThreads': 1
-          'druid.processing.buffer.sizeBytes': '134217728' # 128Go
-        jvm:
-          xms: '128m' # Default is 8g
-          xmx: '512m' # Default is 8g
-    'ryba/druid/middlemanager':
-      affinity: type: 'tags', values: 'role': 'worker'
-      options:
-        runtime:
-          'druid.processing.numThreads': 1
-          'druid.processing.buffer.sizeBytes': '134217728' # 128Go
     # SolrR
     'ryba/solr/client':
       affinity: type: 'tags', values: 'role': 'master'
@@ -759,76 +493,16 @@ module.exports =
             heap_size: '512m'
             mem_limit: '1g'
             data_dir: '/data/1/solr/atlas_infra'
+          'ranger_cluster':
+            is_ssl_enabled: true
+            port: 8983
+            master: 'worker01.metal.ryba'
+            containers: 3
+            heap_size: '512m'
+            mem_limit: '1g'
+            data_dir: '/data/2/solr/ranger_cluster'
     'ryba/ambari/repo':
       affinity: type: 'tags', match: 'any', values: 'environment': 'dev'
-        # ES, SolR
-    # Hue
-    # 'ryba/huedocker':
-    #   affinity: type: 'tags', values: 'role': 'client'
-    #   options:
-    #     db: password: 'Hue123-'
-    #     version: '4.1.0'
-    #     image: 'bakalian.ryba:5000/hue'
-    #     container: 'hue_server'
-    #     image_dir: '/var/lib/docker_images'
-    #     cache_dir: "#{__dirname}/../cache"
-    #     service: 'hue-server-docker'
-    #     ini:
-    #       'desktop':
-    #         'smtp': 'host': 'mailhost.der.edf.fr'
-    #         'database':
-    #           'engine': 'mysql'
-    #           'user': 'hue'
-    #           'password': 'Ryba4MysqlHue'
-    # # Knox
-    # 'ryba/knox/server':
-    #   affinity: type: 'tags', values: 'role': 'client'
-    #   options:
-    #     test:
-    #       user:
-    #         name: 'test_user_ryba'
-    #         password: 'test1234-'
-    #     topologies:
-    #       ryba_users:
-    #         services:
-    #           namenode: true
-    #           jobtracker: true
-    #           webhdfs: true
-    #           hive: true
-    #           webhcat: true
-    #           oozie: true
-    #           webhbase: true
-    #         realms:
-    #           'ldapRealm':
-    #               userDnTemplate:'cn={0},ou=users,dc=ryba'
-    #               ldap_search_base: 'ou=users,dc=ryba'
-    #               ldap_uri: 'ldaps://master03.metal.ryba:636'
-    #               ldap_tls_cacertdir: '/etc/openldap/cacerts'
-    #               ldap_default_bind_dn: 'cn=ldapadm,dc=ryba'
-    #               ldap_default_authtok: 'test'
-    #               userSearchBase: 'ou=users,dc=ryba'
-    #               groupSearchBase: 'ou=groups,dc=ryba'
-    #               groupObjectClass: 'posixGroup'
-    #               memberAttribute: 'memberUId'
-    #           'ldapGroupRealm':
-    #               sssd_lookup: 'domain/users'
-    #               userDnTemplate:'cn={0},ou=users,dc=ryba'
-    #               ldap_search_base: 'ou=users,dc=ryba'
-    #               ldap_uri: 'ldaps://master03.metal.ryba:636'
-    #               ldap_tls_cacertdir: '/etc/openldap/cacerts'
-    #               ldap_default_bind_dn: 'cn=ldapadm,dc=ryba'
-    #               ldap_default_authtok: 'test'
-    #               groupObjectClass: 'posixGroup'
-    #               userSearchBase: 'ou=groups,dc=ryba'
-    #               memberAttribute: 'memberUId'
-    # 'ryba/ranger/plugins/knox':
-    #   affinity: type: 'nodes', values: ['edge01.metal.ryba']
-    # 'ryba/knox/client':
-    #   affinity: type: 'tags', values: 'role': 'client'
-    # # 'ryba/elasticsearch':
-    # #   affinity: type: 'tags', values: 'role': 'worker'
-    'ryba/spark2/client':
-      affinity: type: 'tags', values: 'role': 'client'
   nodes:
     'master01.metal.ryba':
       ip: '10.10.10.11'
